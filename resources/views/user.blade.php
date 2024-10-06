@@ -100,5 +100,4 @@
 <script src="{{ asset('js/ajax/edit-form.js') }}"></script>
 <script src="{{ asset('js/ajax/enrolled-courses.js') }}"></script>
 
-
 @endsection

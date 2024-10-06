@@ -64,19 +64,24 @@ Route::get('/user', function () {
     return view('user');
 });
 
-Route::controller(EditFormController::class)->group(function () {
+// Route::controller(EditFormController::class)->group(function () {
 
-    Route::get('/load-edit-form', 'index');
-});
+//     Route::get('/load-edit-form', 'index');
+// });
 
 Route::controller(UserCourseController::class)->group(function() {
 
     Route::get('/{course}/join-in-course', 'store')->name('join-in-course');
 
     Route::get('/load-courses', 'show');
+
+    Route::get('/{id}/leave-course', 'destroy')->name('leave-course');
+
 });
 
 Route::controller(UserController::class)->group(function() {
+
+    Route::get('/load-edit-form', 'edit');
 
     Route::get('/{id}/user-details', 'show')->name('user-details');
 });

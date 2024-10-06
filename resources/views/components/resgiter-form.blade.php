@@ -70,7 +70,13 @@
             <center>
                 <button type="submit" class="form-btn mb-3">Đăng ký</button>
 
-                <a href="/login">Đăng nhập >></a>
+                <div class="form-option">
+
+                    <a class="mb-5" href="/login">Đăng nhập >></a>
+
+                    <a href="#">Quên mật khẩu >></a>
+                </div>
+
 
             </center>
 

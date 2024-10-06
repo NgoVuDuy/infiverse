@@ -53,6 +53,10 @@ class UserCourseController extends Controller
 
         $courses = $user->courses;
 
+        if($courses -> isEmpty()) {
+            return "<h6 class='empty-courses-text'>Bạn chưa đăng ký khóa học nào</h6>";
+        }
+
         return view('partials.enrolled-course', compact('courses'));
     }
 
@@ -78,5 +82,17 @@ class UserCourseController extends Controller
     public function destroy(string $id)
     {
         //
+        $user_id = Auth::user()->id;
+        $user = User::find($user_id);
+
+        $user->courses()->detach($id);
+
+        $courses = $user->courses;
+
+        if($courses -> isEmpty()) {
+            return "<h6 class='empty-courses-text' >Bạn chưa đăng ký khóa học nào</h6>";
+        }
+
+        return view('partials.enrolled-course', compact('courses'));
     }
 }

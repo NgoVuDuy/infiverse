@@ -52,7 +52,14 @@
             <center>
                 <button type="submit" class="form-btn mb-3">Đăng nhập</button>
 
-                <a href="/resgiter">Đăng ký >></a>
+                <div class="form-option">
+
+                    <a class="mb-5" href="/resgiter">Đăng ký >></a>
+
+                    <a href="#">Quên mật khẩu >></a>
+                </div>
+
+
 
             </center>
 
