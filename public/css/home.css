@@ -1,0 +1,44 @@
+body {
+    
+    font-family: Hanken Grotesk !important;
+
+}
+
+.home-header {
+    background-color: #2f3c7e;
+    padding: 40px;
+    /* border-bottom-left-radius: 20px; */
+    /* border-bottom-right-radius: 20px; */
+}
+
+.home-header h5 {
+    color: white;
+}
+
+.home-left {
+    color: white;
+}
+
+.home-desc {
+    margin: 8px 0px;
+}
+.home-desc img {
+    margin-right: 8px;
+}
+
+.home-navbar {
+    border: 2px black solid;
+    margin: 8px 0px;
+    padding: 12px;
+}
+
+.name-user {
+
+    font-size: 24px;
+    color: #ff0a0a;
+}
+
+
+.join-in-btn {
+
+}

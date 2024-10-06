@@ -1,0 +1,37 @@
+footer{
+    font-family: Hanken Grotesk !important;
+    background: #2f3c7e;
+    padding: 60px;
+    /* color: white; */
+}
+.footer-row {
+    gap: 40px;
+    justify-content: space-around;
+}
+
+.footer-logo {
+    margin-right: 20px;
+}
+.footer-logo-name {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.footer-col {
+    /* background-color: #fbeaeb; */
+    background-color: white;
+
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.footer-col i {
+    margin-right: 12px;
+}
+
+.footer-logo-cover {
+    /* height: 14%; */
+}
+.footer-logo-cover img {
+    width: 20%;
+}

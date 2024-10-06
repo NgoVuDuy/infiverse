@@ -1,0 +1,67 @@
+body {
+    
+    /* background: #2f3c7e !important; */
+    font-family: Hanken Grotesk !important;
+
+}
+.course-navbar {
+
+    background-color: #2f3c7e;
+    padding: 12px;
+    border-radius: 4px;
+    color: white;
+
+}
+
+.course-row {
+    /* gap: 20px; */
+}
+
+.course-cover {
+
+    position: relative;
+
+    border-radius: 12px;
+    padding: 0px;
+}
+.course {
+    margin: 4px;
+    /* background-color: #fbeaeb; */
+    height: 300px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); /* Bóng đổ về bên phải và dưới */
+
+
+
+}
+.course-cover img {
+    border-radius: 12px;
+}
+
+.course-link {
+    position: absolute;
+
+    bottom: 2%;
+    left: 2%;
+
+    /* text-decoration: none; */
+    /* color: black; */
+    /* font-size: 1px; */
+}
+
+.course-name {
+    
+    margin: 8px 8px;
+
+    font-size: 16px;
+    
+}
+
+.join-in-btn {
+
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #198754;
+    margin: 4px;
+    padding: 8px;
+}

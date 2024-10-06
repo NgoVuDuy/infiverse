@@ -1,0 +1,34 @@
+body {
+    
+    font-family: Hanken Grotesk !important;
+
+}
+
+.lession-header {
+
+    background-color: #2f3c7e;
+    padding: 40px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.lession-left {
+
+    color: white;
+}
+.lession-right img{
+
+    border-radius: 20px;
+}
+
+.lession-left button {
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #198754;
+    margin: 4px;
+    padding: 8px;
+}
+
+.file_desc {
+    margin-top: 12px;
+}

@@ -1,0 +1,67 @@
+body {
+    
+    /* background: #2f3c7e !important; */
+    font-family: Hanken Grotesk !important;
+
+    background-color: #2f3c7e;
+
+}
+.row {
+    /* align-items: center; */
+}
+
+.cover {
+    margin-top: 100px ;
+
+}
+.chat-robot {
+
+    
+}
+.chat-robot span {
+
+    /* padding: 50px; */
+}
+.chat-text {
+    width: 80%;
+    background-color: white;
+    border-radius: 12px;
+    padding: 12px;
+    /* margin: 0px 20px; */
+
+}
+
+.form {
+    padding: 70px 40px;
+
+}
+
+.form-cover {
+    border-radius: 10px;
+    background: #fbeaeb ;
+
+}
+
+.form-title {
+    text-align: center;
+}
+.form-btn {
+    width: 100%;
+    background-color: #198754;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+}
+.form-btn:hover {
+
+    transform: scale(1.08);
+}
+
+.show-psw {
+    margin-right: 8px;
+}
+
+.show-psw-text {
+    font-size: 14px;
+}
