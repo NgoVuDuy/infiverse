@@ -34,7 +34,7 @@ class ResgiterController extends Controller
         $password = $request -> input('password');
 
         $user = User::create([
-            'name' => $username,
+            'username' => $username,
             'password' => $password,
             'role' => 'student'
         ]);

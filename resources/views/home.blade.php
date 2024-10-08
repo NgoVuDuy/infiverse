@@ -10,12 +10,14 @@
 
 @section('content')
 
+<x-alert/>
+
 <div class="container-fluid">
 
     <div class="row home-header">
 
 
-        <h5 class="mb-5">Xin chào <span class="name-user">{{ Auth::user()->name }}</span> .Chào mừng bạn đến với Infiverse. Hãy cùng khám phá nhé !</h5>
+        <h5 class="mb-5">Xin chào <span class="name-user">{{ Auth::user()->username }}</span> .Chào mừng bạn đến với Infiverse. Hãy cùng khám phá nhé !</h5>
 
         <div class="col-5 home-left">
 

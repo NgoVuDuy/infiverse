@@ -1,4 +1,4 @@
-<form action="" class="edit-form">
+<form action="/update-user" method="post" class="edit-form" enctype="multipart/form-data">
 
     @csrf
     <div class="row mb-3">
@@ -10,7 +10,7 @@
 
             <label class="user-img-change-btn" for="user-img-input">Thay đổi</label>
 
-            <input type="file" id="user-img-input" accept="image/*" class="d-none">
+            <input type="file" id="user-img-input" accept="image/*" class="d-none" name="user-img">
         </div>
 
     </div>
@@ -19,41 +19,31 @@
 
     <div class="row mb-3">
         <div class="col-2"><label for="">Họ tên</label></div>
-        <div class="col-10"><input type="text" name="" id=""></div>
+        <div class="col-10"><input type="text" name="username" id=""></div>
     </div>
     <div class="row mb-3">
         <div class="col-2">
             <lable>Số điện thoại</lable>
         </div>
-        <div class="col-10"><input type="tel" name="" id=""></div>
+        <div class="col-10"><input type="tel" name="phone-number" id=""></div>
     </div>
     <div class="row mb-3">
         <div class="col-2">
             <lable>Địa chỉ email</lable>
         </div>
-        <div class="col-10"><input type="email" name="" id=""></div>
-    </div>
-    <div class="row mb-3">
-        <div class="col-2">
-            <lable>Quốc gia</lable>
-        </div>
-        <div class="col-10"><select name="" id="">
-                <option value="">Vietnam</option>
-                <option value="">Nhatban</option>
-
-            </select></div>
+        <div class="col-10"><input type="email" name="email" id=""></div>
     </div>
     <div class="row mb-3">
         <div class="col-2">
             <lable>Liên hệ</lable>
         </div>
-        <div class="col-10"><input type="text" name="" id=""></div>
+        <div class="col-10"><input type="text" name="contact" id=""></div>
     </div>
     <div class="row mb-3">
         <div class="col-2">
             <lable>Mô tả bản thân</lable>
         </div>
-        <div class="col-10"><textarea name="" id=""></textarea></div>
+        <div class="col-10"><textarea name="desc-user" id=""></textarea></div>
     </div>
 
     <div class="row mb-3">
@@ -63,7 +53,7 @@
         </div>
 
         <div class="col-10">
-            <textarea name="" id=""></textarea>
+            <textarea name="achievenment" id=""></textarea>
 
         </div>
     </div>

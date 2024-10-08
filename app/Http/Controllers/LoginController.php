@@ -34,14 +34,15 @@ class LoginController extends Controller
         $password = $request -> input('password');
 
         $credentials = [
-            'name' => $username ,
+            'username' => $username ,
             'password' => $password
         ];
 
         if(Auth::attempt($credentials)) {
             return redirect('/');
         } else {
-            echo 'Dang nhap that bai';
+            
+            return view('components.alert');
         }
     }
 

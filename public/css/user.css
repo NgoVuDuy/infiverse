@@ -33,7 +33,8 @@
 }
 
 .user-information span {
-    margin-right: 100px;
+    display: inline-block;
+    width: 200px;
 }
 
 .dlt-user {

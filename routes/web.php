@@ -53,7 +53,7 @@ Route::get('/admin', function () {
 
 Route::get('/teacher', function () {
 
-    return 'ke cap mat trang';
+    return view('teacher.home');
     
 })->middleware('role:teacher');
 
@@ -64,10 +64,6 @@ Route::get('/user', function () {
     return view('user');
 });
 
-// Route::controller(EditFormController::class)->group(function () {
-
-//     Route::get('/load-edit-form', 'index');
-// });
 
 Route::controller(UserCourseController::class)->group(function() {
 
@@ -83,6 +79,8 @@ Route::controller(UserController::class)->group(function() {
 
     Route::get('/load-edit-form', 'edit');
 
-    Route::get('/{id}/user-details', 'show')->name('user-details');
+    Route::get('/user-details', 'show')->name('user-details');
+
+    Route::post('/update-user', 'update');
 });
 

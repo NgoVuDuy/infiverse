@@ -19,7 +19,7 @@
                     </a>
                     <ul class="dropdown-menu ">
 
-                        <li><a class="dropdown-item" href="/user">{{ Auth::user()->name }}</a></li>
+                        <li><a class="dropdown-item" href="/user">{{ Auth::user()->username }}</a></li>
                         <!-- <li><a class="dropdown-item" href="/resgiter">Đăng ký</a></li> -->
                         <li><a class="dropdown-item" href="/logout">Đăng xuất</a></li>
                     </ul>
