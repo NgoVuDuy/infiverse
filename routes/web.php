@@ -57,12 +57,14 @@ Route::get('/teacher', function () {
     
 })->middleware('role:teacher');
 
-Route::get('/logout', [LogoutController::class, 'store']);
 
-Route::get('/user', function () {
+Route::controller(LogoutController::class)->group(function() {
 
-    return view('user');
+    Route::get('/logout-show', 'index');
+    Route::get('/logout', 'store');
+
 });
+
 
 
 Route::controller(UserCourseController::class)->group(function() {
@@ -77,10 +79,28 @@ Route::controller(UserCourseController::class)->group(function() {
 
 Route::controller(UserController::class)->group(function() {
 
+    Route::get('/user', 'index');
+
     Route::get('/load-edit-form', 'edit');
 
     Route::get('/user-details', 'show')->name('user-details');
 
+    Route::get('/delete-user', 'destroy');
+
+
     Route::post('/update-user', 'update');
+
+    Route::post('/change-username', 'changeUsername');
 });
 
+Route::get('/change-username', function() {
+
+    return view('partials.change-username-form');
+});
+
+// Route::post('/change-username', [UserController::class, 'changeUsername']);
+
+Route::get('/change-password', function() {
+
+    return view('partials.change-password-form');
+});

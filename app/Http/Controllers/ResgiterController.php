@@ -43,14 +43,11 @@ class ResgiterController extends Controller
     
         if($user) {
 
-            echo "Tao tai khoan thanh cong";
+           return back()->with('success', 'Tạo tài khoản thành công');
         } else {
             
-            echo "Tao tai khoan that bai";
+            return back()->with('error', 'Tạo tài khoản thất bại');
         }
-
-
-
 
     }
 

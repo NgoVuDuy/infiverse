@@ -83,3 +83,25 @@
         </form>
     </div>
 </div>
+
+@if(session('success'))
+    <x-window>
+        <x-slot name="title">Thông báo</x-slot>
+        <x-slot name="text">{{ session('success') }}</x-slot>
+        <x-slot name="icon">success</x-slot>
+        <x-slot name="button">OK</x-slot>
+        <x-slot name="footer"><a href="/login">Đi đến đăng nhập</a></x-slot>
+
+    </x-window>
+@endif
+
+@if(session('error'))
+
+    <x-window>
+        <x-slot name="text">{{ session('error') }}</x-slot>
+        <x-slot name="icon">error</x-slot>
+        <x-slot name="button">OK</x-slot>P
+        <x-slot name="footer"><a href="/resgiter">Quay lại</a></x-slot>
+
+    </x-window>
+@endif

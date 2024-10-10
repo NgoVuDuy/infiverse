@@ -27,7 +27,7 @@
                 <a id="change-password">
                     <p>Thay đổi mật khẩu</p>
                 </a>
-                <a id="delete-user">
+                <a href="/delete-user" id="delete-user">
                     <p class="dlt-user">Xóa tài khoản</p>
                 </a>
 
@@ -41,7 +41,6 @@
                     <div class="col-1 mb-3">
 
                         <img class="rounded-circle" src="{{ asset(Auth::user()->user_img) }}" alt="" width="100px" height="100px">
-                        <!-- <img class="rounded-circle" src="{{ asset('images/courses/cpp-course.png') }}" alt="" width="150px" height="150px"> -->
 
 
 
@@ -53,7 +52,7 @@
                             <p><span>Họ tên</span>{{ Auth::user()->fullname }}</p>
                             <p><span>Số điện thoại</span>{{ Auth::user()->phone_number }}</p>
                             <p><span>Địa chỉ Email</span>{{ Auth::user()->email }}</p>
-                            <p><span>Liên hệ</span>{{ Auth::user()->contact }}</p>
+                            <p><span>Liên hệ</span><a href="{{ Auth::user()->contact }}">{{ Auth::user()->contact }}</a></p>
                             <p><span>Mô tả bản thân</span>{{ Auth::user()->desc_user }}</p>
                             <p><span>Thành tích</span>{{ Auth::user()->achievenment }}</p>
 
@@ -62,10 +61,7 @@
 
                     <div class="icon-edit">
 
-                        <!-- <a href="/load-edit-form"> -->
-
                         <img src="{{ asset('images/icon/edit.png') }}" alt="Edit">
-                        <!-- </a> -->
                     </div>
 
                 </div>
@@ -75,6 +71,18 @@
         </div>
     </div>
 </div>
+
+@if(session('change-username-message'))
+
+<x-window>
+    <x-slot name="text">{{ session('change-username-message') }}</x-slot>
+    <x-slot name="icon">success</x-slot>
+    <x-slot name="button">OK</x-slot>
+    <x-slot name="footer"></x-slot>
+
+</x-window>
+@endif
+
 
 @endsection
 
@@ -95,5 +103,9 @@
 <script src="{{ asset('js/ajax/user-information.js') }}"></script>
 <script src="{{ asset('js/ajax/edit-form.js') }}"></script>
 <script src="{{ asset('js/ajax/enrolled-courses.js') }}"></script>
+<script src="{{ asset('js/ajax/change-username.js') }}"></script>
+<script src="{{ asset('js/ajax/change-password.js') }}"></script>
+
+
 
 @endsection

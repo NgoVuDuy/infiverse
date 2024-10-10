@@ -39,10 +39,11 @@ class LoginController extends Controller
         ];
 
         if(Auth::attempt($credentials)) {
+
             return redirect('/');
         } else {
             
-            return view('components.alert');
+            return back()->with('error', 'Thông tin đăng nhập không chính xác.');
         }
     }
 

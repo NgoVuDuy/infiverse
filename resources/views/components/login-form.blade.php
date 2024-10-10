@@ -62,4 +62,24 @@
 
         </form>
     </div>
+
+    @if(session('error'))
+
+    <x-alert>
+        {{ session('error') }}
+
+    </x-alert>
+
+    @endif
+
+    @if(session('delete-username-message'))
+
+    <x-window>
+        <x-slot name="text">{{ session('delete-username-message') }}</x-slot>
+        <x-slot name="icon">success</x-slot>
+        <x-slot name="button">OK</x-slot>
+        <x-slot name="footer"></x-slot>
+
+    </x-window>
+    @endif
 </div>

@@ -16,6 +16,7 @@ class UserController extends Controller
     public function index()
     {
         //
+        return view('user');
     }
 
     /**
@@ -81,8 +82,6 @@ class UserController extends Controller
             $file->move(public_path('images/users/' . $user_id . "_" . $user_name), $file->getClientOriginalName());
 
             $user->user_img = 'images/users/' . $user_id . "_" . $user_name . "/" . $file->getClientOriginalName();
-
-
         }
 
         if($user) {
@@ -104,8 +103,39 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy()
     {
         //
+        
+        $user_id = Auth::user()->id;
+
+        $user = User::find($user_id);
+
+        $user->delete();
+
+        return redirect('/login')->with('delete-username-message', 'Bạn đã xóa tài khoản thành công');
+
+
+
+    }
+
+    public function changeUsername(Request $request) {
+
+        $username = $request->input('username');
+
+        $user_id = Auth::user()->id;
+
+        $user = User::find($user_id);
+
+        $user->username = $username;
+
+        $user->save();
+
+        return back()->with('change-username-message', 'Tên tài khoản đã thay đổi thành công');
+
+    }
+
+    public function changePassword() {
+
     }
 }

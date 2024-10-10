@@ -10,8 +10,6 @@
 
 @section('content')
 
-<x-alert/>
-
 <div class="container-fluid">
 
     <div class="row home-header">
@@ -22,24 +20,24 @@
         <div class="col-5 home-left">
 
             <div class="home-desc">
-                <span><img src="{{ asset('images/home/remote-access.png') }}" alt="" width="6%">Cộng đồng học tập phong phú</span>
+                <span><img src="{{ asset('images/icon/remote-access.png') }}" alt="" width="6%">Cộng đồng học tập phong phú</span>
             </div>
 
             <div class="home-desc">
-                <span><img src="{{ asset('images/home/bell.png') }}" alt="" width="6%">Thông báo nhắc nhở người dùng học tập</span>
+                <span><img src="{{ asset('images/icon/bell.png') }}" alt="" width="6%">Thông báo nhắc nhở người dùng học tập</span>
             </div>
 
             <div class="home-desc">
-                <span><img src="{{ asset('images/home/checklist.png') }}" alt="" width="6%">Theo dõi tiến độ học tập của người dùng</span>
+                <span><img src="{{ asset('images/icon/checklist.png') }}" alt="" width="6%">Theo dõi tiến độ học tập của người dùng</span>
             </div>
 
             <div class="home-desc">
-                <span><img src="{{ asset('images/home/secured.png') }}" alt="" width="6%">Bảo vệ dữ liệu cá nhân</span>
+                <span><img src="{{ asset('images/icon/secured.png') }}" alt="" width="6%">Bảo vệ dữ liệu cá nhân</span>
             </div>
 
             <div class="home-desc">
 
-                <span><img src="{{ asset('images/home/quality.png') }}" alt="" width="6%">Đánh giá quá trình học tập của người dùng</span>
+                <span><img src="{{ asset('images/icon/quality.png') }}" alt="" width="6%">Đánh giá quá trình học tập của người dùng</span>
             </div>
 
         </div>

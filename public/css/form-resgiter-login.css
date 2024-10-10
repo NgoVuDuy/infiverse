@@ -53,10 +53,10 @@ body {
     border-radius: 6px;
     padding: 8px;
 }
-.form-btn:hover {
+/* .form-btn:hover {
 
     transform: scale(1.08);
-}
+} */
 
 .show-psw,.show-psw-cfmt {
     margin-right: 8px;
