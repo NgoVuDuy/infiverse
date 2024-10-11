@@ -13,7 +13,7 @@ class ResgiterController extends Controller
      */
     public function index()
     {
-        return view('resgiter');
+        return view('mains.user.resgiter');
     }
 
     /**

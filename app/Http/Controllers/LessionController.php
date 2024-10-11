@@ -18,7 +18,7 @@ class LessionController extends Controller
 
         $lessions = $course->lessions;
 
-        return view('lession', compact('course', 'lessions'));
+        return view('mains.user.lession', compact('course', 'lessions'));
     }
 
     /**

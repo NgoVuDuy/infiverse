@@ -15,7 +15,7 @@ class HomeController extends Controller
         //
         $courses = Course::all();
 
-        return view('home', ['courses' => $courses]);
+        return view('mains.user.home', ['courses' => $courses]);
     }
 
     /**

@@ -13,7 +13,7 @@ class CourseController extends Controller
     public function index() {
 
         $courses = Course::all();
-        return view('course', ['courses' => $courses]);
+        return view('mains.user.course', ['courses' => $courses]);
         
     }
 
@@ -25,6 +25,6 @@ class CourseController extends Controller
 
         $isEnrolled = UserCourse::where('user_id', $user_id)->where('course_id', $id)->exists();
 
-        return view('course-details', compact('course', 'isEnrolled'));
+        return view('mains.user.course-details', compact('course', 'isEnrolled'));
     }
 }

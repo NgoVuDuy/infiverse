@@ -53,7 +53,7 @@ Route::get('/admin', function () {
 
 Route::get('/teacher', function () {
 
-    return view('teacher.home');
+    return view('mains.teacher.home');
     
 })->middleware('role:teacher');
 
