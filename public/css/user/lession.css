@@ -20,7 +20,7 @@ body {
     border-radius: 20px;
 }
 
-.lession-left button {
+.lession-left button, .send-evaluate-btn {
     border: none;
     border-radius: 8px;
     color: white;
@@ -48,12 +48,50 @@ body {
 }
 
 .lession-evaluate-sum , .lession-evaluate-comment {
-    height: 100px;
+
+    
+}
+
+.content-text {
+    padding: 0px 12px;
+}
+
+.lession-evaluate-sum {
+    padding: 0px 12px;
+
+}
+
+.sum-cover {
     border-radius: 8px;
-    /* background-color: #198754; */
+    border: 2px rgb(212, 212, 212) solid;
+    background-color: #198754;
+    color: white;
 }
 
 .lession-evaluate-comment {
 
+    border-radius: 8px;
+
     border: 2px rgb(212, 212, 212) solid;
+
+    height: 120px;
+
+    
+}
+
+.send-evaluate-btn {
+
+}
+
+.star {
+    margin-right: 6px;
+}
+
+.star-sum {
+    font-size: 24px;
+    margin-left: 8px;
+}
+
+.yellow {
+    color: #f9bf0a;
 }

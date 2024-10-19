@@ -4,9 +4,6 @@
   height: 1rem;
 }
 
-/*
- * Sidebar
- */
 
 @media (min-width: 768px) {
   .sidebar .offcanvas-lg {
@@ -17,15 +14,6 @@
   .navbar-search {
     display: block;
   }
-}
-
-.sidebar .nav-link {
-  font-size: .875rem;
-  font-weight: 500;
-}
-
-.sidebar .nav-link.active {
-  color: #2470dc;
 }
 
 .sidebar-heading {
@@ -101,22 +89,6 @@
   -webkit-overflow-scrolling: touch;
 }
 
-.btn-bd-primary {
-  --bd-violet-bg: #712cf9;
-  --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-  --bs-btn-font-weight: 600;
-  --bs-btn-color: var(--bs-white);
-  --bs-btn-bg: var(--bd-violet-bg);
-  --bs-btn-border-color: var(--bd-violet-bg);
-  --bs-btn-hover-color: var(--bs-white);
-  --bs-btn-hover-bg: #6528e0;
-  --bs-btn-hover-border-color: #6528e0;
-  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-  --bs-btn-active-color: var(--bs-btn-hover-color);
-  --bs-btn-active-bg: #5a23c8;
-  --bs-btn-active-border-color: #5a23c8;
-}
 
 .bd-mode-toggle {
   z-index: 1500;
@@ -124,4 +96,68 @@
 
 .bd-mode-toggle .dropdown-menu .active .bi {
   display: block !important;
+}
+
+.sum-btn {
+
+  width: 100%;
+  padding: 40px;
+  font-size: 20px;
+
+  border-top-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+
+}
+
+.teacher-profile {
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-left: 1px rgb(212, 212, 212) solid;
+}
+
+.teacher-profile p {
+  font-size: 16px;
+}
+
+
+.profile-under p {
+  font-size: 14px;
+}
+
+.profile-under p span {
+  font-weight: bold;
+}
+
+.new-student-table {
+
+}
+
+table {
+  width: 100%;
+}
+
+table, th, td {
+  border: 1px solid rgb(212, 212, 212);
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 14px;
+}
+
+td img {
+  margin-right: 12px;
+}
+
+.new-student-details {
+
+  border: none;
+  border-radius: 8px;
+  color: white;
+  background-color: #198754;
+  padding: 8px;
+  width: 100%;
+
 }

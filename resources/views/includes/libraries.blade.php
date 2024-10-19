@@ -22,3 +22,4 @@
 
 {{-- footer css --}}
 <link rel="stylesheet" href="{{ asset('css/user/footer.css') }}">
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">

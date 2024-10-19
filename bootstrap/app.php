@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\LoginMiddleware;
+use App\Http\Middleware\PreventRootMiddleware;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -18,7 +19,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
 
             'role' => RoleMiddleware::class,
-            'login' => LoginMiddleware::class
+            'login' => LoginMiddleware::class,
+            'prevent_root' => PreventRootMiddleware::class
 
         ]);
     })

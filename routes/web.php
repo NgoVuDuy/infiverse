@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(HomeController::class)->group(function () {
 
-    Route::get('/', 'index')->middleware('login');
+    Route::get('/', 'index')
+    
+    ->middleware('login')
+    ->middleware('prevent_root');
+
 });
 
 Route::controller(LoginController::class)->group(function () {
@@ -47,7 +51,7 @@ Route::controller(LessionController::class)->group(function () {
 
 Route::get('/admin', function () {
 
-    return view('admin');
+    return view('mains.admin.home');
     
 })->middleware('role:admin');
 
@@ -56,7 +60,6 @@ Route::get('/teacher', function () {
     return view('mains.teacher.home');
     
 })->middleware('role:teacher');
-
 
 Route::controller(LogoutController::class)->group(function() {
 

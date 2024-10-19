@@ -60,7 +60,9 @@
 
         <div class="col-12 mt-4">
 
-            {{ $course->description_details }}
+            <div class="content-text">{{ $course->description_details }}</div>
+
+
         </div>
     </div>
 
@@ -71,16 +73,104 @@
 
         <div class="col-12 mt-4 lession-evaluate-sum">
 
+            <div class="sum-cover p-3 mb-3">
+
+                <span>
+                    <h1>4.5<i class="star-sum fa fa-star yellow" style="font-size:36px"></i></h1>
+                </span>
+
+                <span>( 322 bài đánh giá )</span>
+            </div>
+
 
         </div>
 
-        <form action="" method="post">
+        <form action="" method="post" class="evaluate-form">
 
-            <textarea class="col-12 mt-4 lession-evaluate-comment" placeholder="Viết đánh giá của bạn"></textarea>
+            <textarea class="col-12 mt-4 lession-evaluate-comment p-3" placeholder="Viết đánh giá của bạn"></textarea>
 
-            <button type="submit">Gửi đánh giá</button>
+            <div class="star-cover mt-4">
+                <i class="star fa fa-star" style="font-size:24px"></i>
+                <i class="star fa fa-star" style="font-size:24px"></i>
+                <i class="star fa fa-star" style="font-size:24px"></i>
+                <i class="star fa fa-star" style="font-size:24px"></i>
+                <i class="star fa fa-star" style="font-size:24px"></i>
+            </div>
+
+            <br>
+            <button class="send-evaluate-btn mt-4" type="submit" disabled>Gửi đánh giá</button>
         </form>
+
+
+        <div class="lession-evaluate-show mt-5">
+
+            <div class="evaluate-user-item">
+
+                <div class="user-name-img-cover">
+
+                    <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
+                    <span>NgoVuDuy</span>
+
+
+                </div>
+
+                <div class="user-cmt mt-2">
+                    Khóa học này rất hay
+                </div>
+            </div>
+            <hr>
+
+            <div class="evaluate-user-item">
+
+                <div class="user-name-img-cover">
+
+                    <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
+                    <span>NgoVuDuy</span>
+
+
+                </div>
+
+                <div class="user-cmt mt-2">
+                    Khóa học này rất hay
+                </div>
+            </div>
+            <hr>
+
+            <div class="evaluate-user-item">
+
+                <div class="user-name-img-cover">
+
+                    <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
+                    <span class="">NgoVuDuy</span>
+
+
+                </div>
+
+                <div class="user-cmt mt-2">
+                    Khóa học này rất hay
+                </div>
+            </div>
+            <hr>
+
+        </div>
     </div>
 </div>
+
+@endsection
+
+@section('js')
+
+<script src="{{ asset('js/evaluate.js') }}"></script>
+
+@if(! $isEnrolled)
+
+<script>
+    $(document).ready(function() {
+
+        $('.evaluate-form').addClass('d-none')
+    })
+</script>
+
+@endif
 
 @endsection
