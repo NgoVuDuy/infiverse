@@ -38,8 +38,6 @@ class ResgiterController extends Controller
             'password' => $password,
             'role' => 'student'
         ]);
-
-
     
         if($user) {
 

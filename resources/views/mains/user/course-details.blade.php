@@ -4,7 +4,7 @@
 
 @section('css')
 
-<link rel="stylesheet" href="{{ asset('css/lession.css') }}">
+<link rel="stylesheet" href="{{ asset('css/user/lession.css') }}">
 
 @endsection
 
@@ -21,19 +21,29 @@
 
             @if($isEnrolled)
 
-                <a class="course-link" href="{{ route('lessions', $course->id) }}">
+            <a class="course-link" href="{{ route('lessions', $course->id) }}">
 
-                    <button class="join-in-btn">Vào học ngay</button>
-                </a>
+                <button class="join-in-btn">Vào học ngay</button>
+            </a><br>
 
             @else
 
-                <a class="course-link" href="{{ route('join-in-course', $course->id) }}">
+            <a class="course-link" href="{{ route('join-in-course', $course->id) }}">
 
-                    <button class="join-in-btn">Tham gia miễn phí</button>
-                </a>
+                <button class="join-in-btn">Tham gia miễn phí</button>
+            </a><br>
 
             @endif
+
+            <div class="student-synthetic student-quantity">
+
+                <span><i class="fa fa-user"></i>{{ $join_quatity }} học viên</span>
+            </div>
+
+            <div class="student-synthetic student-evaluate">
+
+                <span><i class="fa fa-user"></i>4.9 (203 bài đánh giá)</span>
+            </div>
 
         </div>
 
@@ -52,6 +62,24 @@
 
             {{ $course->description_details }}
         </div>
+    </div>
+
+
+    <div class="row lession-evaluate mt-4">
+
+        <h4>Đánh giá</h4>
+
+        <div class="col-12 mt-4 lession-evaluate-sum">
+
+
+        </div>
+
+        <form action="" method="post">
+
+            <textarea class="col-12 mt-4 lession-evaluate-comment" placeholder="Viết đánh giá của bạn"></textarea>
+
+            <button type="submit">Gửi đánh giá</button>
+        </form>
     </div>
 </div>
 

@@ -12,7 +12,9 @@ class Lession extends Model
     protected $fillable = [
         'course_id',
         'title',
-        'file'
+        'file',
+        'created_at',
+        'updated_at'
     ];
 
     // Thiết lập quan hệ ngược lại: Một bài học thuộc về một khóa 

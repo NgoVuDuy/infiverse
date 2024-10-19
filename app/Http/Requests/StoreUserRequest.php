@@ -23,7 +23,7 @@ class StoreUserRequest extends FormRequest
     {
         return [
             //
-            'username' => 'required|string|min:8|max:16|regex:/^[\w]+$/',
+            'username' => 'required|string|min:8|max:16|regex:/^[\w]+$/|unique:users,username',
             'password' => 'required|string|min:8|max:16|confirmed|regex:/^[\w]+$/',
 
         ];
@@ -32,6 +32,7 @@ class StoreUserRequest extends FormRequest
     public function messages()
     {
         return [
+            'username.unique' => 'Tên người dùng đã tồn tại.',
             'username.required' => 'Vui lòng nhập tên người dùng.',
             'username.min' => 'Độ dài phải từ 8 đến 16 ký tự.',
             'username.max' => 'Độ dài phải từ 8 đến 16 ký tự.',

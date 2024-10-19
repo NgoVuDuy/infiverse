@@ -14,7 +14,7 @@
         <p><span>Họ tên</span>{{ Auth::user()->fullname }}</p>
         <p><span>Số điện thoại</span>{{ Auth::user()->phone_number }}</p>
         <p><span>Địa chỉ Email</span>{{ Auth::user()->email }}</p>
-        <p><span>Liên hệ</span>{{ Auth::user()->contact }}</p>
+        <p><span>Liên hệ</span><a href="{{ Auth::user()->contact }}">{{ Auth::user()->contact }}</a></p>
         <p><span>Mô tả bản thân</span>{{ Auth::user()->desc_user }}</p>
         <p><span>Thành tích</span>{{ Auth::user()->achievenment }}</p>
 
@@ -22,7 +22,6 @@
 </div>
 
 <div class="icon-edit">
-
 
     <img src="{{ asset('images/icon/edit.png') }}" alt="Edit">
 </div>

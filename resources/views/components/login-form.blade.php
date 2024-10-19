@@ -66,6 +66,7 @@
     @if(session('error'))
 
     <x-alert>
+        
         {{ session('error') }}
 
     </x-alert>

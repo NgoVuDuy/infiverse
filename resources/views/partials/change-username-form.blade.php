@@ -8,6 +8,10 @@
     <label for="" class="change-username-text">Tên tài khoản</label>
     <input type="text" name="username" id="" value="{{ Auth::user()->username }}"> <br>
 
+    @error('username')
+    <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
+
     <button class="change-username-btn mt-3" type="submit">Lưu lại</button>
 
 </form>

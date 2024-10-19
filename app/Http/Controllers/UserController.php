@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 use function PHPUnit\Framework\isEmpty;
 
@@ -115,11 +117,9 @@ class UserController extends Controller
 
         return redirect('/login')->with('delete-username-message', 'Bạn đã xóa tài khoản thành công');
 
-
-
     }
 
-    public function changeUsername(Request $request) {
+    public function changeUsername(StoreUserRequest $request) {
 
         $username = $request->input('username');
 
@@ -131,11 +131,31 @@ class UserController extends Controller
 
         $user->save();
 
-        return back()->with('change-username-message', 'Tên tài khoản đã thay đổi thành công');
+        return redirect(url()->current())->with('change-username-message', 'Tên tài khoản đã thay đổi thành công');
 
     }
 
-    public function changePassword() {
+    public function changePassword(StoreUserRequest $request) {
+
+        $password = Auth::user()->password;
+
+        $old_password = $request->input('old_password');
+
+        if(Hash::check($old_password, $password)) {
+
+            $new_password = $request->input('password');
+
+            $user_id = Auth::user()->id;
+            $user = User::find($user_id);
+
+            $user->password = $new_password;
+
+            $user->save();
+
+            return redirect('/user')->with('change-password-message', 'Đổi mật khẩu thành công');
+        } else {
+            echo "sai tet bet";
+        }
 
     }
 }

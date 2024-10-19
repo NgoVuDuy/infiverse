@@ -4,8 +4,8 @@
 
 @section('css')
 
-<link rel="stylesheet" href="{{ asset('css/user.css') }}">
-<link rel="stylesheet" href="{{ asset('css/course.css') }}">
+<link rel="stylesheet" href="{{ asset('css/user/user.css') }}">
+<link rel="stylesheet" href="{{ asset('css/user/course.css') }}">
 
 @endsection
 
@@ -27,7 +27,7 @@
                 <a id="change-password">
                     <p>Thay đổi mật khẩu</p>
                 </a>
-                <a href="/delete-user" id="delete-user">
+                <a href="/delete-user-confirmation" id="delete-user">
                     <p class="dlt-user">Xóa tài khoản</p>
                 </a>
 
@@ -81,6 +81,28 @@
     <x-slot name="footer"></x-slot>
 
 </x-window>
+@endif
+
+@if(session('change-password-message'))
+
+<x-window>
+    <x-slot name="text">{{ session('change-password-message') }}</x-slot>
+    <x-slot name="icon">success</x-slot>
+    <x-slot name="button">OK</x-slot>
+    <x-slot name="footer"></x-slot>
+
+</x-window>
+@endif
+
+
+@if(session('delete-user-confirmation'))
+
+<x-window-adv>
+    <x-slot name="text">{{ session('delete-user-confirmation') }}</x-slot>
+    <x-slot name="icon">question</x-slot>
+    <x-slot name="path">/delete-user</x-slot>
+
+</x-window-adv>
 @endif
 
 

@@ -1,4 +1,6 @@
-<form class="form-change-password" action="" method="post">
+<form class="form-change-password" action="/change-password" method="post">
+
+    @csrf
 
     <h5 class="mb-4">Đổi mật khẩu</h5>
 
@@ -16,6 +18,10 @@
         </div>
         <div class="col-10">
             <input type="password" name="password" id="">
+
+            @error('password')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
     </div>
     <div class="row mb-3">
@@ -24,6 +30,10 @@
         </div>
         <div class="col-10">
             <input type="password" name="password_confirmation" id="">
+            
+            @error('password_confirmation')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
     </div>
 

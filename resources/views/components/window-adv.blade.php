@@ -8,7 +8,7 @@
             title: "Thông báo",
             text: "{{ $text }}",
             icon: "{{ $icon }}",
-            showCancelButton: "{{ $cancelButton }}",
+            showCancelButton: true,
             confirmButtonText: "OK",
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */

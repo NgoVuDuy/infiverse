@@ -4,7 +4,7 @@
 
 @section('css')
 
-<link rel="stylesheet" href="{{ asset('css/lession.css') }}">
+<link rel="stylesheet" href="{{ asset('css/user/lession.css') }}">
 
 @endsection
 
@@ -52,7 +52,7 @@
                 <img src="{{ asset('images/files/pdf.png') }}" alt="PDF" width="2.5%">
             </a>
             
-            <p class="file_desc">Các sinh viên học môn Nguyên lý Hệ điều hành - Nhóm 3 kiểm tra kết quả tổng hợp của môn học trong file đính kèm. Các thắc mắc xin gởi mail về địa chỉ: nhviet@ctu.edu.vn đến hết buổi sáng ngày thứ 5 (25/05/2023). Sau thời gian này điểm sẽ công bố chính thức. </p>
+            <p class="file_desc">{{ $lession->desc_file }}</p>
 
             <hr>
 

@@ -3,8 +3,8 @@
 @section('title', 'Trang chủ')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/home.css') }}">
-<link rel="stylesheet" href="{{ asset('css/course.css') }}">
+<link rel="stylesheet" href="{{ asset('css/user/home.css') }}">
+<link rel="stylesheet" href="{{ asset('css/user/course.css') }}">
 
 @endsection
 

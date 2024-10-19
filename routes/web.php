@@ -65,8 +65,6 @@ Route::controller(LogoutController::class)->group(function() {
 
 });
 
-
-
 Route::controller(UserCourseController::class)->group(function() {
 
     Route::get('/{course}/join-in-course', 'store')->name('join-in-course');
@@ -91,6 +89,8 @@ Route::controller(UserController::class)->group(function() {
     Route::post('/update-user', 'update');
 
     Route::post('/change-username', 'changeUsername');
+    Route::post('/change-password', 'changePassword');
+
 });
 
 Route::get('/change-username', function() {
@@ -103,4 +103,9 @@ Route::get('/change-username', function() {
 Route::get('/change-password', function() {
 
     return view('partials.change-password-form');
+});
+
+Route::get('/delete-user-confirmation', function() {
+
+    return redirect('/user')->with('delete-user-confirmation', 'Bạn có chắc xóa tài khoản này không ?');
 });

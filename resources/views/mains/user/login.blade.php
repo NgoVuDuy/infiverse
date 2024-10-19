@@ -4,7 +4,7 @@
 
 @section('css')
 
-    <link rel="stylesheet" href="{{ asset('css/form-resgiter-login.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/user/form-resgiter-login.css') }}">
 
 @endsection
 

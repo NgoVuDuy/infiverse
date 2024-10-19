@@ -25,7 +25,9 @@ class User extends Authenticatable
         'contact',
         'email',
         'desc_user',
-        'achievenment'
+        'achievenment',
+        'created_at',
+        'updated_at'
 
     ];
 
