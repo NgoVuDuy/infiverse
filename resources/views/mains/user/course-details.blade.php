@@ -156,6 +156,20 @@
     </div>
 </div>
 
+
+@if(session('message-join-in'))
+
+<x-alert>
+    
+    <x-slot name="text">{{ session('message-join-in') }}</x-slot>
+    <x-slot name="color">green</x-slot>
+
+</x-alert>
+
+{{ session()->forget('message-join-in') }}
+
+@endif
+
 @endsection
 
 @section('js')

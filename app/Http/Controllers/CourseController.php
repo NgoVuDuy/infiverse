@@ -11,9 +11,27 @@ class CourseController extends Controller
 {
     public function index() {
 
-        
         $courses = Course::all();
         return view('mains.user.course', ['courses' => $courses]);
+
+    }
+
+    public function index_teacher() {
+
+        $teacher_id = Auth::user()->id;
+
+        $courses = Course::where('teacher_id', $teacher_id)->get();
+
+        return view('mains.teacher.course-mgmt', ['courses' => $courses]);
+    }
+
+    public function create()
+    {
+        //
+    }
+
+    public function store(Request $request)
+    {
 
     }
 
@@ -26,5 +44,26 @@ class CourseController extends Controller
         $join_quatity = UserCourse::where('course_id', $id)->count();
 
         return view('mains.user.course-details', compact('course', 'isEnrolled', 'join_quatity'));
+    }
+
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }

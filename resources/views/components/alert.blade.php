@@ -2,7 +2,7 @@
 
     <script>
         Toastify({
-            text: "{{ $slot }}",
+            text: "{{ $text }}",
             duration: 10000,
             // destination: "https://github.com/apvarun/toastify-js",
             newWindow: true,
@@ -11,7 +11,7 @@
             position: "right", // `left`, `center` or `right`
             stopOnFocus: true, // Prevents dismissing of toast on hover
             style: {
-                background: "red",
+                background: "{{ $color }}",
             },
             onClick: function() {} // Callback after click
         }).showToast();

@@ -41,6 +41,9 @@ Route::controller(CourseController::class)->group(function () {
 
     Route::get('/courses', 'index');
 
+    Route::get('/courses-mgmt', 'index_teacher');
+
+
     Route::get('courses/{id}/course-details', 'show')->name('course-details');
 });
 
@@ -101,7 +104,6 @@ Route::get('/change-username', function() {
     return view('partials.change-username-form');
 });
 
-// Route::post('/change-username', [UserController::class, 'changeUsername']);
 
 Route::get('/change-password', function() {
 

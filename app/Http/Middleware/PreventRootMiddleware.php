@@ -18,15 +18,15 @@ class PreventRootMiddleware
     {
 
 
-        // if(Auth::user()->role === 'teacher') {
+        if(Auth::user()->role === 'teacher') {
 
-        //     return redirect('/teacher');
-        // }
+            return redirect('/teacher');
+        }
 
-        // if(Auth::user()->role === 'admin') {
+        if(Auth::user()->role === 'admin') {
 
-        //     return redirect('/admin');
-        // }
+            return redirect('/admin');
+        }
 
         return $next($request);
     }

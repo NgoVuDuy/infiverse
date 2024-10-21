@@ -38,7 +38,7 @@ class UserCourseController extends Controller
 
         $user->courses()->attach($course_id);
 
-        return redirect(route('course-details', $course_id));
+        return redirect(route('course-details', $course_id))->with('message-join-in', 'Chúc mừng bạn đã tham gia thành công khóa học');
     }
 
     /**

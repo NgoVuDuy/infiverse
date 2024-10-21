@@ -1,3 +1,7 @@
+header {
+  background-color: white;
+}
+
 .bi {
   display: inline-block;
   width: 1rem;
@@ -13,6 +17,14 @@
   }
   .navbar-search {
     display: block;
+  }
+}
+
+/* Extra Small (xs) - Dưới 576px */
+@media (max-width: 768px) {
+  .notifi-icon {
+    position: absolute;
+    right: 10%;
   }
 }
 
@@ -101,13 +113,41 @@
 .sum-btn {
 
   width: 100%;
-  padding: 40px;
-  font-size: 20px;
+  padding: 30px;
 
   border-top-left-radius: 28px;
   border-bottom-right-radius: 28px;
 
+  color: white;
+
+  border: none;
+  /* background-color: #198754; */
+
 }
+
+.sum-btn span {
+  font-size: 22px;
+}
+.sum-btn img {
+  margin-right: 8px;
+}
+.sum-btn p {
+  font-size: 16px;
+  margin-top: 12px;
+}
+
+.sum-btn-item1 {
+  background-color: #ff3581;
+}
+
+.sum-btn-item2 {
+  background-color: #00c63a;
+}
+
+.sum-btn-item3 {
+  background-color: #6b7ed9;
+}
+
 
 .teacher-profile {
 
@@ -141,8 +181,14 @@ table {
 table, th, td {
   border: 1px solid rgb(212, 212, 212);
   border-collapse: collapse;
-}
 
+}
+.table-title {
+
+  font-weight: bold;
+
+
+}
 th, td {
   padding: 14px;
 }

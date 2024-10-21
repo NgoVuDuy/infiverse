@@ -1,20 +1,19 @@
-.nav-cover {
+.side-cover {
     background-color: white;
     padding-left: 4px;
 
 }
 
-.nav-option {
+.side-option {
     color: black;
     padding: 20px;
     text-decoration: none;
 
 }
 
-.nav-option:hover {
+.side-option:hover {
     background-color: #2f3c7e;
     color: white;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
 }
-
