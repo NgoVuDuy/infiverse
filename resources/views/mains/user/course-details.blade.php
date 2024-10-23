@@ -101,24 +101,10 @@
             <button class="send-evaluate-btn mt-4" type="submit" disabled>Gửi đánh giá</button>
         </form>
 
-
-        <div class="lession-evaluate-show mt-5">
-
-            <div class="evaluate-user-item">
-
-                <div class="user-name-img-cover">
-
-                    <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
-                    <span>NgoVuDuy</span>
+        <h4 class="mt-5">Bình luận</h4>
 
 
-                </div>
-
-                <div class="user-cmt mt-2">
-                    Khóa học này rất hay
-                </div>
-            </div>
-            <hr>
+        <div class="lession-evaluate-show mt-2">
 
             <div class="evaluate-user-item">
 
@@ -131,7 +117,38 @@
                 </div>
 
                 <div class="user-cmt mt-2">
+                    <div class="star-cover-user">
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                    </div>
                     Khóa học này rất hay
+                </div>
+
+
+            </div>
+            <hr>
+
+            <div class="evaluate-user-item">
+
+                <div class="user-name-img-cover">
+
+                    <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
+                    <span>NhatTruong</span>
+
+
+                </div>
+
+                <div class="user-cmt mt-2">
+                    <div class="star-cover-user">
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                    </div>
+                    Tuyệt vời
                 </div>
             </div>
             <hr>
@@ -141,13 +158,20 @@
                 <div class="user-name-img-cover">
 
                     <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
-                    <span class="">NgoVuDuy</span>
+                    <span class="">MinhNguyen</span>
 
 
                 </div>
 
                 <div class="user-cmt mt-2">
-                    Khóa học này rất hay
+                    <div class="star-cover-user">
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                    </div>
+                    Tôi rất thích khóa học này
                 </div>
             </div>
             <hr>
@@ -160,7 +184,7 @@
 @if(session('message-join-in'))
 
 <x-alert>
-    
+
     <x-slot name="text">{{ session('message-join-in') }}</x-slot>
     <x-slot name="color">green</x-slot>
 
@@ -175,6 +199,8 @@
 @section('js')
 
 <script src="{{ asset('js/evaluate.js') }}"></script>
+
+
 
 @if(! $isEnrolled)
 

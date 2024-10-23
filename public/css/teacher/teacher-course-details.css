@@ -1,0 +1,65 @@
+.rep-comment-input {
+    border-radius: 4px;
+    border: 1px black solid;
+    padding: 0px 4px;
+}
+
+.rep-comment-btn {
+
+    border-radius: 4px;
+    border: none;
+    background-color: #198754;
+    color: white;
+}
+
+.content-title span {
+
+    display: inline-block;
+    width: 220px;
+
+}
+
+.content-title i {
+    color: #198754;
+    font-size: 40px;
+}
+
+.content-text, .lession-evaluate-show, table, .lession-list {
+    display: none;
+}
+
+/* table */
+
+table {
+    width: 100%;
+  }
+  
+  table, th, td {
+    border: 1px solid rgb(212, 212, 212);
+    border-collapse: collapse;
+  
+  }
+  .table-title {
+  
+    font-weight: bold;
+  
+  
+  }
+  th, td {
+    padding: 14px;
+  }
+  
+  td img {
+    margin-right: 12px;
+  }
+  
+  .new-student-details {
+  
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #198754;
+    padding: 8px;
+    width: 100%;
+  
+  }

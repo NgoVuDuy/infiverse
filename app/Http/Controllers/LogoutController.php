@@ -13,7 +13,7 @@ class LogoutController extends Controller
     public function index()
     {
         //
-        return back()->with('message', 'Bạn có muốn đăng xuất không ?');
+        return back()->with('message-logout', 'Bạn có muốn đăng xuất không ?');
     }
 
     /**

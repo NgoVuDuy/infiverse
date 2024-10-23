@@ -43,8 +43,15 @@ Route::controller(CourseController::class)->group(function () {
 
     Route::get('/courses-mgmt', 'index_teacher');
 
+    Route::get('/create-new-course', 'create');
+
+    Route::post('/create-new-course', 'store');
+
 
     Route::get('courses/{id}/course-details', 'show')->name('course-details');
+
+    Route::get('courses/{id}/teacher-course-details', 'show_teacher')->name('teacher-course-details');
+
 });
 
 Route::controller(LessionController::class)->group(function () {

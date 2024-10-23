@@ -1,19 +1,39 @@
 .side-cover {
-    background-color: white;
-    padding-left: 4px;
+  background-color: white;
+  padding-left: 4px;
 
 }
 
 .side-option {
-    color: black;
-    padding: 20px;
-    text-decoration: none;
+  color: black;
+  padding: 20px;
+  text-decoration: none;
+  justify-content: space-between;
 
 }
 
 .side-option:hover {
-    background-color: #2f3c7e;
-    color: white;
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
+  background-color: #2f3c7e;
+  color: white;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.right-arrow {
+
+  animation: moveLeftRight 1.8s infinite;
+}
+
+@keyframes moveLeftRight {
+  0% {
+    transform: translateX(-20px);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    transform: translateX(-20px);
+  }
 }

@@ -34,7 +34,7 @@
 
         <div class="col-12 mt-4">
 
-            <p>Đây là thông báo của giáo viên thuộc về một khóa học</p>
+            <p>Tuần này các em thi cuối kỳ kết thúc học phần</p>
         </div>
     </div>
 

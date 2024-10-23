@@ -8,33 +8,58 @@
 
         <div class="side-cover d-md-flex flex-column pt-lg-3 pb-lg-3 overflow-y-auto">
             <ul class="nav flex-column">
-            <li class="nav-item">
+                <li class="nav-item">
                     <a class="side-option d-flex align-items-center gap-2" aria-current="page" href="/teacher">
 
-                        <img src="{{ asset('images/icon/home.png') }}" alt="Bootstrap" width="36" height="36">
-                        Trang chủ
+                        <span>
+
+                            <img src="{{ asset('images/icon/home.png') }}" alt="Bootstrap" width="36" height="36">
+                            Trang chủ
+                        </span>
+                        <!-- <img class="right-arrow" src="{{ asset('images/icon/right.png') }}" alt="Bootstrap" width="36" height="36"> -->
+
+                        {{ $home }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="side-option d-flex align-items-center gap-2" aria-current="page" href="/courses-mgmt">
 
-                        <img src="{{ asset('images/icon/books.png') }}" alt="Bootstrap" width="36" height="36">
-                        Quản lý khóa học
+                        <span>
+
+                            <img src="{{ asset('images/icon/books.png') }}" alt="Bootstrap" width="36" height="36">
+                            Quản lý khóa học
+                        </span>
+
+                        {{ $course }}
+
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="side-option d-flex align-items-center gap-2" href="/student-mgmt">
 
-                        <img src="{{ asset('images/icon/students.png') }}" alt="Bootstrap" width="36" height="36">
-                        Quản lý học viên
+                        <span>
+
+                            <img src="{{ asset('images/icon/students.png') }}" alt="Bootstrap" width="36" height="36">
+                            Quản lý học viên
+
+                        </span>
+
+                        {{ $student }}
+
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="side-option d-flex align-items-center gap-2" href="/comment-mgmt">
 
-                        <img src="{{ asset('images/icon/comment.png') }}" alt="Bootstrap" width="36" height="36">
+                        <span>
+                            <img src="{{ asset('images/icon/comment.png') }}" alt="Bootstrap" width="36" height="36">
 
-                        Đánh giá
+                            Đánh giá
+
+                        </span>
+
+                        {{ $evaluate }}
+
                     </a>
                 </li>
 
@@ -42,9 +67,15 @@
                 <li class="nav-item">
                     <a class="side-option d-flex align-items-center gap-2" href="profile-mgmt">
 
-                        <img src="{{ asset('images/icon/profile.png') }}" alt="Bootstrap" width="36" height="36">
+                        <span>
+                            <img src="{{ asset('images/icon/profile.png') }}" alt="Bootstrap" width="36" height="36">
 
-                        Hồ sơ
+                            Hồ sơ
+
+                        </span>
+
+                        {{ $profile }}
+
                     </a>
                 </li>
                 <hr class="my-3">
@@ -52,9 +83,12 @@
                 <li class="nav-item">
                     <a class="side-option d-flex align-items-center gap-2" href="/logout-show">
 
-                        <img src="{{ asset('images/icon/logout.png') }}" alt="Bootstrap" width="36" height="36">
+                        <span>
+                            <img src="{{ asset('images/icon/logout.png') }}" alt="Bootstrap" width="36" height="36">
 
-                        Đăng xuất
+                            Đăng xuất
+
+                        </span>
                     </a>
                 </li>
             </ul>

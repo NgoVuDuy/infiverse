@@ -38,7 +38,7 @@
     </div>
 </nav>
 
-@if(session('message')) 
+@if(session('message-logout')) 
 
     <x-window-adv>
 

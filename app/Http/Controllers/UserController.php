@@ -119,7 +119,7 @@ class UserController extends Controller
 
     }
 
-    public function changeUsername(StoreUserRequest $request) {
+    public function changeUsername(Request $request) {
 
         $username = $request->input('username');
 
@@ -131,11 +131,11 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect(url()->current())->with('change-username-message', 'Tên tài khoản đã thay đổi thành công');
+        return redirect('/user')->with('change-username-message', 'Tên tài khoản đã thay đổi thành công');
 
     }
 
-    public function changePassword(StoreUserRequest $request) {
+    public function changePassword(Request $request) {
 
         $password = Auth::user()->password;
 
@@ -152,9 +152,10 @@ class UserController extends Controller
 
             $user->save();
 
-            return redirect('/user')->with('change-password-message', 'Đổi mật khẩu thành công');
+            return redirect('/user')->with('change-password-message-success', 'Đổi mật khẩu thành công');
         } else {
-            echo "sai tet bet";
+            return redirect('/user')->with('change-password-message-error', 'Đổi mật khẩu thất bại');
+
         }
 
     }

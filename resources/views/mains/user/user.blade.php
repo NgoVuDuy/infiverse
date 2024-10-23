@@ -83,11 +83,22 @@
 </x-window>
 @endif
 
-@if(session('change-password-message'))
+@if(session('change-password-message-success'))
 
 <x-window>
-    <x-slot name="text">{{ session('change-password-message') }}</x-slot>
+    <x-slot name="text">{{ session('change-password-message-success') }}</x-slot>
     <x-slot name="icon">success</x-slot>
+    <x-slot name="button">OK</x-slot>
+    <x-slot name="footer"></x-slot>
+
+</x-window>
+@endif
+
+@if(session('change-password-message-error'))
+
+<x-window>
+    <x-slot name="text">{{ session('change-password-message-error') }}</x-slot>
+    <x-slot name="icon">error</x-slot>
     <x-slot name="button">OK</x-slot>
     <x-slot name="footer"></x-slot>
 

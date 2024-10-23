@@ -7,8 +7,6 @@
 <link href="{{ asset('css/teacher/home.css') }}" rel="stylesheet">
 <link href="{{ asset('css/teacher/sidebar.css') }}" rel="stylesheet">
 
-
-
 @endsection
 
 @section('content')
@@ -28,7 +26,16 @@
 <div class="container-fluid">
     <div class="row">
 
-        @include('includes.sidebar')
+
+        <x-sidebar>
+            
+            <x-slot name="home"><img class="right-arrow" src="{{ asset('images/icon/left.png') }}" alt="Bootstrap" width="36" height="36"></x-slot>
+            <x-slot name="course"></x-slot>
+            <x-slot name="student"></x-slot>
+            <x-slot name="evaluate"></x-slot>
+            <x-slot name="profile"></x-slot>
+
+        </x-sidebar>
 
         <main class="ms-sm-auto col-lg-9 col-md-9 col-12">
 
@@ -101,7 +108,7 @@
                                     <td>
                                         <img src="{{ asset('images/users/default/groom.png') }}" alt="Bootstrap" width="30" height="30">
 
-                                        NgoVuDuy
+                                        NhatTruong
 
                                     </td>
                                     <td>
@@ -119,7 +126,7 @@
                                         <img src="{{ asset('images/users/default/groom.png') }}" alt="Bootstrap" width="30" height="30">
 
 
-                                        NgoVuDuy
+                                        MinhNguyen
 
                                     </td>
                                     <td>
@@ -142,12 +149,12 @@
 
                 <div class="col-3 teacher-profile">
                     <img class="rounded-circle mt-3" src="{{ asset(Auth::user()->user_img) }}" alt="" width="100px" height="100px">
-                    <p class="mt-2">Nguyễn Trọng Nghiệp</p>
+                    <p class="mt-2">Nguyễn Minh Nguyễn</p>
 
                     <div class="profile-under mt-5">
-                        <p><span>Chức danh:</span> Phó hiệu trưởng</p>
+                        <p><span>Chức danh:</span> Giảng viên</p>
                         <p><span>Lĩnh vực:</span> Big data và trí tuệ nhân tạo</p>
-                        <p><span>Thông tin liên hệ:</span> juenen</p>
+                        <p><span>Thông tin liên hệ:</span> Ig: juenen</p>
 
                     </div>
                 </div>
@@ -157,17 +164,18 @@
     </div>
 </div>
 
-@if(session('message'))
+@if(session('message-logout'))
 
 <x-window-adv>
 
-    <x-slot name="text">Bạn có chắc muốn đăng xuất không ?</x-slot>
+    <x-slot name="text">{{ session('message-logout') }}</x-slot>
     <x-slot name="icon">question</x-slot>
     <x-slot name="cancelButton">false</x-slot>
     <x-slot name="path">/logout</x-slot>
 
 </x-window-adv>
 @endif
+
 
 @endsection
 
