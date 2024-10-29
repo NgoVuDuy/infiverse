@@ -1,7 +1,16 @@
+/* html {
+    scroll-behavior: auto !important;
+} */
+
 body {
     
     font-family: Hanken Grotesk !important;
 
+}
+
+.course-teacher {
+    color: #ffc107;
+    font-size: 14px;
 }
 
 .lession-header {

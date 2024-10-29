@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ResgiterController;
 use App\Http\Controllers\EditFormController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserCourseController;
 use App\Http\Middleware\RoleMiddleware;
@@ -120,4 +121,10 @@ Route::get('/change-password', function() {
 Route::get('/delete-user-confirmation', function() {
 
     return redirect('/user')->with('delete-user-confirmation', 'Bạn có chắc xóa tài khoản này không ?');
+});
+
+Route::controller(ReviewController::class)->group(function() {
+
+    Route::post('{course_id}/review', 'store')->name('review');
+
 });

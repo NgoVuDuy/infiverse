@@ -27,7 +27,7 @@ return new class extends Migration
     {
         Schema::table('courses', function (Blueprint $table) {
             //
-            $table->dropColumn('teacher_id');
+            // $table->dropColumn('teacher_id');
         });
     }
 };

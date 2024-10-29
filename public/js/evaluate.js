@@ -27,6 +27,11 @@ $(document).ready(function() {
         $(this).prevAll('.star').addClass('yellow')
         $(this).addClass('yellow')
 
+        $value = $(this).data('value')
+
+        $('.star_rating').val($value)
+
+
     })
 
 

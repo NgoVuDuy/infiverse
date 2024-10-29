@@ -182,17 +182,21 @@
 
                 <h4 class="content-title"><span>Bình luận</span><i class="fa fa-sort-down down-arrow"></i></h4>
 
-
-
                 <div class="lession-evaluate-show mt-2">
+                    @if($reviews->isEmpty())
+
+                    <p>Chưa có bình luận nào cho khóa học này</p>
+                    @else
+
+                    @foreach($reviews as $review)
+                    <!-- <p>{{ $review->review }}</p> -->
 
                     <div class="evaluate-user-item">
 
                         <div class="user-name-img-cover">
 
                             <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
-                            <span>NgoVuDuy</span>
-
+                            <span>{{ $review->user->username }}</span>
 
                         </div>
 
@@ -204,70 +208,18 @@
                                 <i class="star fa fa-star" style="font-size:14px"></i>
                                 <i class="star fa fa-star" style="font-size:14px"></i>
                             </div>
-                            Khóa học này rất hay
+                            {{ $review->review }}
+
+                            <form action="" method="post" class="mt-3">
+                                <input class="rep-comment-input" type="text" placeholder="Nhập nội dung">
+                                <button class="rep-comment-btn" type="submit">Gửi</button>
+                            </form>
                         </div>
 
-                        <form action="" method="post" class="mt-3">
-                            <input class="rep-comment-input" type="text" placeholder="Nhập nội dung">
-                            <button class="rep-comment-btn" type="submit">Gửi</button>
-                        </form>
                     </div>
                     <hr>
-
-                    <div class="evaluate-user-item">
-
-                        <div class="user-name-img-cover">
-
-                            <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
-                            <span>NhatTruong</span>
-
-
-                        </div>
-
-                        <div class="user-cmt mt-2">
-                            <div class="star-cover-user">
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                            </div>
-                            Tuyệt vời
-                        </div>
-
-                        <form action="" method="post" class="mt-3">
-                            <input class="rep-comment-input" type="text" placeholder="Nhập nội dung">
-                            <button class="rep-comment-btn" type="submit">Gửi</button>
-                        </form>
-                    </div>
-                    <hr>
-
-                    <div class="evaluate-user-item">
-
-                        <div class="user-name-img-cover">
-
-                            <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
-                            <span class="">MinhNguyen</span>
-
-
-                        </div>
-
-                        <div class="user-cmt mt-2">
-                            <div class="star-cover-user">
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                            </div>
-                            Tôi rất thích khóa học này
-                        </div>
-
-                        <form action="" method="post" class="mt-3">
-                            <input class="rep-comment-input" type="text" placeholder="Nhập nội dung">
-                            <button class="rep-comment-btn" type="submit">Gửi</button>
-                        </form>
-                    </div>
-                    <hr>
+                    @endforeach
+                    @endif
 
                 </div>
             </div>
@@ -281,6 +233,7 @@
 
 
 </div>
+
 
 
 @if(session('message-logout'))

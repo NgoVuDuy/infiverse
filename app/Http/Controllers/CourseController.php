@@ -83,12 +83,24 @@ class CourseController extends Controller
 
         $course = Course::find($id);
         $user_id = Auth::user()->id;
+
+        $teacher_id = $course->teacher_id;
+
+        $teacher_name = User::find($teacher_id)->fullname;
+
+        // Kiểm tra người dùng đang đăng nhập có tham gia khóa học này hay không
         $isEnrolled = UserCourse::where('user_id', $user_id)->where('course_id', $id)->exists();
 
+        // Lấy tổng số lượng học viên đã tham gia khóa học này
         $join_quatity = UserCourse::where('course_id', $id)->count();
 
-        return view('mains.user.course-details', compact('course', 'isEnrolled', 'join_quatity'));
+        // Lấy các bài đánh giá của khóa học này
+        // $reviews = $course->reviews;
+        $reviews = $course->reviews()->with('user')->orderBy('created_at', 'desc')->get();
+
+        return view('mains.user.course-details', compact('course', 'isEnrolled', 'join_quatity', 'reviews', 'teacher_name'));
     }
+
 
     public function show_teacher(string $id) {
 
@@ -97,8 +109,10 @@ class CourseController extends Controller
 
         $lessions = $course->lessions;
 
+        $reviews = $course->reviews()->with('user')->orderBy('created_at', 'desc')->get();
 
-        return view('mains.teacher.teacher-course-details', compact('course', 'lessions'));
+
+        return view('mains.teacher.teacher-course-details', compact('course', 'lessions', 'reviews'));
 
 
     }

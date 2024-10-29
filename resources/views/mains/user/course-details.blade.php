@@ -16,7 +16,7 @@
         <div class="col-8 lession-left">
 
             <h1 class="course-name">{{ $course->course_name }}</h1>
-            <p class="course-teacher">Ngo Vu Duy</p>
+            <p class="course-teacher">{{ $teacher_name }}</p>
             <p class="course-description">{{ $course->description }}</p>
 
             @if($isEnrolled)
@@ -85,59 +85,69 @@
 
         </div>
 
-        <form action="" method="post" class="evaluate-form">
+        <form action="{{ route('review', $course->id) }}" method="post" class="evaluate-form">
 
-            <textarea class="col-12 mt-4 lession-evaluate-comment p-3" placeholder="Viết đánh giá của bạn"></textarea>
+            @csrf
+
+            <textarea name="review" class="col-12 mt-4 lession-evaluate-comment p-3" placeholder="Viết đánh giá của bạn"></textarea>
 
             <div class="star-cover mt-4">
-                <i class="star fa fa-star" style="font-size:24px"></i>
-                <i class="star fa fa-star" style="font-size:24px"></i>
-                <i class="star fa fa-star" style="font-size:24px"></i>
-                <i class="star fa fa-star" style="font-size:24px"></i>
-                <i class="star fa fa-star" style="font-size:24px"></i>
+                <i data-value="1" class="star fa fa-star" style="font-size:24px"></i>
+                <i data-value="2" class="star fa fa-star" style="font-size:24px"></i>
+                <i data-value="3" class="star fa fa-star" style="font-size:24px"></i>
+                <i data-value="4" class="star fa fa-star" style="font-size:24px"></i>
+                <i data-value="5" class="star fa fa-star" style="font-size:24px"></i>
             </div>
 
+            <input type="hidden" name="star_rating" class="star_rating">
+
             <br>
-            <button class="send-evaluate-btn mt-4" type="submit" disabled>Gửi đánh giá</button>
+            <button class="send-evaluate-btn mt-4" type="submit">Gửi đánh giá</button>
         </form>
 
-        <h4 class="mt-5">Bình luận</h4>
-
+        <h4 id="review-title" class="mt-5">Bình luận</h4>
 
         <div class="lession-evaluate-show mt-2">
 
-            <div class="evaluate-user-item">
+            @if($reviews->isEmpty())
 
-                <div class="user-name-img-cover">
+                <p>Chưa có bình luận nào cho khóa học này</p>
+            @else
 
-                    <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
-                    <span>NgoVuDuy</span>
+                @foreach($reviews as $review)
+                    <!-- <p>{{ $review->review }}</p> -->
 
-
-                </div>
-
-                <div class="user-cmt mt-2">
-                    <div class="star-cover-user">
-                        <i class="star fa fa-star" style="font-size:14px"></i>
-                        <i class="star fa fa-star" style="font-size:14px"></i>
-                        <i class="star fa fa-star" style="font-size:14px"></i>
-                        <i class="star fa fa-star" style="font-size:14px"></i>
-                        <i class="star fa fa-star" style="font-size:14px"></i>
+                    <div class="evaluate-user-item">
+        
+                        <div class="user-name-img-cover">
+        
+                            <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
+                            <span>{{ $review->user->username }}</span>
+        
+                        </div>
+        
+                        <div class="user-cmt mt-2">
+                            <div class="star-cover-user">
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                            </div>
+                            {{ $review->review }}
+                        </div>
+        
                     </div>
-                    Khóa học này rất hay
-                </div>
+                    <hr>
+                @endforeach
+            @endif
 
-
-            </div>
-            <hr>
-
-            <div class="evaluate-user-item">
+            <!-- <div class="evaluate-user-item">
 
                 <div class="user-name-img-cover">
 
                     <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
                     <span>NhatTruong</span>
-
 
                 </div>
 
@@ -160,7 +170,6 @@
                     <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
                     <span class="">MinhNguyen</span>
 
-
                 </div>
 
                 <div class="user-cmt mt-2">
@@ -174,7 +183,7 @@
                     Tôi rất thích khóa học này
                 </div>
             </div>
-            <hr>
+            <hr> -->
 
         </div>
     </div>
