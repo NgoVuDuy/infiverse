@@ -1,6 +1,5 @@
 <div>
 
-
     <script type="module">
         // import Swal from 'sweetalert2'
 
@@ -10,6 +9,10 @@
             icon: "{{ $icon }}",
             showCancelButton: true,
             confirmButtonText: "OK",
+            customClass: {
+                confirmButton: 'main-btn', // Thêm lớp CSS tùy chỉnh cho nút "OK"
+                cancelButton : 'btn btn-danger'
+            }
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {

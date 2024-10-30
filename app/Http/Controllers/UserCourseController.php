@@ -36,7 +36,10 @@ class UserCourseController extends Controller
         // echo $user;
         // echo $course_id;
 
-        $user->courses()->attach($course_id);
+        $user->courses()->attach($course_id, [
+            'created_at' => now(), // Thêm giá trị cho cột created_at
+            'updated_at' => now(),  // Thêm giá trị cho cột updated_at nếu cần
+        ]);
 
         return redirect(route('course-details', $course_id))->with('message-join-in', 'Chúc mừng bạn đã tham gia thành công khóa học');
     }

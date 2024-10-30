@@ -77,6 +77,10 @@
     width: 50%;
 }
 
+.modal-body input, .modal-body textarea {
+    width: 100%;
+}
+
 .user-option a {
 
     text-decoration: none;

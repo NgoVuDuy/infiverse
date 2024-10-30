@@ -18,9 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::controller(HomeController::class)->group(function () {
 
     Route::get('/', 'index')
-    
     ->middleware('login')
     ->middleware('prevent_root');
+
+    Route::get('/teacher', 'index_teacher')->middleware('role:teacher');
 
 });
 
@@ -58,6 +59,8 @@ Route::controller(CourseController::class)->group(function () {
 Route::controller(LessionController::class)->group(function () {
 
     Route::get('/courses/{course}/lessions', 'index')->name('lessions');
+
+    Route::post('/{course_id}/create-new-lession', 'store')->name('create-new-lession');
 });
 
 Route::get('/admin', function () {
@@ -66,11 +69,11 @@ Route::get('/admin', function () {
     
 })->middleware('role:admin');
 
-Route::get('/teacher', function () {
+// Route::get('/teacher', function () {
 
-    return view('mains.teacher.home');
+//     return view('mains.teacher.home');
     
-})->middleware('role:teacher');
+// })->middleware('role:teacher');
 
 Route::controller(LogoutController::class)->group(function() {
 

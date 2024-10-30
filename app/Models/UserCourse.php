@@ -12,4 +12,5 @@ class UserCourse extends Model
     protected $table = 'course_user';
 
     public $timestamps = true;
+    
 }

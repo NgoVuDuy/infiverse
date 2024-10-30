@@ -32,9 +32,21 @@ class LessionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, string $course_id)
     {
         //
+        $title_lession = $request->input('title-lession');
+        $desc_lession = $request->input('desc-lession');
+        $file_lession = $request->input('file-lession');
+
+        // $lession = Lession::create([
+        //     'course_id' => $course_id,
+        //     'desc_file' => $desc_lession,
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+
+        echo $title_lession . $desc_lession . $file_lession;
     }
 
     /**

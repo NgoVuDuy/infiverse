@@ -28,7 +28,7 @@
 
 
         <x-sidebar>
-            
+
             <x-slot name="home"><img class="right-arrow" src="{{ asset('images/icon/left.png') }}" alt="Bootstrap" width="36" height="36"></x-slot>
             <x-slot name="course"></x-slot>
             <x-slot name="student"></x-slot>
@@ -49,14 +49,14 @@
                             <button class="sum-btn sum-btn-item1">
                                 <img src="{{ asset('images/icon/students.png') }}" alt="Bootstrap" width="36" height="36">
                                 <span>Học viên</span>
-                                <p>Tổng cộng: 203</p>
+                                <p>Tổng cộng: {{ $studentCount }}</p>
                             </button>
                         </div>
                         <div class="col-4">
                             <button class="sum-btn sum-btn-item2">
                                 <img src="{{ asset('images/icon/books.png') }}" alt="Bootstrap" width="36" height="36">
                                 <span>Khóa học</span>
-                                <p>Tổng cộng: 12</p>
+                                <p>Tổng cộng: {{ $courseCount }}</p>
                             </button>
 
                         </div>
@@ -64,7 +64,7 @@
                             <button class="sum-btn sum-btn-item3">
                                 <img src="{{ asset('images/icon/comment.png') }}" alt="Bootstrap" width="36" height="36">
                                 <span>Bình luận</span>
-                                <p>Tổng cộng: 512</p>
+                                <p>Tổng cộng: {{ $reviewCount }}</p>
                             </button>
 
                         </div>
@@ -83,65 +83,40 @@
 
                             <table>
                                 <tr>
-                                    <th style="width: 55%;">Tên học viên</th>
-                                    <th style="width: 30%;">Thời gian</th>
+                                    <th style="width: 35%;">Tên học viên</th>
+                                    <th style="width: 30%;">Khóa học đã tham gia</th>
+                                    <th style="width: 20%;">Thời gian</th>
                                     <th style="width: 15%;">Chi tiết</th>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <img src="{{ asset('images/users/default/groom.png') }}" alt="Bootstrap" width="30" height="30">
 
-                                        NgoVuDuy
+                                @foreach ($courses as $course)
+                                    @foreach ($course->users as $student)
+                                        <tr>
+                                            <td>
+                                                <img src="{{ asset('images/users/default/groom.png') }}" alt="Bootstrap" width="30" height="30">
 
-                                    </td>
-                                    <td>
-                                        T5-12-06-2024
+                                                {{ $student->fullname }}
 
-                                    </td>
-                                    <td>
-                                        <button class="new-student-details">Chi tiết</button>
+                                            </td>
+                                            <td>
+                                                {{ $course->course_name }}
 
-                                    </td>
-                                </tr>
+                                            </td>
+                                            <td>
+                                                {{ $student->pivot->created_at }}
 
-                                <tr>
-                                    <td>
-                                        <img src="{{ asset('images/users/default/groom.png') }}" alt="Bootstrap" width="30" height="30">
+                                            </td>
+                                            <td>
+                                                <button class="new-student-details">Chi tiết</button>
 
-                                        NhatTruong
-
-                                    </td>
-                                    <td>
-                                        T5-12-06-2024
-
-                                    </td>
-                                    <td>
-                                        <button class="new-student-details">Chi tiết</button>
-
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <img src="{{ asset('images/users/default/groom.png') }}" alt="Bootstrap" width="30" height="30">
-
-
-                                        MinhNguyen
-
-                                    </td>
-                                    <td>
-                                        T5-12-06-2024
-
-                                    </td>
-                                    <td>
-                                        <button class="new-student-details">Chi tiết</button>
-
-                                    </td>
-                                </tr>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endforeach
 
                             </table>
-                        </div>
 
+                        </div>
 
                     </div>
 

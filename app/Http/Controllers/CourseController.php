@@ -19,11 +19,11 @@ class CourseController extends Controller
 
     public function index_teacher() {
 
-        $teacher_id = Auth::user()->id;
+        $teacher_id = Auth::user()->id; // Lấy ra id của giáo viên
 
-        $courses = Course::where('teacher_id', $teacher_id)->get();
+        $courses = Course::where('teacher_id', $teacher_id)->get(); // Lấy ra các khóa học thuộc về giáo viên đó
 
-        return view('mains.teacher.course-mgmt', ['courses' => $courses]);
+        return view('mains.teacher.course-mgmt', ['courses' => $courses]); // Trả về trang quản lý khóa học cùng với các khóa học của giáo viên
     }
 
     public function create()
@@ -104,17 +104,15 @@ class CourseController extends Controller
 
     public function show_teacher(string $id) {
 
-        $course = Course::find($id);
-        $user_id = Auth::user()->id;
+        $course = Course::find($id); // Tìm khóa học theo id
+        // $user_id = Auth::user()->id;
+        $lessions = $course->lessions; // Lấy ra các bài học thuộc về khóa học đó
 
-        $lessions = $course->lessions;
+        $reviews = $course->reviews()->with('user')->orderBy('created_at', 'desc')->get(); // Lấy ra các bài review của khóa học đi kèm theo thông tin của học viên
 
-        $reviews = $course->reviews()->with('user')->orderBy('created_at', 'desc')->get();
+        $students = $course->users; // Lấy ra các học viên của khóa học
 
-
-        return view('mains.teacher.teacher-course-details', compact('course', 'lessions', 'reviews'));
-
-
+        return view('mains.teacher.teacher-course-details', compact('course', 'lessions', 'reviews', 'students'));
     }
 
     public function edit(string $id)

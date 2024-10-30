@@ -22,15 +22,14 @@ class Course extends Model
 
     // Thiết lập quan hệ 1-nhiều: Một khóa học có nhiều bài học
 
-    public function Lessions()
-    {
+    public function Lessions() {
 
         return $this->hasMany(Lession::class, 'course_id');
     }
 
     public function Users() {
 
-        return $this->belongsToMany(User::class, 'course_user');
+        return $this->belongsToMany(User::class, 'course_user')->withPivot('created_at');
     }
 
     public function Reviews() {

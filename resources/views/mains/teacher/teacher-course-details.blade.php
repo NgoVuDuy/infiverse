@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="{{ asset('css/user/lession.css') }}">
 <link rel="stylesheet" href="{{ asset('css/teacher/teacher-course-details.css') }}">
 <link href="{{ asset('css/teacher/sidebar.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('css/user/user.css') }}">
+
 
 
 @endsection
@@ -80,21 +82,26 @@
 
                 <div class="col-12 mt-4">
 
+
+
                     <table>
                         <tr>
                             <th style="width: 55%;">Tên học viên</th>
                             <th style="width: 30%;">Thời gian</th>
                             <th style="width: 15%;">Chi tiết</th>
                         </tr>
+
+                        @foreach($students as $student)
+
                         <tr>
                             <td>
                                 <img src="{{ asset('images/users/default/groom.png') }}" alt="Bootstrap" width="30" height="30">
 
-                                NgoVuDuy
+                                {{ $student->fullname }}
 
                             </td>
                             <td>
-                                T5-12-06-2024
+                                {{ $student->pivot->created_at }}
 
                             </td>
                             <td>
@@ -102,41 +109,7 @@
 
                             </td>
                         </tr>
-
-                        <tr>
-                            <td>
-                                <img src="{{ asset('images/users/default/groom.png') }}" alt="Bootstrap" width="30" height="30">
-
-                                NhatTruong
-
-                            </td>
-                            <td>
-                                T5-12-06-2024
-
-                            </td>
-                            <td>
-                                <button class="new-student-details">Chi tiết</button>
-
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <img src="{{ asset('images/users/default/groom.png') }}" alt="Bootstrap" width="30" height="30">
-
-
-                                MinhNguyen
-
-                            </td>
-                            <td>
-                                T5-12-06-2024
-
-                            </td>
-                            <td>
-                                <button class="new-student-details">Chi tiết</button>
-
-                            </td>
-                        </tr>
+                        @endforeach
 
                     </table>
 
@@ -148,11 +121,69 @@
 
             <div class="row">
 
-                <h4 class="content-title"><span>Danh sách bài học</span><i class="fa fa-sort-down down-arrow"></i></h4>
 
-                <div class="col-10"></div>
+
+
+                <div class="col-10">
+                    <h4 class="content-title"><span>Danh sách bài học</span><i class="fa fa-sort-down down-arrow"></i></h4>
+                </div>
+
                 <div class="col-2 d-flex align-items-center justify-content-end">
-                    <span style="margin-right: 8px;">Thêm </span><img src="{{ asset('images/icon/add-button.png') }}" alt="Thêm bài học" width="36px" height="36px">
+
+                    <span style="margin-right: 8px;">Thêm </span>
+
+                    <button type="button" class="add-lession-btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="{{ asset('images/icon/add-button.png') }}" alt="Thêm bài học" width="36px" height="36px">
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog-centered modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Thêm bài học</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <form action="{{ route('create-new-lession', $course->id) }}" method="post" class="edit-form" enctype="multipart/form-data">
+
+                                    <div class="modal-body">
+
+                                        @csrf
+
+                                        <div class="row mb-3">
+                                            <div class="col-3"><label for="">Tiêu đề</label></div>
+                                            <div class="col-9"><input type="text" name="title-lession" id="" value=""></div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-3">
+                                                <lable>Mô tả bài học</lable>
+                                            </div>
+                                            <div class="col-9"><textarea type="text" name="desc-lession" id="" value=""></textarea></div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-3">
+                                                <label for="file">Chọn file:</label>
+                                            </div>
+
+                                            <div class="col-9">
+                                                <input type="file" name="file-lession" id="file" accept=".pdf" required>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Hủy</button>
+                                        <button type="submit" class="finish-btn">Hoàn thành</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
 
                 </div>
 
@@ -171,6 +202,9 @@
                     <hr>
 
                     @endforeach
+
+
+
                 </div>
             </div>
 
