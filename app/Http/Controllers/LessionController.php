@@ -37,16 +37,31 @@ class LessionController extends Controller
         //
         $title_lession = $request->input('title-lession');
         $desc_lession = $request->input('desc-lession');
-        $file_lession = $request->input('file-lession');
 
-        // $lession = Lession::create([
-        //     'course_id' => $course_id,
-        //     'desc_file' => $desc_lession,
-        //     'created_at' => now(),
-        //     'updated_at' => now()
-        // ]);
+        if($request->hasFile('file-lession')) {
 
-        echo $title_lession . $desc_lession . $file_lession;
+            $file = $request->file('file-lession');
+
+            $time_code = uniqid();
+
+            // $filename = $file->getClientOriginalName();
+            $file->move(public_path('files/' . $time_code), $file->getClientOriginalName());
+
+            $path = 'files/' . $time_code . '/' . $file->getClientOriginalName(); 
+
+            // echo $file->getClientOriginalName();
+        }
+
+        $lession = Lession::create([
+            'course_id' => $course_id,
+            'title' => $title_lession,
+            'file' => $path,
+            'desc_file' => $desc_lession,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        return back()->with('create-lession-message', 'Tạo bài học thành công');
     }
 
     /**

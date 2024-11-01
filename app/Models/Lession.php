@@ -13,6 +13,7 @@ class Lession extends Model
         'course_id',
         'title',
         'file',
+        'desc_file',
         'created_at',
         'updated_at'
     ];

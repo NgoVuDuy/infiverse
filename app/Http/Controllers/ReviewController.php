@@ -66,7 +66,20 @@ class ReviewController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $review = Review::find($id);
         //
+        $response_teacher = $request->input('response');
+
+        if($review) {
+
+            $review->response = $response_teacher;
+
+            $review->save();
+        }
+
+        return back();
+
+        // echo $response_teacher . $id;
     }
 
     /**

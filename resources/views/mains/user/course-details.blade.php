@@ -42,7 +42,7 @@
 
             <div class="student-synthetic student-evaluate">
 
-                <span><i class="fa fa-user"></i>4.9 (203 bài đánh giá)</span>
+                <span><i class="fa fa-star"></i>{{ $star_rating_average }} ({{ $review_quatity }} bài đánh giá)</span>
             </div>
 
         </div>
@@ -76,12 +76,11 @@
             <div class="sum-cover p-3 mb-3">
 
                 <span>
-                    <h1>4.5<i class="star-sum fa fa-star yellow" style="font-size:36px"></i></h1>
+                    <h1>{{ $star_rating_average }}<i class="star-sum fa fa-star yellow" style="font-size:36px"></i></h1>
                 </span>
 
-                <span>( 322 bài đánh giá )</span>
+                <span>( {{ $review_quatity }} bài đánh giá )</span>
             </div>
-
 
         </div>
 
@@ -111,35 +110,72 @@
 
             @if($reviews->isEmpty())
 
-                <p>Chưa có bình luận nào cho khóa học này</p>
+            <p>Chưa có bình luận nào cho khóa học này</p>
             @else
 
-                @foreach($reviews as $review)
-                    <!-- <p>{{ $review->review }}</p> -->
+            @foreach($reviews as $review)
+            <!-- <p>{{ $review->review }}</p> -->
 
-                    <div class="evaluate-user-item">
-        
-                        <div class="user-name-img-cover">
-        
-                            <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
-                            <span>{{ $review->user->username }}</span>
-        
-                        </div>
-        
-                        <div class="user-cmt mt-2">
-                            <div class="star-cover-user">
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                            </div>
-                            {{ $review->review }}
-                        </div>
-        
+            <div class="evaluate-user-item">
+
+                <div class="user-name-img-cover">
+
+                    <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
+                    <span style="">{{ $review->user->username }}</span>
+
+                </div>
+
+                <div class="user-cmt mt-2">
+                    <div class="star-cover-user">
+                        @php
+                        $star_rating = $review->star_rating
+                        @endphp
+
+                        @switch($star_rating)
+
+                        @case(1)
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        @break
+                        @case(2)
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        @break
+                        @case(3)
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        @break
+                        @case(4)
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        @break
+                        @case(5)
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        <i class="star fa fa-star" style="font-size:14px"></i>
+                        @break
+
+                        @default
+                        <p>Trống</p>
+                        @break
+
+                        @endswitch
                     </div>
-                    <hr>
-                @endforeach
+                    <p>{{ $review->review }}</p>
+
+                    @if($review->response != null)
+                        <p s><span style="font-size: 14px; font-weight:bold;">Đã trả lời:</span> {{ $review->response }}</p>
+
+                    @endif
+                </div>
+
+            </div>
+            <hr>
+            @endforeach
             @endif
 
             <!-- <div class="evaluate-user-item">

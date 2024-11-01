@@ -130,4 +130,6 @@ Route::controller(ReviewController::class)->group(function() {
 
     Route::post('{course_id}/review', 'store')->name('review');
 
+    Route::post('{review_id}/response', 'update')->name('response');
+
 });

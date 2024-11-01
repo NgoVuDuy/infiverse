@@ -193,7 +193,7 @@
 
                     <h6 class="fw-bold">{{ $lession->title }}</h6>
 
-                    <a href="{{ asset('files/lab1.pdf') }}" target="_blank">
+                    <a href="{{  asset( $lession->file) }}" target="_blank">
                         <img src="{{ asset('images/files/pdf.png') }}" alt="PDF" width="2.5%">
                     </a>
 
@@ -223,7 +223,6 @@
                     @else
 
                     @foreach($reviews as $review)
-                    <!-- <p>{{ $review->review }}</p> -->
 
                     <div class="evaluate-user-item">
 
@@ -236,18 +235,76 @@
 
                         <div class="user-cmt mt-2">
                             <div class="star-cover-user">
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                            </div>
-                            {{ $review->review }}
 
-                            <form action="" method="post" class="mt-3">
-                                <input class="rep-comment-input" type="text" placeholder="Nhập nội dung">
+
+
+                                @php
+                                $star_rating = $review->star_rating
+                                @endphp
+
+                                @switch($star_rating)
+
+                                @case(1)
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                @break
+                                @case(2)
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                @break
+                                @case(3)
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                @break
+                                @case(4)
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                @break
+                                @case(5)
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                <i class="star fa fa-star" style="font-size:14px"></i>
+                                @break
+
+                                @default
+                                <p>Trống</p>
+                                @break
+
+                                @endswitch
+
+                            </div>
+                            <p>{{ $review->review }}</p>
+
+                            @if($review->response != null)
+                            <div>
+                                <span style="font-size: 14px; font-weight:bold;">Đã trả lời:</span> {{ $review->response }}
+
+                                <div class="edit-response">
+                                    <img src="{{ asset('images/icon/marker.png') }}" alt="Chỉnh sửa" width="20px">
+
+                                </div>
+
+                                <div class="delete-response">
+                                    <img src="{{ asset('images/icon/cancel.png') }}" alt="Xóa" width="20px">
+
+                                </div>
+                            </div>
+
+                            @else
+
+
+                            <form action="{{ route('response', $review->id) }}  " method="post" class="mt-3">
+
+                                @csrf
+                                <input name="response" class="rep-comment-input" type="text" placeholder="Nhập nội dung">
                                 <button class="rep-comment-btn" type="submit">Gửi</button>
                             </form>
+
+                            @endif
                         </div>
 
                     </div>
@@ -267,6 +324,17 @@
 
 
 </div>
+
+@if(session('create-lession-message'))
+
+<x-alert>
+
+    <x-slot name="text">{{ session('create-lession-message') }}</x-slot>
+    <x-slot name="color">green</x-slot>
+
+</x-alert>
+@endif
+
 
 
 

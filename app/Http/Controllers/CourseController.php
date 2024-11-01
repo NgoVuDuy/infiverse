@@ -94,11 +94,21 @@ class CourseController extends Controller
         // Lấy tổng số lượng học viên đã tham gia khóa học này
         $join_quatity = UserCourse::where('course_id', $id)->count();
 
-        // Lấy các bài đánh giá của khóa học này
-        // $reviews = $course->reviews;
+        //Lấy tổng các bài đánh giá
+        $review_quatity = $course->reviews->count();
+
+        // Lấy các bài đánh giá của khóa học này kèm theo thông tin của học viên
         $reviews = $course->reviews()->with('user')->orderBy('created_at', 'desc')->get();
 
-        return view('mains.user.course-details', compact('course', 'isEnrolled', 'join_quatity', 'reviews', 'teacher_name'));
+        $star_rating_sum = 0;
+        foreach($reviews as $review) {
+            $star_rating_sum += $review->star_rating;
+
+        } // Tính tổng các xếp hạng sao
+
+        $star_rating_average = round($star_rating_sum / $review_quatity,1) ; // Tính trung bình xếp hạng sao
+
+        return view('mains.user.course-details', compact('course', 'isEnrolled', 'join_quatity', 'reviews', 'teacher_name', 'review_quatity', 'star_rating_average'));
     }
 
 
