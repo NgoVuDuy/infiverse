@@ -132,57 +132,11 @@
 
                     <span style="margin-right: 8px;">Thêm </span>
 
-                    <button type="button" class="add-lession-btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="add-lession-btn btn-primary" data-bs-toggle="modal" data-bs-target="#createLessionModal">
                         <img src="{{ asset('images/icon/add-button.png') }}" alt="Thêm bài học" width="36px" height="36px">
                     </button>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog-centered modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Thêm bài học</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <form action="{{ route('create-new-lession', $course->id) }}" method="post" class="edit-form" enctype="multipart/form-data">
 
-                                    <div class="modal-body">
-
-                                        @csrf
-
-                                        <div class="row mb-3">
-                                            <div class="col-3"><label for="">Tiêu đề</label></div>
-                                            <div class="col-9"><input type="text" name="title-lession" id="" value=""></div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-3">
-                                                <lable>Mô tả bài học</lable>
-                                            </div>
-                                            <div class="col-9"><textarea type="text" name="desc-lession" id="" value=""></textarea></div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <div class="col-3">
-                                                <label for="file">Chọn file:</label>
-                                            </div>
-
-                                            <div class="col-9">
-                                                <input type="file" name="file-lession" id="file" accept=".pdf" required>
-
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Hủy</button>
-                                        <button type="submit" class="finish-btn">Hoàn thành</button>
-                                    </div>
-                                </form>
-
-                            </div>
-                        </div>
-                    </div>
 
 
                 </div>
@@ -191,15 +145,25 @@
 
                     @foreach($lessions as $lession)
 
-                    <h6 class="fw-bold">{{ $lession->title }}</h6>
+                    <div class="lession-item">
 
-                    <a href="{{  asset( $lession->file) }}" target="_blank">
-                        <img src="{{ asset('images/files/pdf.png') }}" alt="PDF" width="2.5%">
-                    </a>
+                        <h6 class="fw-bold">{{ $lession->title }}</h6>
 
-                    <p class="file_desc">{{ $lession->desc_file }}</p>
+                        <a href="{{  asset( $lession->file) }}" target="_blank">
+                            <img src="{{ asset('images/files/pdf.png') }}" alt="PDF" width="2.5%">
+                        </a>
 
-                    <hr>
+                        <p class="file_desc">{{ $lession->desc_file }}</p>
+
+                        <hr>
+
+                        <!-- Nút cài đặt -->
+                        <div class="setting-response" data-bs-toggle="modal" data-bs-target="#settingModal">
+                            <img src="{{ asset('images/icon/setting.png') }}" alt="Cài đặt" width="24px">
+
+                        </div>
+                    </div>
+ 
 
                     @endforeach
 
@@ -215,6 +179,8 @@
 
 
                 <h4 class="content-title"><span>Bình luận</span><i class="fa fa-sort-down down-arrow"></i></h4>
+
+                <hr style="margin-top:16px;">
 
                 <div class="lession-evaluate-show mt-2">
                     @if($reviews->isEmpty())
@@ -283,15 +249,6 @@
                             <div>
                                 <span style="font-size: 14px; font-weight:bold;">Đã trả lời:</span> {{ $review->response }}
 
-                                <div class="edit-response">
-                                    <img src="{{ asset('images/icon/marker.png') }}" alt="Chỉnh sửa" width="20px">
-
-                                </div>
-
-                                <div class="delete-response">
-                                    <img src="{{ asset('images/icon/cancel.png') }}" alt="Xóa" width="20px">
-
-                                </div>
                             </div>
 
                             @else
@@ -307,21 +264,118 @@
                             @endif
                         </div>
 
+                        <!-- Nút cài đặt -->
+                        <div class="setting-response" data-bs-toggle="modal" data-bs-target="#settingModal">
+                            <img src="{{ asset('images/icon/setting.png') }}" alt="Cài đặt" width="24px">
+
+                        </div>
+
+
                     </div>
                     <hr>
                     @endforeach
+
+
                     @endif
 
                 </div>
             </div>
 
-            <hr>
 
         </main>
     </div>
 
+    <!-- Định nghĩa các modal -->
+    <!-- Modal -->
+    <!-- Modal create lession response-->
+    <x-modal>
+        <x-slot name="idModal">createLessionModal</x-slot>
+        <x-slot name="titleModal">Thêm bài học</x-slot>
+        <x-slot name="actionModal">{{ route('create-new-lession', $course->id) }} </x-slot>
+
+        <x-slot name="bodyModal">
+
+            <div class="row mb-3">
+                <div class="col-3"><label for="">Tiêu đề</label></div>
+                <div class="col-9"><input type="text" name="title-lession" id="" value=""></div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-3">
+                    <lable>Mô tả bài học</lable>
+                </div>
+                <div class="col-9"><textarea type="text" name="desc-lession" id="" value=""></textarea></div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-3">
+                    <label for="file">Chọn file:</label>
+                </div>
+
+                <div class="col-9">
+                    <input type="file" name="file-lession" id="file" accept=".pdf" required>
+
+                </div>
+            </div>
+        </x-slot>
+        <x-slot name="footerModal">
+
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Hủy</button>
+            <button type="submit" class="finish-btn">Hoàn thành</button>
+
+        </x-slot>
 
 
+    </x-modal>
+
+    <!-- Modal edit response-->
+    <x-modal>
+        <x-slot name="idModal">editResponseModal</x-slot>
+        <x-slot name="titleModal">Chỉnh sửa</x-slot>
+        <x-slot name="actionModal"></x-slot>
+
+        <x-slot name="bodyModal">
+
+            <div class="row mb-3">
+
+                <div class="col-3"><label for="">Câu trả lời</label></div>
+                <div class="col-9"><input type="text" name="response" id="" value="" placeholder="Nhập câu trả lời mới"></div>
+            </div>
+        </x-slot>
+        <x-slot name="footerModal">
+
+            <p class="back-btn-modal" data-bs-toggle="modal" data-bs-target="#settingModal">Trở lại</p>
+            <button type="submit" class="finish-btn">Gửi</button>
+
+        </x-slot>
+
+    </x-modal>
+
+    <!-- Modal option response-->
+    <x-modal>
+        <x-slot name="idModal">settingModal</x-slot>
+        <x-slot name="titleModal">Tùy chọn</x-slot>
+        <x-slot name="actionModal"></x-slot>
+        <x-slot name="bodyModal">
+
+            <div class="row mb-3">
+
+                <center>
+                    <div style="width:50%">
+                        <p style="color: rgb(30, 30, 255);" data-bs-toggle="modal" data-bs-target="#editResponseModal">Chỉnh sửa câu trả lời</p>
+                        <p style="color:red">Xóa câu trả lời</p>
+
+                    </div>
+                </center>
+            </div>
+        </x-slot>
+        <x-slot name="footerModal">
+
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Thoát</button>
+
+
+        </x-slot>
+
+    </x-modal>
 
 </div>
 

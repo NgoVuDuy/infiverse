@@ -19,7 +19,7 @@
 
     <div class="row mb-3">
         <div class="col-2"><label for="">Họ tên</label></div>
-        <div class="col-10"><input type="text" name="username" id="" value="{{ Auth::user()->fullname }}"></div>
+        <div class="col-10"><input type="text" name="fullname" id="" value="{{ Auth::user()->fullname }}"></div>
     </div>
     <div class="row mb-3">
         <div class="col-2">

@@ -7,6 +7,9 @@
 <link href="{{ asset('css/teacher/home.css') }}" rel="stylesheet">
 <link href="{{ asset('css/teacher/sidebar.css') }}" rel="stylesheet">
 
+
+
+
 @endsection
 
 @section('content')
@@ -90,28 +93,28 @@
                                 </tr>
 
                                 @foreach ($courses as $course)
-                                    @foreach ($course->users as $student)
-                                        <tr>
-                                            <td>
-                                                <img src="{{ asset('images/users/default/groom.png') }}" alt="Bootstrap" width="30" height="30">
+                                @foreach ($course->users as $student)
+                                <tr>
+                                    <td>
+                                        <img src="{{ asset('images/users/default/groom.png') }}" alt="Bootstrap" width="30" height="30">
 
-                                                {{ $student->fullname }}
+                                        {{ $student->fullname }}
 
-                                            </td>
-                                            <td>
-                                                {{ $course->course_name }}
+                                    </td>
+                                    <td>
+                                        {{ $course->course_name }}
 
-                                            </td>
-                                            <td>
-                                                {{ $student->pivot->created_at }}
+                                    </td>
+                                    <td>
+                                        {{ $student->pivot->created_at }}
 
-                                            </td>
-                                            <td>
-                                                <button class="new-student-details">Chi tiết</button>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('user-details', $student->id) }}?check=true"><button class="new-student-details">Chi tiết</button></a>
 
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                    </td>
+                                </tr>
+                                @endforeach
                                 @endforeach
 
                             </table>
@@ -125,11 +128,11 @@
                 <div class="col-3 teacher-profile">
                     <img class="rounded-circle mt-3" src="{{ asset(Auth::user()->user_img) }}" alt="" width="100px" height="100px">
                     <p class="mt-2">Nguyễn Minh Nguyễn</p>
-
+                    
                     <div class="profile-under mt-5">
-                        <p><span>Chức danh:</span> Giảng viên</p>
-                        <p><span>Lĩnh vực:</span> Big data và trí tuệ nhân tạo</p>
-                        <p><span>Thông tin liên hệ:</span> Ig: juenen</p>
+                        <p><span>Email: </span>{{ Auth::user()->email }}</p>
+                        <p><span>Liên hệ: </span><a href="{{ Auth::user()->contact }}">{{ Auth::user()->contact }}</a></p>
+                        <p><span>Thành tích: </span>{{ Auth::user()->achievenment }}</p>
 
                     </div>
                 </div>
@@ -150,6 +153,7 @@
 
 </x-window-adv>
 @endif
+
 
 
 @endsection

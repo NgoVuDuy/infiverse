@@ -1,0 +1,29 @@
+.edit-profile-form {
+    display: none;
+}
+
+.edit-profile-form  div {
+
+    margin: 10px 0px 4px 0px;
+}
+
+.edit-profile-form div label {
+
+    font-weight: bold;
+    color: #676767;
+    font-size: 13px;
+}
+
+.edit-profile-form input,
+.edit-profile-form textarea {
+
+    width: 80%;
+    padding: 6px;
+    border-radius: 12px;
+    border: 2px rgb(210, 210, 210) solid;
+    
+}
+
+.finish-profile-btn {
+    width: max-content;
+}

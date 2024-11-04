@@ -5,7 +5,7 @@ $(document).ready(function() {
 
         $.ajax({
 
-            url: "/user-details",
+            url: urlUserDetails,
             type: "GET",
             success: function(response) {
 

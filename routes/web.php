@@ -96,12 +96,14 @@ Route::controller(UserController::class)->group(function() {
 
     Route::get('/user', 'index');
 
+    Route::get('/profile', 'index_teacher');
+
+
     Route::get('/load-edit-form', 'edit');
 
-    Route::get('/user-details', 'show')->name('user-details');
+    Route::get('{user_id}/user-details', 'show')->name('user-details');
 
     Route::get('/delete-user', 'destroy');
-
 
     Route::post('/update-user', 'update');
 
@@ -124,6 +126,11 @@ Route::get('/change-password', function() {
 Route::get('/delete-user-confirmation', function() {
 
     return redirect('/user')->with('delete-user-confirmation', 'Bạn có chắc xóa tài khoản này không ?');
+});
+
+Route::get('/delete-user-profile', function() {
+
+    return redirect('/profile')->with('delete-user-profile', 'Bạn có chắc xóa tài khoản này không ?');
 });
 
 Route::controller(ReviewController::class)->group(function() {

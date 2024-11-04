@@ -37,6 +37,11 @@
     width: 200px;
 }
 
+.user-profile span {
+    width: 50%;
+}
+
+
 .dlt-user {
     color: red;
 }
@@ -56,7 +61,7 @@
     width: 100%;
 }
 
-.edit-form .finish-btn {
+.edit-form .finish-btn, .upload-profile-img, .finish-profile-btn {
     border: none;
     border-radius: 8px;
     color: white;

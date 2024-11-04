@@ -65,7 +65,7 @@
 
 
                 <li class="nav-item">
-                    <a class="side-option d-flex align-items-center gap-2" href="profile-mgmt">
+                    <a class="side-option d-flex align-items-center gap-2" href="/profile">
 
                         <span>
                             <img src="{{ asset('images/icon/profile.png') }}" alt="Bootstrap" width="36" height="36">

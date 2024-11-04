@@ -105,7 +105,6 @@
 </x-window>
 @endif
 
-
 @if(session('delete-user-confirmation'))
 
 <x-window-adv>
@@ -131,6 +130,10 @@
             $(this).addClass('active')
         })
     })
+</script>
+
+<script>
+    var urlUserDetails = "{{ route('user-details', Auth::user()->id) }}" 
 </script>
 
 <script src="{{ asset('js/ajax/user-information.js') }}"></script>

@@ -50,15 +50,19 @@
 
 <div class="container">
 
-    <div class="row home-navbar">
-        <div class="col-2">
-            Khóa học nổi bật
-        </div>
-        <div class="col-2">
-            Đang tham gia
-        </div>
-        <div class="col-2">
-            Khóa học yêu thích
+    <div class="row home-title mt-5 mb-2">
+        <div class="col-12">
+            <div class="">
+
+                <img src="{{ asset('images/icon/new_1.png') }}" alt="new_icon" width="40px">
+            </div>
+            <h6>Khóa học mới nhất</h6>
+
+            <div class="">
+
+                <img src="{{ asset('images/icon/new_1.png') }}" alt="new_icon" width="40px">
+            </div>
+
         </div>
     </div>
 
@@ -88,6 +92,38 @@
         </div>
 
         @endforeach
+    </div>
+
+    <div class="row home-title mt-5 mb-2">
+        <div class="col-12">
+            <div class="">
+
+                <img src="{{ asset('images/icon/star_1.png') }}" alt="star_icon" width="40px">
+            </div>
+            <h6>Khóa học nổi bật</h6>
+
+            <div class="">
+
+                <img src="{{ asset('images/icon/star_1.png') }}" alt="star_icon" width="40px">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row home-title mt-5 mb-2">
+        <div class="col-12">
+            <div class="">
+
+                <img src="{{ asset('images/icon/notification.png') }}" alt="notification_icon" width="40px">
+            </div>
+            <h6>Khóa học gợi ý</h6>
+
+            <div class="">
+
+                <img src="{{ asset('images/icon/notification.png') }}" alt="notification_icon" width="40px">
+            </div>
+
+        </div>
     </div>
 </div>
 

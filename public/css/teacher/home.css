@@ -15,6 +15,7 @@ header {
     position: sticky;
     top: 48px;
   }
+
   .navbar-search {
     display: block;
   }
@@ -59,7 +60,7 @@ header {
 
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
-      font-size: 3.5rem;
+    font-size: 3.5rem;
   }
 }
 
@@ -128,9 +129,11 @@ header {
 .sum-btn span {
   font-size: 22px;
 }
+
 .sum-btn img {
   margin-right: 8px;
 }
+
 .sum-btn p {
   font-size: 16px;
   margin-top: 12px;
@@ -170,26 +173,29 @@ header {
   font-weight: bold;
 }
 
-.new-student-table {
-
-}
+.new-student-table {}
 
 table {
   width: 100%;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid rgb(212, 212, 212);
   border-collapse: collapse;
 
 }
+
 .table-title {
 
   font-weight: bold;
 
 
 }
-th, td {
+
+th,
+td {
   padding: 14px;
 }
 
@@ -206,4 +212,10 @@ td img {
   padding: 8px;
   width: 100%;
 
+}
+
+.profile-under {
+  padding: 28px;
+  border-radius: 12px;
+  border: 1px rgb(210, 210, 210) solid;
 }

@@ -21,6 +21,12 @@ class UserController extends Controller
         return view('mains.user.user');
     }
 
+    public function index_teacher()
+    {
+
+        return view('mains.teacher.profile-mgmt');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -40,11 +46,17 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(string $id, Request $request)
     {
         //
-        $user_id = Auth::user()->id;
-        $user = User::find($user_id);
+        // $user_id = Auth::user()->id;
+        $user = User::find($id);
+
+        $check = $request->query('check');
+        if ($check == true) {
+
+            return back();
+        }
 
         return view('partials.user-information', compact('user'));
     }
@@ -63,17 +75,29 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
-        
+
         $user_id = Auth::user()->id;
         $user_name = Auth::user()->username;
         $user = User::find($user_id);
 
-        $username = $request->input('username');
+        $fullname = $request->input('fullname');
         $phone_number = $request->input('phone-number');
         $email = $request->input('email');
         $contact = $request->input('contact');
         $desc_user = $request->input('desc-user');
         $achievenment = $request->input('achievenment');
+
+        //Những trường chỉ có ở giáo viên
+        $username = $request->input('username');
+        $password = Auth::user()->password;
+        $old_password = $request->input('old_password');
+        $new_password = null;
+
+        if (Hash::check($old_password, $password)) {
+
+            $new_password = $request->input('password');
+
+        }
 
         if ($request->hasFile('user-img')) {
 
@@ -86,20 +110,26 @@ class UserController extends Controller
             $user->user_img = 'images/users/' . $user_id . "_" . $user_name . "/" . $file->getClientOriginalName();
         }
 
-        if($user) {
+        if ($user) {
 
-            $user->fullname = $username;
+            $user->username = $username;
+            $user->fullname = $fullname;
             $user->phone_number = $phone_number;
             $user->email = $email;
             $user->contact = $contact;
             $user->desc_user = $desc_user;
             $user->achievenment = $achievenment;
 
+            // $user->password = $new_password;
+
             $user->save();
         }
 
-        return redirect('/user');
-
+        if (Auth::user()->role == 'teacher') {
+            return redirect('/profile');
+        } else {
+            return redirect('/user');
+        }
     }
 
     /**
@@ -108,7 +138,7 @@ class UserController extends Controller
     public function destroy()
     {
         //
-        
+
         $user_id = Auth::user()->id;
 
         $user = User::find($user_id);
@@ -116,10 +146,10 @@ class UserController extends Controller
         $user->delete();
 
         return redirect('/login')->with('delete-username-message', 'Bạn đã xóa tài khoản thành công');
-
     }
 
-    public function changeUsername(Request $request) {
+    public function changeUsername(Request $request)
+    {
 
         $username = $request->input('username');
 
@@ -132,16 +162,16 @@ class UserController extends Controller
         $user->save();
 
         return redirect('/user')->with('change-username-message', 'Tên tài khoản đã thay đổi thành công');
-
     }
 
-    public function changePassword(Request $request) {
+    public function changePassword(Request $request)
+    {
 
         $password = Auth::user()->password;
 
         $old_password = $request->input('old_password');
 
-        if(Hash::check($old_password, $password)) {
+        if (Hash::check($old_password, $password)) {
 
             $new_password = $request->input('password');
 
@@ -155,8 +185,6 @@ class UserController extends Controller
             return redirect('/user')->with('change-password-message-success', 'Đổi mật khẩu thành công');
         } else {
             return redirect('/user')->with('change-password-message-error', 'Đổi mật khẩu thất bại');
-
         }
-
     }
 }
