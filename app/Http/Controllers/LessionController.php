@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\Lession;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class LessionController extends Controller
@@ -16,9 +17,12 @@ class LessionController extends Controller
         //
         $course = Course::findOrFail($course_id);
 
+        $teacher_id = $course->teacher_id;
+        $teacher_name = User::find($teacher_id)->fullname;
+
         $lessions = $course->lessions;
 
-        return view('mains.user.lession', compact('course', 'lessions'));
+        return view('mains.user.lession', compact('course', 'lessions',  'teacher_name'));
     }
 
     /**

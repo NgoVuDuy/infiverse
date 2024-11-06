@@ -1,5 +1,5 @@
 body {
-    
+
     font-family: Hanken Grotesk !important;
 
 }
@@ -22,6 +22,7 @@ body {
 .home-desc {
     margin: 8px 0px;
 }
+
 .home-desc img {
     margin-right: 8px;
 }
@@ -30,17 +31,39 @@ body {
     margin: 0 auto;
     padding: 12px;
     border: 2px rgb(210, 210, 210) solid;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); /* Bóng đổ về bên phải và dưới */
-    border-radius: 20px;
-    background: #198754;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    /* Bóng đổ về bên phải và dưới */
+    border-radius: 8px;
+    /* background: #198754; */
     color: white;
     width: 30%;
+}
+
+.home-title-new {
+    background-color: #6b7ed9;
+
+
+
+}
+
+.home-title-outstanding {
+
+    background-color: #00c63a;
+
+
+}
+
+.home-title-suggest {
+    background-color: #ff3581;
+
+
 }
 
 .home-title h6 {
     margin: 0px;
     display: inline;
-    padding: 0px 24px ;
+    padding: 0px 24px;
+    font-size: 18px;
 }
 
 .home-title div {
@@ -48,13 +71,11 @@ body {
     text-align: center;
 }
 
-.name-user {
+.hightlight-text {
 
     font-size: 24px;
-    color: #ff0a0a;
+    color: #ff6f00;
 }
 
 
-.join-in-btn {
-
-}
+.join-in-btn {}

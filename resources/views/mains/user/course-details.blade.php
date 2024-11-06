@@ -23,7 +23,7 @@
 
             <a class="course-link" href="{{ route('lessions', $course->id) }}">
 
-                <button class="join-in-btn">Vào học ngay</button>
+                <button style="background-color: #ff6f00;" class="join-in-btn">Vào học ngay</button>
             </a><br>
 
             @else

@@ -16,7 +16,7 @@
         <div class="col-8 lession-left">
 
             <h1 class="course-name">{{ $course->course_name }}</h1>
-            <p class="course-teacher">Ngo Vu Duy</p>
+            <p class="course-teacher">{{ $teacher_name }}</p>
             <p class="course-description">{{ $course->description }}</p>
 
         </div>

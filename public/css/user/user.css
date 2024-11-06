@@ -63,12 +63,25 @@
 
 .edit-form .finish-btn, .upload-profile-img, .finish-profile-btn {
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     color: white;
-    background-color: #198754;
     /* margin: 4px; */
     padding: 8px;
 }
+
+.edit-form .finish-btn, .finish-profile-btn {
+
+    background-color: #198754;
+
+
+}
+
+.upload-profile-img {
+
+    background-color: #ff6f00;
+
+}
+
 
 .edit-form  {
     font-size: 14px;

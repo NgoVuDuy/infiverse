@@ -64,9 +64,9 @@ class ReviewController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $course_id, string $review_id)
     {
-        $review = Review::find($id);
+        $review = Review::find($review_id);
         //
         $response_teacher = $request->input('response');
 
@@ -77,9 +77,9 @@ class ReviewController extends Controller
             $review->save();
         }
 
-        return back();
 
-        // echo $response_teacher . $id;
+        return redirect()->to(route('teacher-course-details', $course_id) . "#review-title" )->with('display', 'block');
+
     }
 
     /**

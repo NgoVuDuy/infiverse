@@ -6,7 +6,7 @@
 
 <link href="{{ asset('css/teacher/home.css') }}" rel="stylesheet">
 <link href="{{ asset('css/teacher/sidebar.css') }}" rel="stylesheet">
-
+<link href="{{ asset('css/user/user.css') }}" rel="stylesheet">
 
 
 
@@ -96,7 +96,7 @@
                                 @foreach ($course->users as $student)
                                 <tr>
                                     <td>
-                                        <img src="{{ asset('images/users/default/groom.png') }}" alt="Bootstrap" width="30" height="30">
+                                        <img src="{{ asset($student->user_img) }}" alt="Bootstrap" width="30" height="30">
 
                                         {{ $student->fullname }}
 
@@ -110,14 +110,75 @@
 
                                     </td>
                                     <td>
-                                        <a href="{{ route('user-details', $student->id) }}?check=true"><button class="new-student-details">Chi tiết</button></a>
+                                        <a href="" data-bs-toggle="modal" data-bs-target="#{{ $student->id }}"><button class="new-student-details">Chi tiết</button></a>
 
                                     </td>
                                 </tr>
+
+                                <!-- Button trigger modal
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Launch demo modal
+                                </button> -->
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="{{ $student->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Thông tin học viên</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+
+                                                    <div class="col-12">
+                                                        <div class="user-cover p-3">
+    
+                                                            <div class="col-12 mb-3 d-flex flex-column align-items-center">
+    
+                                                                <h5>{{ $student->fullname }}</h5>
+    
+                                                                <img class="rounded-circle" src="{{ asset($student->user_img) }}" alt="" width="100px" height="100px">
+    
+    
+                                                            </div>
+    
+                                                            <hr>
+    
+                                                            <div class="col-12">
+                                                                <div class="user-information">
+    
+    
+                                                                    <div class="user-profile">
+    
+                                                                        <p><span>Số điện thoại</span>{{ $student->phone_number }}</p>
+                                                                        <p><span>Địa chỉ Email</span>{{ $student->email }}</p>
+                                                                        <p><span>Liên hệ</span><a href="{{ Auth::user()->contact }}">{{ Auth::user()->contact }}</a></p>
+                                                                        <p><span>Mô tả bản thân</span>{{ $student->desc_user }}</p>
+                                                                        <p><span>Thành tích</span>{{ $student->achievenment }}</p>
+                                                                    </div>
+    
+                                                                </div>
+                                                            </div>
+    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Thoát</button>
+                                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                                 @endforeach
                                 @endforeach
 
                             </table>
+
 
                         </div>
 
@@ -127,8 +188,8 @@
 
                 <div class="col-3 teacher-profile">
                     <img class="rounded-circle mt-3" src="{{ asset(Auth::user()->user_img) }}" alt="" width="100px" height="100px">
-                    <p class="mt-2">Nguyễn Minh Nguyễn</p>
-                    
+                    <p class="mt-2">{{ Auth::user()->fullname }}</p>
+
                     <div class="profile-under mt-5">
                         <p><span>Email: </span>{{ Auth::user()->email }}</p>
                         <p><span>Liên hệ: </span><a href="{{ Auth::user()->contact }}">{{ Auth::user()->contact }}</a></p>
@@ -137,6 +198,8 @@
                     </div>
                 </div>
             </div>
+
+
 
         </main>
     </div>

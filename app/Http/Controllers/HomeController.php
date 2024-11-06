@@ -13,13 +13,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //
-        $courses = Course::all();
 
-        return view('mains.user.home', ['courses' => $courses]);
+        // Lấy ra top 4 khóa học có thời gian tạo mới nhất (Khóa học mới nhất)
+        $newCourses = Course::orderBy('created_at', 'desc')->take(4)->get();
+
+
+        //Lấy ra top 4 khóa học có trung bình đánh giá cao nhất (Khóa học nổi bật)
+        $osdCourses = Course::withAvg('reviews', 'star_rating')->orderByDesc('reviews_avg_star_rating')->take(4)->get();
+
+
+        //Lấy ra top 4 khóa học có số lượng học viên tham gia nhiều nhất
+        $suggestCourses = Course::withCount('users')->orderByDesc('users_count')->take(4)->get();
+
+        return view('mains.user.home', compact('newCourses', 'osdCourses', 'suggestCourses'));
     }
 
-    public function index_teacher() {
+    public function index_teacher()
+    {
 
         $teacher_id = Auth::user()->id; // Lấy ra id của giáo viên
 
@@ -27,11 +37,11 @@ class HomeController extends Controller
 
         $courseCount = Course::where('teacher_id', $teacher_id)->count(); // Đếm xem có bao nhiêu khóa học thuộc về giáo viên
 
-        $studentCount = $courses->sum(function($course) {
+        $studentCount = $courses->sum(function ($course) {
             return $course->users->count();
         });
 
-        $reviewCount = $courses->sum(function($course) {
+        $reviewCount = $courses->sum(function ($course) {
             return $course->reviews->count();
         });
 
@@ -50,7 +60,7 @@ class HomeController extends Controller
     public function create()
     {
         //
-        
+
     }
 
     /**

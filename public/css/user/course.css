@@ -64,15 +64,15 @@ body {
 .course-name {
     
     margin: 8px 8px;
-
     font-size: 16px;
+    font-weight: 900;
     
 }
 
 .join-in-btn {
 
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     color: white;
     background-color: #198754;
     margin: 4px;

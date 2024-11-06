@@ -105,10 +105,62 @@
 
                             </td>
                             <td>
-                                <button class="new-student-details">Chi tiết</button>
+                                <button class="new-student-details" data-bs-toggle="modal" data-bs-target="#{{ $student->id }}">Chi tiết</button>
 
                             </td>
                         </tr>
+
+                        <div class="modal fade" id="{{ $student->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Thông tin học viên</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+
+                                            <div class="col-12">
+                                                <div class="user-cover p-3">
+
+                                                    <div class="col-12 mb-3 d-flex flex-column align-items-center">
+
+                                                        <h5>{{ $student->fullname }}</h5>
+
+                                                        <img class="rounded-circle" src="{{ asset($student->user_img) }}" alt="" width="100px" height="100px">
+
+
+                                                    </div>
+
+                                                    <hr>
+
+                                                    <div class="col-12">
+                                                        <div class="user-information">
+
+
+                                                            <div class="user-profile">
+
+                                                                <p><span>Số điện thoại</span>{{ $student->phone_number }}</p>
+                                                                <p><span>Địa chỉ Email</span>{{ $student->email }}</p>
+                                                                <p><span>Liên hệ</span><a href="{{ Auth::user()->contact }}">{{ Auth::user()->contact }}</a></p>
+                                                                <p><span>Mô tả bản thân</span>{{ $student->desc_user }}</p>
+                                                                <p><span>Thành tích</span>{{ $student->achievenment }}</p>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Thoát</button>
+                                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         @endforeach
 
                     </table>
@@ -143,6 +195,11 @@
 
                 <div class="lession-list col-12 mt-4">
 
+                    @if($lessions->isEmpty())
+                    <p>Chưa có bài học nào dành cho khóa học này</p>
+                    @else
+
+
                     @foreach($lessions as $lession)
 
                     <div class="lession-item">
@@ -158,14 +215,15 @@
                         <hr>
 
                         <!-- Nút cài đặt -->
-                        <div class="setting-response" data-bs-toggle="modal" data-bs-target="#settingModal">
+                        <div class="setting-response" data-bs-toggle="modal" data-bs-target="#optionLessionModal">
                             <img src="{{ asset('images/icon/setting.png') }}" alt="Cài đặt" width="24px">
 
                         </div>
                     </div>
- 
+
 
                     @endforeach
+                    @endif
 
 
 
@@ -178,11 +236,12 @@
             <div class="row lession-evaluate">
 
 
-                <h4 class="content-title"><span>Bình luận</span><i class="fa fa-sort-down down-arrow"></i></h4>
+                <h4 class="content-title" id="review-title"><span>Bình luận</span><i class="fa fa-sort-down down-arrow"></i></h4>
 
                 <hr style="margin-top:16px;">
 
-                <div class="lession-evaluate-show mt-2">
+                <div class="lession-evaluate-show mt-2"  style="display: {{ session('display', 'none') }} !important;">
+
                     @if($reviews->isEmpty())
 
                     <p>Chưa có bình luận nào cho khóa học này</p>
@@ -201,7 +260,6 @@
 
                         <div class="user-cmt mt-2">
                             <div class="star-cover-user">
-
 
 
                                 @php
@@ -254,7 +312,7 @@
                             @else
 
 
-                            <form action="{{ route('response', $review->id) }}  " method="post" class="mt-3">
+                            <form action="{{ route('response',['course_id' => $course->id, 'review_id' => $review->id]) }}  " method="post" class="mt-3">
 
                                 @csrf
                                 <input name="response" class="rep-comment-input" type="text" placeholder="Nhập nội dung">
@@ -372,6 +430,72 @@
 
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Thoát</button>
 
+
+        </x-slot>
+
+    </x-modal>
+
+    <!-- Modal option lessions-->
+    <x-modal>
+        <x-slot name="idModal">optionLessionModal</x-slot>
+        <x-slot name="titleModal">Tùy chọn</x-slot>
+        <x-slot name="actionModal"></x-slot>
+        <x-slot name="bodyModal">
+
+            <div class="row mb-3">
+
+                <center>
+                    <div style="width:50%">
+                        <p style="color: rgb(30, 30, 255);" data-bs-toggle="modal" data-bs-target="#editLessionModal">Chỉnh sửa bài học</p>
+                        <p style="color:red">Xóa bài học</p>
+
+                    </div>
+                </center>
+            </div>
+        </x-slot>
+        <x-slot name="footerModal">
+
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Thoát</button>
+
+
+        </x-slot>
+
+    </x-modal>
+
+    <!-- Modal edit lessions-->
+    <x-modal>
+        <x-slot name="idModal">editLessionModal</x-slot>
+        <x-slot name="titleModal">Chỉnh sửa</x-slot>
+        <x-slot name="actionModal"></x-slot>
+
+        <x-slot name="bodyModal">
+
+            <div class="row mb-3">
+                <div class="col-3"><label for="">Tiêu đề</label></div>
+                <div class="col-9"><input type="text" name="title-lession" id="" value=""></div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-3">
+                    <lable>Mô tả bài học</lable>
+                </div>
+                <div class="col-9"><textarea type="text" name="desc-lession" id="" value=""></textarea></div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-3">
+                    <label for="file">Chọn file:</label>
+                </div>
+
+                <div class="col-9">
+                    <input type="file" name="file-lession" id="file" accept=".pdf" required>
+
+                </div>
+            </div>
+        </x-slot>
+        <x-slot name="footerModal">
+
+            <p class="back-btn-modal" data-bs-toggle="modal" data-bs-target="#optionLessionModal">Trở lại</p>
+            <button type="submit" class="finish-btn">Hoàn thành</button>
 
         </x-slot>
 

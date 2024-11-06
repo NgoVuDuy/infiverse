@@ -15,7 +15,7 @@
     <div class="row home-header">
 
 
-        <h5 class="mb-5">Xin chào <span class="name-user">{{ Auth::user()->username }}</span> .Chào mừng bạn đến với Infiverse. Hãy cùng khám phá nhé !</h5>
+        <h5 class="mb-5">Xin chào <span class="hightlight-text">{{ Auth::user()->username }}</span> .Chào mừng bạn đến với <span class="hightlight-text">Infiverse</span> . Hãy cùng khám phá nhé !</h5>
 
         <div class="col-5 home-left">
 
@@ -50,7 +50,9 @@
 
 <div class="container">
 
-    <div class="row home-title mt-5 mb-2">
+<!-- iTEM1 -->
+
+    <div class="row home-title mt-5 mb-2 home-title-new">
         <div class="col-12">
             <div class="">
 
@@ -68,7 +70,7 @@
 
     <div class="row course-row">
 
-        @foreach($courses as $course)
+        @foreach($newCourses as $course)
 
         <div class="col-lg-3 col-md-4 col-6 course-cover">
 
@@ -94,7 +96,12 @@
         @endforeach
     </div>
 
-    <div class="row home-title mt-5 mb-2">
+    <hr>
+
+<!-- iTEM2 -->
+
+
+    <div class="row home-title mt-5 mb-2 home-title-outstanding">
         <div class="col-12">
             <div class="">
 
@@ -110,7 +117,41 @@
         </div>
     </div>
 
-    <div class="row home-title mt-5 mb-2">
+    <div class="row course-row">
+
+        @foreach($osdCourses as $course)
+
+        <div class="col-lg-3 col-md-4 col-6 course-cover">
+
+            <div class="course">
+
+                <img src="{{ asset($course->img) }}" alt="" width="100%" height="65%">
+
+
+                <p class="course-name">{{ $course->course_name }}</p>
+
+                <!-- <a class="course-link" href="{{ route('lessions', $course->id) }}">
+
+            <button class="join-in-btn">Chi tiết</button>
+        </a> -->
+                <a class="course-link" href="{{ route('course-details', $course->id) }}">
+
+                    <button class="join-in-btn">Chi tiết</button>
+                </a>
+            </div>
+
+        </div>
+
+        @endforeach
+    </div>
+
+    <hr>
+
+
+<!-- iTEM3 -->
+
+
+    <div class="row home-title mt-5 mb-2 home-title-suggest">
         <div class="col-12">
             <div class="">
 
@@ -125,6 +166,33 @@
 
         </div>
     </div>
+
+    <div class="row course-row">
+
+        @foreach($suggestCourses as $course)
+
+        <div class="col-lg-3 col-md-4 col-6 course-cover">
+
+            <div class="course">
+
+                <img src="{{ asset($course->img) }}" alt="" width="100%" height="65%">
+
+
+                <p class="course-name">{{ $course->course_name }}</p>
+
+                <a class="course-link" href="{{ route('course-details', $course->id) }}">
+
+                    <button class="join-in-btn">Chi tiết</button>
+                </a>
+            </div>
+
+        </div>
+
+        @endforeach
+    </div>
+
+    <hr>
+
 </div>
 
 

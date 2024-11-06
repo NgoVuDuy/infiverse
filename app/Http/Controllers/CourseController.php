@@ -10,14 +10,15 @@ use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
-    public function index() {
+    public function index()
+    {
 
         $courses = Course::all();
         return view('mains.user.course', ['courses' => $courses]);
-
     }
 
-    public function index_teacher() {
+    public function index_teacher()
+    {
 
         $teacher_id = Auth::user()->id; // Lấy ra id của giáo viên
 
@@ -69,17 +70,17 @@ class CourseController extends Controller
 
         ]);
 
-        if($course) {
+        if ($course) {
             return back()->with('message-create-course', 'Tạo khóa học thành công');
         } else {
             return back()->with('message-create-course', 'Tạo khóa học thất bại !');
-
         }
-
-
     }
 
-    public function show(string $id) {
+    public function show(string $id)
+    {
+
+
 
         $course = Course::find($id);
         $user_id = Auth::user()->id;
@@ -100,25 +101,31 @@ class CourseController extends Controller
         // Lấy các bài đánh giá của khóa học này kèm theo thông tin của học viên
         $reviews = $course->reviews()->with('user')->orderBy('created_at', 'desc')->get();
 
-        $star_rating_sum = 0;
-        foreach($reviews as $review) {
-            $star_rating_sum += $review->star_rating;
+        $star_rating_average = 0.0;
 
-        } // Tính tổng các xếp hạng sao
+        if ($review_quatity != 0) {
 
-        $star_rating_average = round($star_rating_sum / $review_quatity,1) ; // Tính trung bình xếp hạng sao
+            $star_rating_sum = 0;
+            foreach ($reviews as $review) {
+                $star_rating_sum += $review->star_rating;
+            } // Tính tổng các xếp hạng sao
+
+            $star_rating_average = round($star_rating_sum / $review_quatity, 1); // Tính trung bình xếp hạng sao
+
+        }
 
         return view('mains.user.course-details', compact('course', 'isEnrolled', 'join_quatity', 'reviews', 'teacher_name', 'review_quatity', 'star_rating_average'));
     }
 
 
-    public function show_teacher(string $id) {
+    public function show_teacher(string $id)
+    {
 
         $course = Course::find($id); // Tìm khóa học theo id
         // $user_id = Auth::user()->id;
         $lessions = $course->lessions; // Lấy ra các bài học thuộc về khóa học đó
 
-        $reviews = $course->reviews()->with('user')->orderBy('created_at', 'desc')->get(); // Lấy ra các bài review của khóa học đi kèm theo thông tin của học viên
+        $reviews = $course->reviews()->with('user')->orderBy('updated_at', 'desc')->get(); // Lấy ra các bài review của khóa học đi kèm theo thông tin của học viên
 
         $students = $course->users; // Lấy ra các học viên của khóa học
 
