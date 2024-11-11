@@ -50,7 +50,7 @@
 
 <div class="container">
 
-<!-- iTEM1 -->
+    <!-- iTEM1 -->
 
     <div class="row home-title mt-5 mb-2 home-title-new">
         <div class="col-12">
@@ -81,10 +81,12 @@
 
                 <p class="course-name">{{ $course->course_name }}</p>
 
-                <!-- <a class="course-link" href="{{ route('lessions', $course->id) }}">
-    
-                    <button class="join-in-btn">Chi tiết</button>
-                </a> -->
+                @if($course->has_joined)
+
+                <p class="has-joined-text">Đã tham gia</p>
+
+                @endif
+
                 <a class="course-link" href="{{ route('course-details', $course->id) }}">
 
                     <button class="join-in-btn">Chi tiết</button>
@@ -98,7 +100,7 @@
 
     <hr>
 
-<!-- iTEM2 -->
+    <!-- iTEM2 -->
 
 
     <div class="row home-title mt-5 mb-2 home-title-outstanding">
@@ -129,11 +131,11 @@
 
 
                 <p class="course-name">{{ $course->course_name }}</p>
+                @if($course->has_joined)
 
-                <!-- <a class="course-link" href="{{ route('lessions', $course->id) }}">
+                <p class="has-joined-text">Đã tham gia</p>
 
-            <button class="join-in-btn">Chi tiết</button>
-        </a> -->
+                @endif
                 <a class="course-link" href="{{ route('course-details', $course->id) }}">
 
                     <button class="join-in-btn">Chi tiết</button>
@@ -148,7 +150,7 @@
     <hr>
 
 
-<!-- iTEM3 -->
+    <!-- iTEM3 -->
 
 
     <div class="row home-title mt-5 mb-2 home-title-suggest">
@@ -179,6 +181,12 @@
 
 
                 <p class="course-name">{{ $course->course_name }}</p>
+
+                @if($course->has_joined)
+
+                <p class="has-joined-text">Đã tham gia</p>
+
+                @endif
 
                 <a class="course-link" href="{{ route('course-details', $course->id) }}">
 

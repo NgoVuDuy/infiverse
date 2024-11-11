@@ -82,11 +82,32 @@ class ReviewController extends Controller
 
     }
 
+    public function update_response(Request $request, string $id) {
+
+        // echo $id;
+        $response = $request->input('response');
+        // echo $response;
+
+        $review = Review::find($id);
+
+        if($review) {
+
+            $review->response = $response;
+
+            $review->save();
+        }
+
+        return back();
+    }
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
         //
+
     }
+
+
 }

@@ -25,6 +25,8 @@ body {
     padding: 0px;
 }
 .course {
+    position: relative;
+
     margin: 4px;
     /* background-color: #fbeaeb; */
     height: 300px;
@@ -76,15 +78,30 @@ body {
     color: white;
     background-color: #198754;
     margin: 4px;
-    padding: 8px;
+    padding: 6px;
 }
 
 .leave-course-btn {
 
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     color: white;
     background-color: red;
     margin: 4px;
-    padding: 8px;
+    padding: 6px;
+}
+
+.has-joined-text {
+
+    position: absolute;
+    font-size: 12px;
+    /* border: 2px black solid; */
+
+    background-color: red;
+    color: white;
+
+    right: -1%;
+    top: -1%;
+    padding: 4px 6px;
+    border-radius: 2px;
 }

@@ -14,6 +14,8 @@ class HomeController extends Controller
     public function index()
     {
 
+        $user = Auth::user(); // Lấy thông tin người dùng hiện tại
+
         // Lấy ra top 4 khóa học có thời gian tạo mới nhất (Khóa học mới nhất)
         $newCourses = Course::orderBy('created_at', 'desc')->take(4)->get();
 
@@ -24,6 +26,22 @@ class HomeController extends Controller
 
         //Lấy ra top 4 khóa học có số lượng học viên tham gia nhiều nhất
         $suggestCourses = Course::withCount('users')->orderByDesc('users_count')->take(4)->get();
+
+        // Kiểm tra người dùng có tham gia khóa học nào không
+        $newCourses = $newCourses->map(function ($course) use ($user) {
+            $course->has_joined = $course->users->contains($user);
+            return $course;
+        });
+
+        $osdCourses = $osdCourses->map(function ($course) use ($user) {
+            $course->has_joined = $course->users->contains($user);
+            return $course;
+        });
+
+        $suggestCourses = $suggestCourses->map(function ($course) use ($user) {
+            $course->has_joined = $course->users->contains($user);
+            return $course;
+        });
 
         return view('mains.user.home', compact('newCourses', 'osdCourses', 'suggestCourses'));
     }

@@ -16,7 +16,7 @@
 
 @section('content')
 
-<header class="navbar sticky-top flex-md-nowrap p-2 shadow" data-bs-theme="dark">
+<header class="navbar sticky-top flex-md-nowrap p-3 shadow" data-bs-theme="dark">
 
     <a class="" href="#"><img src="{{ asset('images/logo/logo-infiverse.png') }}" alt="Bootstrap" width="45" height="45"></a>
 

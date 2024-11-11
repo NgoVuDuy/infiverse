@@ -105,12 +105,12 @@
 
                             </td>
                             <td>
-                                <button class="new-student-details" data-bs-toggle="modal" data-bs-target="#{{ $student->id }}">Chi tiết</button>
+                                <button class="new-student-details" data-bs-toggle="modal" data-bs-target="#student-{{ $student->id }}">Chi tiết</button>
 
                             </td>
                         </tr>
 
-                        <div class="modal fade" id="{{ $student->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="student-{{ $student->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -240,7 +240,7 @@
 
                 <hr style="margin-top:16px;">
 
-                <div class="lession-evaluate-show mt-2"  style="display: {{ session('display', 'none') }} !important;">
+                <div class="lession-evaluate-show mt-2" style="display: {{ session('display', 'none') }} !important;">
 
                     @if($reviews->isEmpty())
 
@@ -249,88 +249,142 @@
 
                     @foreach($reviews as $review)
 
-                    <div class="evaluate-user-item">
+                        <div class="evaluate-user-item">
 
-                        <div class="user-name-img-cover">
+                            <div class="user-name-img-cover">
 
-                            <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
-                            <span>{{ $review->user->username }}</span>
-
-                        </div>
-
-                        <div class="user-cmt mt-2">
-                            <div class="star-cover-user">
-
-
-                                @php
-                                $star_rating = $review->star_rating
-                                @endphp
-
-                                @switch($star_rating)
-
-                                @case(1)
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                @break
-                                @case(2)
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                @break
-                                @case(3)
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                @break
-                                @case(4)
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                @break
-                                @case(5)
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                <i class="star fa fa-star" style="font-size:14px"></i>
-                                @break
-
-                                @default
-                                <p>Trống</p>
-                                @break
-
-                                @endswitch
-
-                            </div>
-                            <p>{{ $review->review }}</p>
-
-                            @if($review->response != null)
-                            <div>
-                                <span style="font-size: 14px; font-weight:bold;">Đã trả lời:</span> {{ $review->response }}
+                                <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
+                                <span>{{ $review->user->username }}</span>
 
                             </div>
 
-                            @else
+                            <div class="user-cmt mt-2">
+                                <div class="star-cover-user">
 
 
-                            <form action="{{ route('response',['course_id' => $course->id, 'review_id' => $review->id]) }}  " method="post" class="mt-3">
+                                    @php
+                                    $star_rating = $review->star_rating
+                                    @endphp
 
-                                @csrf
-                                <input name="response" class="rep-comment-input" type="text" placeholder="Nhập nội dung">
-                                <button class="rep-comment-btn" type="submit">Gửi</button>
-                            </form>
+                                    @switch($star_rating)
 
-                            @endif
+                                    @case(1)
+                                    <i class="star fa fa-star" style="font-size:14px"></i>
+                                    @break
+                                    @case(2)
+                                    <i class="star fa fa-star" style="font-size:14px"></i>
+                                    <i class="star fa fa-star" style="font-size:14px"></i>
+                                    @break
+                                    @case(3)
+                                    <i class="star fa fa-star" style="font-size:14px"></i>
+                                    <i class="star fa fa-star" style="font-size:14px"></i>
+                                    <i class="star fa fa-star" style="font-size:14px"></i>
+                                    @break
+                                    @case(4)
+                                    <i class="star fa fa-star" style="font-size:14px"></i>
+                                    <i class="star fa fa-star" style="font-size:14px"></i>
+                                    <i class="star fa fa-star" style="font-size:14px"></i>
+                                    <i class="star fa fa-star" style="font-size:14px"></i>
+                                    @break
+                                    @case(5)
+                                    <i class="star fa fa-star" style="font-size:14px"></i>
+                                    <i class="star fa fa-star" style="font-size:14px"></i>
+                                    <i class="star fa fa-star" style="font-size:14px"></i>
+                                    <i class="star fa fa-star" style="font-size:14px"></i>
+                                    <i class="star fa fa-star" style="font-size:14px"></i>
+                                    @break
+
+                                    @default
+                                    <p>Trống</p>
+                                    @break
+
+                                    @endswitch
+
+                                </div>
+                                <p>{{ $review->review }}</p>
+
+                                @if($review->response != null)
+                                <div>
+                                    <span style="font-size: 14px; font-weight:bold;">Đã trả lời:</span> {{ $review->response }}
+
+                                </div>
+
+                                @else
+
+
+                                <form action="{{ route('response',['course_id' => $course->id, 'review_id' => $review->id]) }}  " method="post" class="mt-3">
+
+                                    @csrf
+                                    <input name="response" class="rep-comment-input" type="text" placeholder="Nhập nội dung">
+                                    <button class="rep-comment-btn" type="submit">Gửi</button>
+                                </form>
+
+                                @endif
+                            </div>
+
+                            <!-- Nút cài đặt -->
+                            <div class="setting-response" data-bs-toggle="modal" data-bs-target="#settingModal{{$review->id}}">
+                                <img src="{{ asset('images/icon/setting.png') }}" alt="Cài đặt" width="24px">
+
+                            </div>
+
+
                         </div>
+                        <hr>
 
-                        <!-- Nút cài đặt -->
-                        <div class="setting-response" data-bs-toggle="modal" data-bs-target="#settingModal">
-                            <img src="{{ asset('images/icon/setting.png') }}" alt="Cài đặt" width="24px">
+                        <!-- Modal edit response-->
+                        <x-modal>
 
-                        </div>
+                            <x-slot name="idModal">review{{ $review->id }}</x-slot>
+                            <x-slot name="titleModal">Chỉnh sửa</x-slot>
+                            <x-slot name="actionModal">{{ route('update-response', $review->id) }}</x-slot>
+
+                            <x-slot name="bodyModal">
+
+                                <div class="row mb-3">
+
+                                    <div class="col-3"><label for="">Câu trả lời</label></div>
+                                    <div class="col-9"><input type="text" name="response" id="" value="" placeholder="Nhập câu trả lời mới"></div>
+
+                                    <!-- <div class="col-9"><input type="text" value="{{ $review->id }}" class="d-none" name="review-id"></div> -->
+
+                                </div>
+                            </x-slot>
+                            <x-slot name="footerModal">
+
+                                <p class="back-btn-modal" data-bs-toggle="modal" data-bs-target="#settingModal">Trở lại</p>
+                                <button type="submit" class="finish-btn">Gửi</button>
+
+                            </x-slot>
+
+                        </x-modal>
+
+                        <!-- Modal option response-->
+                        <x-modal>
+                            <x-slot name="idModal">settingModal{{$review->id}}</x-slot>
+                            <x-slot name="titleModal">Tùy chọn</x-slot>
+                            <x-slot name="actionModal"></x-slot>
+                            <x-slot name="bodyModal">
+
+                                <div class="row mb-3">
+
+                                    <center>
+                                        <div style="width:50%">
+                                            <p style="color: rgb(30, 30, 255);" data-bs-toggle="modal" data-bs-target="#review{{ $review->id }}">Chỉnh sửa câu trả lời</p>
+                                            <p style="color:red">Xóa câu trả lời</p>
+
+                                        </div>
+                                    </center>
+                                </div>
+                            </x-slot>
+                            <x-slot name="footerModal">
+
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Thoát</button>
 
 
-                    </div>
-                    <hr>
+                            </x-slot>
+
+                        </x-modal>
                     @endforeach
 
 
@@ -354,19 +408,19 @@
         <x-slot name="bodyModal">
 
             <div class="row mb-3">
-                <div class="col-3"><label for="">Tiêu đề</label></div>
+                <div class="col-3"><label for="">Tiêu đề <span style="color: red; font-size: 20px;">*</span></label></div>
                 <div class="col-9"><input type="text" name="title-lession" id="" value=""></div>
             </div>
             <div class="row mb-3">
                 <div class="col-3">
-                    <lable>Mô tả bài học</lable>
+                    <lable>Mô tả bài học <span style="color: red; font-size: 20px;">*</span></lable>
                 </div>
                 <div class="col-9"><textarea type="text" name="desc-lession" id="" value=""></textarea></div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-3">
-                    <label for="file">Chọn file:</label>
+                    <label for="file">Chọn file:</label><span style="color: red; font-size: 20px;">*</span>
                 </div>
 
                 <div class="col-9">
@@ -385,55 +439,6 @@
 
     </x-modal>
 
-    <!-- Modal edit response-->
-    <x-modal>
-        <x-slot name="idModal">editResponseModal</x-slot>
-        <x-slot name="titleModal">Chỉnh sửa</x-slot>
-        <x-slot name="actionModal"></x-slot>
-
-        <x-slot name="bodyModal">
-
-            <div class="row mb-3">
-
-                <div class="col-3"><label for="">Câu trả lời</label></div>
-                <div class="col-9"><input type="text" name="response" id="" value="" placeholder="Nhập câu trả lời mới"></div>
-            </div>
-        </x-slot>
-        <x-slot name="footerModal">
-
-            <p class="back-btn-modal" data-bs-toggle="modal" data-bs-target="#settingModal">Trở lại</p>
-            <button type="submit" class="finish-btn">Gửi</button>
-
-        </x-slot>
-
-    </x-modal>
-
-    <!-- Modal option response-->
-    <x-modal>
-        <x-slot name="idModal">settingModal</x-slot>
-        <x-slot name="titleModal">Tùy chọn</x-slot>
-        <x-slot name="actionModal"></x-slot>
-        <x-slot name="bodyModal">
-
-            <div class="row mb-3">
-
-                <center>
-                    <div style="width:50%">
-                        <p style="color: rgb(30, 30, 255);" data-bs-toggle="modal" data-bs-target="#editResponseModal">Chỉnh sửa câu trả lời</p>
-                        <p style="color:red">Xóa câu trả lời</p>
-
-                    </div>
-                </center>
-            </div>
-        </x-slot>
-        <x-slot name="footerModal">
-
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Thoát</button>
-
-
-        </x-slot>
-
-    </x-modal>
 
     <!-- Modal option lessions-->
     <x-modal>

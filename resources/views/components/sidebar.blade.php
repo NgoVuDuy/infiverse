@@ -34,7 +34,7 @@
 
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="side-option d-flex align-items-center gap-2" href="/student-mgmt">
 
                         <span>
@@ -61,7 +61,7 @@
                         {{ $evaluate }}
 
                     </a>
-                </li>
+                </li> -->
 
 
                 <li class="nav-item">

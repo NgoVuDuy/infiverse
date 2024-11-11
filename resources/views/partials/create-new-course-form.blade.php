@@ -19,25 +19,25 @@
     <hr>
 
     <div class="row mb-3">
-        <div class="col-2"><label for="">Tên khóa học</label></div>
+        <div class="col-2"><label for="">Tên khóa học <span style="color: red; font-size: 20px;">*</span></label></div>
         <div class="col-10"><input type="text" name="coursename" id="" value=""></div>
     </div>
     <div class="row mb-3">
         <div class="col-2">
-            <lable>Mô tả sơ lược khóa học</lable>
+            <lable>Mô tả sơ lược khóa học <span style="color: red; font-size: 20px;">*</span></lable>
         </div>
         <div class="col-10"><textarea type="text" name="description" id="" value=""></textarea></div>
     </div>
     <div class="row mb-3">
         <div class="col-2">
-            <lable>Mô tả chi tiết khóa học</lable>
+            <lable>Mô tả chi tiết khóa học <span style="color: red; font-size: 20px;">*</span></lable>
         </div>
         <div class="col-10"><textarea type="text" name="description_details" id="" value=""></textarea></div>
     </div>
 
     <div class="row mb-3">
         <div class="col-2">
-            <lable>Đặt mật khẩu</lable>
+            <lable>Mật khẩu ghi danh</lable>
         </div>
         <div class="col-10"><input type="password" name="course_password" id="" value=""></div>
     </div>

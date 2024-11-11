@@ -3,7 +3,7 @@
     <script>
         Toastify({
             text: "{{ $text }}",
-            duration: 10000,
+            duration: 3000,
             // destination: "https://github.com/apvarun/toastify-js",
             newWindow: true,
             close: true,

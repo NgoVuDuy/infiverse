@@ -39,6 +39,12 @@
 
                 <p class="course-name">{{ $course->course_name }}</p>
 
+                @if($course->has_joined)
+
+                    <p class="has-joined-text">Đã tham gia</p>
+
+                @endif
+
                 <a class="course-link" href="{{ route('course-details', $course->id) }}">
 
                     <button class="join-in-btn">Chi tiết</button>

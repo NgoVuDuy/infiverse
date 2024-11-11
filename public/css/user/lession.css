@@ -33,7 +33,7 @@ body {
     border: none;
     border-radius: 8px;
     color: white;
-    background-color: #198754;
+    background-color: #00c63a;
     padding: 8px;
 }
 
@@ -44,7 +44,7 @@ body {
 .student-synthetic {
 
     border-radius: 8px;
-    background: #198754;
+    /* background: #198754; */
     display: inline-block;
     padding: 4px;
     margin-top: 16px;
@@ -54,6 +54,18 @@ body {
 
 .student-synthetic i {
     margin-right: 8px;
+}
+
+.student-quantity {
+
+    background-color: #6b7ed9;
+
+
+}
+
+.student-evaluate {
+    background-color: #ff3581;
+
 }
 
 .lession-evaluate-sum , .lession-evaluate-comment {

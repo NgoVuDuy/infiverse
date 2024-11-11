@@ -5,6 +5,8 @@
 @section('css')
 
 <link rel="stylesheet" href="{{ asset('css/user/lession.css') }}">
+<link rel="stylesheet" href="{{ asset('css/user/user.css') }}">
+
 
 @endsection
 
@@ -28,10 +30,23 @@
 
             @else
 
+            @if($course->code == null)
+
+
+
             <a class="course-link" href="{{ route('join-in-course', $course->id) }}">
 
                 <button class="join-in-btn">Tham gia miễn phí</button>
             </a><br>
+
+            @else
+
+
+                <button class="join-in-btn" data-bs-toggle="modal" data-bs-target="#codeModal">Nhập mã ghi danh</button><br>
+
+            @endif
+
+
 
             @endif
 
@@ -168,7 +183,7 @@
                     <p>{{ $review->review }}</p>
 
                     @if($review->response != null)
-                        <p s><span style="font-size: 14px; font-weight:bold;">Đã trả lời:</span> {{ $review->response }}</p>
+                    <p s><span style="font-size: 14px; font-weight:bold;">Đã trả lời:</span> {{ $review->response }}</p>
 
                     @endif
                 </div>
@@ -224,6 +239,30 @@
         </div>
     </div>
 </div>
+
+<!-- Modal course code-->
+<x-modal>
+    <x-slot name="idModal">codeModal</x-slot>
+    <x-slot name="titleModal">Nhập mã ghi danh</x-slot>
+    <x-slot name="actionModal">{{ route('course-code', $course->id) }}</x-slot>
+
+    <x-slot name="bodyModal">
+
+
+        <div class="row mb-3">
+
+            <div class="col-3"><label for="">Mã ghi danh</label></div>
+            <div class="col-9"><input type="text" name="code" id="" value="" placeholder="Nhập mã ghi danh"></div>
+        </div>
+    </x-slot>
+    <x-slot name="footerModal">
+
+        <p class="btn btn-danger" data-bs-toggle="modal">Thoát</p>
+        <button type="submit" class="finish-btn">Xác nhận</button>
+
+    </x-slot>
+
+</x-modal>
 
 
 @if(session('message-join-in'))

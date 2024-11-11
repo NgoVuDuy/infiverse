@@ -30,8 +30,10 @@
                     <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                 </li> -->
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search">
+            <form class="d-flex" role="search" action="/search" method="post">
+
+                @csrf
+                <input name="search-text" class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit"><i class="fa fa-search" style="font-size:24px"></i></button>
             </form>
         </div>

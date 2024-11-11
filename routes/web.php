@@ -54,6 +54,8 @@ Route::controller(CourseController::class)->group(function () {
 
     Route::get('courses/{id}/teacher-course-details', 'show_teacher')->name('teacher-course-details');
 
+    Route::post('/search', 'search');
+
 });
 
 Route::controller(LessionController::class)->group(function () {
@@ -85,6 +87,8 @@ Route::controller(LogoutController::class)->group(function() {
 Route::controller(UserCourseController::class)->group(function() {
 
     Route::get('/{course}/join-in-course', 'store')->name('join-in-course');
+
+    Route::post('/{course}/course-code', 'code')->name('course-code');
 
     Route::get('/load-courses', 'show');
 
@@ -138,5 +142,7 @@ Route::controller(ReviewController::class)->group(function() {
     Route::post('{course_id}/review', 'store')->name('review');
 
     Route::post('{course_id}/{review_id}/response', 'update')->name('response');
+
+    Route::post('{review_id}/update-response', 'update_response')->name('update-response');
 
 });

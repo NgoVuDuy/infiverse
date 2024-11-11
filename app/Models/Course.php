@@ -17,7 +17,8 @@ class Course extends Model
         'img',
         'description_details',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'code'
     ];
 
     // Thiết lập quan hệ 1-nhiều: Một khóa học có nhiều bài học

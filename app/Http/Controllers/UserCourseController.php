@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -44,6 +45,26 @@ class UserCourseController extends Controller
         return redirect(route('course-details', $course_id))->with('message-join-in', 'Chúc mừng bạn đã tham gia thành công khóa học');
     }
 
+    public function code(Request $request, string $id)
+    {
+
+        $code = $request->input('code');
+
+        // echo $id . $code;
+        $course = Course::find($id);
+        if ($course) {
+
+            if ($course->code == $code) {
+
+                return $this->store($request, $id);
+
+            } else {
+
+                return redirect(route('course-details', $id))->with('message-join-in', 'Mã code sai');
+            }
+        }
+    }
+
     /**
      * Display the specified resource.
      */
@@ -56,7 +77,7 @@ class UserCourseController extends Controller
 
         $courses = $user->courses;
 
-        if($courses -> isEmpty()) {
+        if ($courses->isEmpty()) {
             return "<h6 class='empty-courses-text'>Bạn chưa đăng ký khóa học nào</h6>";
         }
 
@@ -92,7 +113,7 @@ class UserCourseController extends Controller
 
         $courses = $user->courses;
 
-        if($courses -> isEmpty()) {
+        if ($courses->isEmpty()) {
             return "<h6 class='empty-courses-text' >Bạn chưa đăng ký khóa học nào</h6>";
         }
 

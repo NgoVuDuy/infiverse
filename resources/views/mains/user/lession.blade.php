@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div class="row lession-content mt-4">
+    <!-- <div class="row lession-content mt-4">
 
         <h4>Thông báo</h4>
 
@@ -36,7 +36,7 @@
 
             <p>Tuần này các em thi cuối kỳ kết thúc học phần</p>
         </div>
-    </div>
+    </div> -->
 
     <div class="row lession-content mt-4">
 
