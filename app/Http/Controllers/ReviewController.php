@@ -82,13 +82,13 @@ class ReviewController extends Controller
 
     }
 
-    public function update_response(Request $request, string $id) {
+    public function update_response(Request $request, string $course_id, string $review_id) {
 
         // echo $id;
         $response = $request->input('response');
         // echo $response;
 
-        $review = Review::find($id);
+        $review = Review::find($review_id);
 
         if($review) {
 
@@ -97,7 +97,8 @@ class ReviewController extends Controller
             $review->save();
         }
 
-        return back();
+        // return back();
+        return redirect()->to(route('teacher-course-details', $course_id) . "#review-title" )->with('display', 'block');
     }
 
     /**
@@ -106,6 +107,25 @@ class ReviewController extends Controller
     public function destroy(string $id)
     {
         //
+
+    }
+
+    public function destroy_response(string $course_id, string $review_id) {
+
+        $review = Review::find($review_id);
+
+        if($review) {
+
+            $review->response = null;
+
+            $review->save();
+        }
+
+        
+        return redirect()->to(route('teacher-course-details', $course_id) . "#review-title" )
+        ->with('display', 'block')
+        ->with('message-delete-response', 'Xóa câu trả lời thành công');
+        
 
     }
 

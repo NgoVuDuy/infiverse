@@ -337,7 +337,7 @@
 
                             <x-slot name="idModal">review{{ $review->id }}</x-slot>
                             <x-slot name="titleModal">Chỉnh sửa</x-slot>
-                            <x-slot name="actionModal">{{ route('update-response', $review->id) }}</x-slot>
+                            <x-slot name="actionModal">{{ route('update-response',['course_id' => $course->id, 'review_id' => $review->id]) }}</x-slot>
 
                             <x-slot name="bodyModal">
 
@@ -345,14 +345,13 @@
 
                                     <div class="col-3"><label for="">Câu trả lời</label></div>
                                     <div class="col-9"><input type="text" name="response" id="" value="" placeholder="Nhập câu trả lời mới"></div>
-
                                     <!-- <div class="col-9"><input type="text" value="{{ $review->id }}" class="d-none" name="review-id"></div> -->
 
                                 </div>
                             </x-slot>
                             <x-slot name="footerModal">
 
-                                <p class="back-btn-modal" data-bs-toggle="modal" data-bs-target="#settingModal">Trở lại</p>
+                                <p class="back-btn-modal" data-bs-toggle="modal" data-bs-target="#settingModal{{$review->id}}">Trở lại</p>
                                 <button type="submit" class="finish-btn">Gửi</button>
 
                             </x-slot>
@@ -371,7 +370,9 @@
                                     <center>
                                         <div style="width:50%">
                                             <p style="color: rgb(30, 30, 255);" data-bs-toggle="modal" data-bs-target="#review{{ $review->id }}">Chỉnh sửa câu trả lời</p>
-                                            <p style="color:red">Xóa câu trả lời</p>
+                                            
+                                            <a style="text-decoration: none;" href="{{ route('delete-response', ['course_id' => $course->id, 'review_id' => $review->id])}}"><p style="color:red">Xóa câu trả lời</p></a>
+                                            
 
                                         </div>
                                     </center>
@@ -518,6 +519,15 @@
 </x-alert>
 @endif
 
+@if(session('message-delete-response'))
+
+<x-alert>
+
+    <x-slot name="text">{{ session('message-delete-response') }}</x-slot>
+    <x-slot name="color">green</x-slot>
+
+</x-alert>
+@endif
 
 
 

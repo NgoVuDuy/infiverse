@@ -143,6 +143,8 @@ Route::controller(ReviewController::class)->group(function() {
 
     Route::post('{course_id}/{review_id}/response', 'update')->name('response');
 
-    Route::post('{review_id}/update-response', 'update_response')->name('update-response');
+    Route::post('{course_id}/{review_id}/update-response', 'update_response')->name('update-response');
+
+    Route::get('{course_id}/{review_id}/delete-response', 'destroy_response')->name('delete-response');
 
 });
