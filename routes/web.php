@@ -54,7 +54,11 @@ Route::controller(CourseController::class)->group(function () {
 
     Route::get('courses/{id}/teacher-course-details', 'show_teacher')->name('teacher-course-details');
 
-    Route::post('/search', 'search');
+    Route::get('{course_id}/delete-course-cfmt', 'destroy_cfmt')->name('delete-course-cfmt');
+
+    Route::get('{course_id}/delete-course', 'destroy')->name('delete-course');
+
+    Route::get('/search', 'search');
 
 });
 
@@ -80,6 +84,8 @@ Route::get('/admin', function () {
 Route::controller(LogoutController::class)->group(function() {
 
     Route::get('/logout-show', 'index');
+
+
     Route::get('/logout', 'store');
 
 });

@@ -24,7 +24,7 @@ class CourseController extends Controller
                 return $course;
             });
 
-            return view('mains.user.course', compact('courses'));
+        return view('mains.user.course', compact('courses'));
     }
 
     public function index_teacher()
@@ -54,6 +54,7 @@ class CourseController extends Controller
         $description = $request->input('description');
         $description_details = $request->input('description_details');
         $course_password = $request->input('course_password');
+        $course_code = $request->input('course_code');
 
         $path = null;
 
@@ -75,6 +76,7 @@ class CourseController extends Controller
             'description_details' => $description_details,
             'img' => $path,
             'teacher_id' => 2,
+            'code' => $course_code,
             'created_at' => now(),
             'updated_at' => now()
 
@@ -325,8 +327,24 @@ class CourseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+
+     public function destroy_cfmt(string $id) {
+
+        return redirect('/courses-mgmt')->with('message-delete-course', 'Bạn có muốn xóa khóa học này không ?')->with('course-id', $id);
+     }
+
+
+
+
     public function destroy(string $id)
     {
         //
+        $course = Course::find($id);
+        $course->delete();
+
+        $teacher_id = Auth::user()->id; // Lấy ra id của giáo viên
+        $courses = Course::where('teacher_id', $teacher_id)->get(); // Lấy ra các khóa học thuộc về giáo viên đó
+
+        return redirect('/courses-mgmt'); // Trả về trang quản lý khóa học cùng với các khóa học của giáo viên
     }
 }

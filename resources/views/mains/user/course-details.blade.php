@@ -252,7 +252,7 @@
         <div class="row mb-3">
 
             <div class="col-3"><label for="">Mã ghi danh</label></div>
-            <div class="col-9"><input type="text" name="code" id="" value="" placeholder="Nhập mã ghi danh"></div>
+            <div class="col-9"><input type="password" name="code" id="" value="" placeholder="Nhập mã ghi danh"></div>
         </div>
     </x-slot>
     <x-slot name="footerModal">

@@ -88,7 +88,7 @@
                                 <tr>
                                     <th style="width: 35%;">Tên học viên</th>
                                     <th style="width: 30%;">Khóa học đã tham gia</th>
-                                    <th style="width: 20%;">Thời gian</th>
+                                    <th style="width: 20%;">Thời gian tham gia</th>
                                     <th style="width: 15%;">Chi tiết</th>
                                 </tr>
 

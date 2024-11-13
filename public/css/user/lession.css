@@ -33,8 +33,18 @@ body {
     border: none;
     border-radius: 8px;
     color: white;
-    background-color: #00c63a;
     padding: 8px;
+}
+
+.lession-left button {
+
+    background-color: #00c63a;
+
+
+}
+
+.send-evaluate-btn {
+    background-color: #198754;
 }
 
 .file_desc {

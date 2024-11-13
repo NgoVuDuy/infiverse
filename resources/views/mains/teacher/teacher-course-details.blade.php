@@ -87,7 +87,7 @@
                     <table>
                         <tr>
                             <th style="width: 55%;">Tên học viên</th>
-                            <th style="width: 30%;">Thời gian</th>
+                            <th style="width: 30%;">Thời gian tham gia</th>
                             <th style="width: 15%;">Chi tiết</th>
                         </tr>
 

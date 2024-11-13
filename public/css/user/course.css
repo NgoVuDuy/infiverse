@@ -52,7 +52,7 @@ body {
     /* color: black; */
     /* font-size: 1px; */
 }
-.leave-course-link {
+.leave-course-link, .delete-course {
     position: absolute;
 
     bottom: 2%;
@@ -81,7 +81,7 @@ body {
     padding: 6px;
 }
 
-.leave-course-btn {
+.leave-course-btn, .delete-course-btn {
 
     border: none;
     border-radius: 4px;

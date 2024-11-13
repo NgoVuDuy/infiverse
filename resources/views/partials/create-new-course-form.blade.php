@@ -39,7 +39,7 @@
         <div class="col-2">
             <lable>Mật khẩu ghi danh</lable>
         </div>
-        <div class="col-10"><input type="password" name="course_password" id="" value=""></div>
+        <div class="col-10"><input type="password" name="course_code" id="" value=""></div>
     </div>
 
     <button type="submit" class="finish-btn">Hoàn thành</button>

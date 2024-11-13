@@ -63,7 +63,7 @@
                             </center>
                         </div>
 
-                        <div class="col-2">
+                        <!-- <div class="col-2">
                             <center>
                                 <a class="back-link" href="/courses-mgmt">
 
@@ -71,9 +71,9 @@
                                     <p class="nav-opt-text">Khóa</p>
                                 </a>
                             </center>
-                        </div>
+                        </div> -->
 
-                        <div class="col-2">
+                        <!-- <div class="col-2">
                             <center>
                                 <a class="back-link" href="/courses-mgmt">
 
@@ -81,7 +81,7 @@
                                     <p class="nav-opt-text">Xóa</p>
                                 </a>
                             </center>
-                        </div>
+                        </div> -->
 
                     </div>
 
@@ -108,6 +108,12 @@
                             <a class="course-link" href="{{ route('teacher-course-details', $course->id) }}">
 
                                 <button class="join-in-btn">Chi tiết</button>
+                            </a>
+
+                            <a class="delete-course" href="{{ route('delete-course-cfmt', $course->id) }}">
+
+                                <button class="delete-course-btn">Xóa</button>
+
                             </a>
                         </div>
 
@@ -148,6 +154,17 @@
 {{ session()->forget('message-create-course') }}
 
 @endif
+
+@if(session('message-delete-course')) 
+
+    <x-window-adv>
+    <x-slot name="text">{{ session('message-delete-course') }}</x-slot>
+    <x-slot name="icon">question</x-slot>
+    <x-slot name="cancelButton">false</x-slot>
+    <x-slot name="path">{{ route('delete-course', session('course-id')) }}</x-slot>
+    </x-window-adv>
+@endif
+
 
 @endsection
 
