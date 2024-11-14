@@ -48,12 +48,45 @@ class UserSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now()
             ],
+
+            [
+                'username' => 'teacher963',
+                'password' => Hash::make('12345678'),
+                'fullname' => 'Lê Hữu Huy',
+                'phone_number' => '0248758223',
+                'email' => 'huuhuy132@gmail.com',
+                'contact' => '',
+                'desc_user' => '',
+                'achievenment' => '',
+                'user_img' => '/images/users/teacher.png',
+                'role' => 'teacher',
+
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+
             [
                 'username' => 'student962',
                 'password' => Hash::make('12345678'),
                 'fullname' => 'Nguyễn Thái Bình',
                 'phone_number' => '0947023548',
                 'email' => 'binh@gmail.com',
+                'contact' => '',
+                'desc_user' => '',
+                'achievenment' => '',
+                'user_img' => 'images/users/user.png',
+                'role' => 'student',
+
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+
+            [
+                'username' => 'student963',
+                'password' => Hash::make('12345678'),
+                'fullname' => 'Ngô Vũ Duy',
+                'phone_number' => '0949229535',
+                'email' => 'duyb2110962@student.ctu.edu.vn',
                 'contact' => '',
                 'desc_user' => '',
                 'achievenment' => '',

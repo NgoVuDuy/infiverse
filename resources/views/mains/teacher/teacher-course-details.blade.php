@@ -95,7 +95,7 @@
 
                         <tr>
                             <td>
-                                <img src="{{ asset('images/users/default/groom.png') }}" alt="Bootstrap" width="30" height="30">
+                                <img src="{{ asset( $student->user_img ) }}" alt="Bootstrap" width="30" height="30">
 
                                 {{ $student->fullname }}
 
@@ -253,7 +253,7 @@
 
                             <div class="user-name-img-cover">
 
-                                <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
+                                <img class="rounded-circle" src="{{ asset( $review->user->user_img ) }}" alt="" width="40px" height="40px">
                                 <span>{{ $review->user->username }}</span>
 
                             </div>
