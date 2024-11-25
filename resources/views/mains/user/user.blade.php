@@ -12,29 +12,26 @@
 @section('content')
 
 <div class="container">
-    <div class="row mt-5">
+    <div class="row mt-5 justify-content-center">
         <div class="col-2">
             <div class="user-option p-3">
-                <a id="user-information" class="active">
+                <a id="user-information" class="active option">
                     <p>Thông tin và liên hệ</p>
                 </a>
-                <a id="enrolled-courses">
-                    <p>Khóa học đã tham gia</p>
-                </a>
-                <a id="change-username">
+                <a id="change-username" class="option">
                     <p>Đổi tên tài khoản</p>
                 </a>
-                <a id="change-password">
+                <a id="change-password" class="option">
                     <p>Thay đổi mật khẩu</p>
                 </a>
-                <a href="/delete-user-confirmation" id="delete-user">
+                <a href="/delete-user-confirmation" id="delete-user" class="option">
                     <p class="dlt-user">Xóa tài khoản</p>
                 </a>
 
             </div>
         </div>
 
-        <div class="col-10">
+        <div class="col-8">
             <div class="row">
                 <div class="user-cover p-3">
 
@@ -61,7 +58,8 @@
 
                     <div class="icon-edit">
 
-                        <img src="{{ asset('images/icon/edit.png') }}" alt="Edit">
+                        <span>Cập nhật</span>
+                        <img src="{{ asset('images/icon/edit.png') }}" alt="Edit" >
                     </div>
 
                 </div>
@@ -138,7 +136,7 @@
 
 <script src="{{ asset('js/ajax/user-information.js') }}"></script>
 <script src="{{ asset('js/ajax/edit-form.js') }}"></script>
-<script src="{{ asset('js/ajax/enrolled-courses.js') }}"></script>
+<!-- <script src="{{ asset('js/ajax/enrolled-courses.js') }}"></script> -->
 <script src="{{ asset('js/ajax/change-username.js') }}"></script>
 <script src="{{ asset('js/ajax/change-password.js') }}"></script>
 

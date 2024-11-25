@@ -79,3 +79,21 @@ body {
 
 
 .join-in-btn {}
+
+.nav-link {
+
+    /* padding: 8px 14px !important; */
+    /* font-weight: bold; */
+}
+
+.for-more-courses {
+
+    text-align: right;
+}
+
+.for-more-courses a {
+    text-decoration: none;
+
+    color: rgb(44 49 207);
+    font-size: 16px;
+}

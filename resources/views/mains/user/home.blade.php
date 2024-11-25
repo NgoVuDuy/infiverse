@@ -58,6 +58,7 @@
 
                 <img src="{{ asset('images/icon/new_1.png') }}" alt="new_icon" width="40px">
             </div>
+
             <h6>Khóa học mới nhất</h6>
 
             <div class="">
@@ -65,8 +66,13 @@
                 <img src="{{ asset('images/icon/new_1.png') }}" alt="new_icon" width="40px">
             </div>
 
+
         </div>
+
+        
     </div>
+
+    <p class="for-more-courses"><a href="/courses">Xem thêm</a></p>
 
     <div class="row course-row">
 
@@ -119,6 +125,9 @@
         </div>
     </div>
 
+    <p class="for-more-courses"><a href="/courses">Xem thêm</a></p>
+
+
     <div class="row course-row">
 
         @foreach($osdCourses as $course)
@@ -168,6 +177,9 @@
 
         </div>
     </div>
+
+    <p class="for-more-courses"><a href="/courses">Xem thêm</a></p>
+
 
     <div class="row course-row">
 

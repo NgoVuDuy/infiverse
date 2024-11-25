@@ -3,14 +3,20 @@
 } */
 
 body {
-    
+
     font-family: Hanken Grotesk !important;
 
 }
 
 .course-teacher {
-    color: #ffc107;
-    font-size: 14px;
+    /* color: rgb(44 49 207); */
+    font-size: 15px;
+    background: #291e71;
+    display: inline-block;
+    padding: 5px;
+    /* border: .5px #a799ff solid; */
+    border-radius: 4px;
+    margin: 14px 0px;
 }
 
 .lession-header {
@@ -20,18 +26,21 @@ body {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+
 .lession-left {
 
     color: white;
 }
-.lession-right img{
+
+.lession-right img {
 
     border-radius: 20px;
 }
 
-.lession-left button, .send-evaluate-btn {
+.lession-left button,
+.send-evaluate-btn {
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     color: white;
     padding: 8px;
 }
@@ -53,7 +62,7 @@ body {
 
 .student-synthetic {
 
-    border-radius: 8px;
+    border-radius: 4px;
     /* background: #198754; */
     display: inline-block;
     padding: 4px;
@@ -78,10 +87,8 @@ body {
 
 }
 
-.lession-evaluate-sum , .lession-evaluate-comment {
-
-    
-}
+.lession-evaluate-sum,
+.lession-evaluate-comment {}
 
 .content-text {
     padding: 0px 12px;
@@ -93,7 +100,7 @@ body {
 }
 
 .sum-cover {
-    border-radius: 8px;
+    border-radius: 4px;
     border: 2px rgb(212, 212, 212) solid;
     background-color: #198754;
     color: white;
@@ -101,18 +108,16 @@ body {
 
 .lession-evaluate-comment {
 
-    border-radius: 8px;
+    border-radius: 4px;
 
     border: 2px rgb(212, 212, 212) solid;
 
     height: 120px;
 
-    
-}
-
-.send-evaluate-btn {
 
 }
+
+.send-evaluate-btn {}
 
 .star {
     margin-right: 6px;

@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::controller(HomeController::class)->group(function () {
 
     Route::get('/', 'index')
-    ->middleware('login')
-    ->middleware('prevent_root');
+    ->middleware('login');
+    // ->middleware('prevent_root');
 
     Route::get('/teacher', 'index_teacher')->middleware('role:teacher');
 
@@ -99,6 +99,8 @@ Route::controller(UserCourseController::class)->group(function() {
     Route::get('/load-courses', 'show');
 
     Route::get('/{id}/leave-course', 'destroy')->name('leave-course');
+
+    Route::get('{id}/leave-course-show', 'leaveCourseAlert')->name('leave-course-show');
 
 });
 

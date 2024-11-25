@@ -1,0 +1,36 @@
+nav {
+    height: 70px;
+}
+
+.navbar {
+    position:sticky; 
+    top: 0; 
+    z-index:1000;
+    padding: 0px 12px;
+}
+
+.nav-link {
+    line-height: 70px;
+    height: 100%;
+    padding: 0px 20px !important;
+    font-weight: 600;
+
+}
+
+.navbar .nav-item:hover {
+
+    box-shadow: inset 0 -3px 0 #198754; 
+
+    /* background: #198754; */
+}
+
+.navbar .nav-item:hover .nav-link {
+
+    color: #198754;
+
+}
+
+.navbar .nav-active {
+    box-shadow: inset 0 -3px 0 #198754; 
+    color: #198754;
+}

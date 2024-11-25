@@ -81,7 +81,7 @@ class UserCourseController extends Controller
             return "<h6 class='empty-courses-text'>Bạn chưa đăng ký khóa học nào</h6>";
         }
 
-        return view('partials.enrolled-course', compact('courses'));
+        return view('mains.user.enrolled-course', compact('courses'));
     }
 
     /**
@@ -117,6 +117,13 @@ class UserCourseController extends Controller
             return "<h6 class='empty-courses-text' >Bạn chưa đăng ký khóa học nào</h6>";
         }
 
-        return view('partials.enrolled-course', compact('courses'));
+        return view('mains.user.enrolled-course', compact('courses'));
+    }
+
+    public function leaveCourseAlert(string $id) {
+
+        return back()
+        ->with('message-leave-course', 'Bạn có chắc muốn rời khỏi khóa học này không ?')
+        ->with('id-leave-course', $id);
     }
 }

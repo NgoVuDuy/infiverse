@@ -12,7 +12,7 @@
 <!-- <h1>Danh sách các khóa học</h1> -->
 <div class="container">
 
-    <div class="row course-navbar mt-5 mb-5">
+    <!-- <div class="row course-navbar mt-5 mb-5">
         <div class="col-2">
             Lập trình căn bản
         </div>
@@ -25,9 +25,9 @@
         <div class="col-2">
 
         </div>
-    </div>
+    </div> -->
 
-    <div class="row g-2 course-row ">
+    <div class="row g-2 course-row mt-5">
 
         @foreach($courses as $course)
 

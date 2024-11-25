@@ -16,7 +16,7 @@
         <div class="col-8 lession-left">
 
             <h1 class="course-name">{{ $course->course_name }}</h1>
-            <p class="course-teacher">{{ $teacher_name }}</p>
+            <p class="course-teacher"><span style="color: #cacaca; margin-right: 6px;">Tác giả </span>{{ $teacher_name }}</p>
             <p class="course-description">{{ $course->description }}</p>
 
         </div>
@@ -57,6 +57,7 @@
             <hr>
 
             @endforeach
+
         </div>
     </div>
 </div>

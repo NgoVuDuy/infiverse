@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
 
     @foreach($courses as $course)
 
@@ -31,4 +31,4 @@
     courseIdUrl = "{{ route('leave-course', $course->id) }}"
 </script> -->
 
-<script src="{{ asset('js/ajax/leave-course.js') }}"></script>
+<script src="{{ asset('js/ajax/leave-course.js') }}"></script> -->

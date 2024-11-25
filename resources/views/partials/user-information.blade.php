@@ -23,6 +23,7 @@
 
 <div class="icon-edit">
 
+    <span>Cập nhật</span>
     <img src="{{ asset('images/icon/edit.png') }}" alt="Edit">
 </div>
 
