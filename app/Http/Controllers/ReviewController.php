@@ -97,8 +97,9 @@ class ReviewController extends Controller
             $review->save();
         }
 
-        // return back();
-        return redirect()->to(route('teacher-course-details', $course_id) . "#review-title" )->with('display', 'block');
+        return redirect()->to(route('teacher-course-details', $course_id) . "#review-title" )
+        ->with('display', 'block')
+        ->with('message-update-response', 'Cập nhật câu trả lời thành công');
     }
 
     /**
@@ -123,9 +124,8 @@ class ReviewController extends Controller
 
         
         return redirect()->to(route('teacher-course-details', $course_id) . "#review-title" )
-        ->with('display', 'block')
+        ->with('display-review', 'block')
         ->with('message-delete-response', 'Xóa câu trả lời thành công');
-        
 
     }
 

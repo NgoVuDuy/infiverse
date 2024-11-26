@@ -15,6 +15,13 @@
 
     <div class="row g-2 course-row mt-5">
 
+        @if (isset($message_enrolled_course))
+            <h5 style="text-align:center">{{ $message_enrolled_course }}</h5>
+        @endif
+
+
+
+
         @foreach($courses as $course)
 
         <div class="col-lg-3 col-md-4 col-6 course-cover">
@@ -29,20 +36,20 @@
 
                     <button class="join-in-btn">Chi tiết</button>
                 </a>
-<!-- 
+                <!-- 
                 <a href="{{ route('leave-course', $course->id) }}" class="leave-course-link" data-id="{{ $course->id }}">
 
                     <button class="leave-course-btn">Rời khỏi</button>
 
                 </a> -->
 
-                
+
                 <a href="{{ route('leave-course-show', $course->id) }}" class="leave-course-link" data-id="{{ $course->id }}">
 
                     <button class="leave-course-btn">Rời khỏi</button>
 
                 </a>
-                
+
             </div>
 
         </div>

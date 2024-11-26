@@ -2,8 +2,8 @@
 }
 
 .user-option {
-    font-size: 14px;
-
+    font-size: 15px;
+    font-weight: 600;
 
     border: 2px rgb(212, 212, 212) solid;
     border-radius: 4px;
@@ -28,7 +28,7 @@
 }
 
 .user-information, .form-change-username, .form-change-password {
-    font-size: 14px;
+    font-size: 15px;
 
 }
 

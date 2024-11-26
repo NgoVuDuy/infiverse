@@ -67,6 +67,12 @@ Route::controller(LessionController::class)->group(function () {
     Route::get('/courses/{course}/lessions', 'index')->name('lessions');
 
     Route::post('/{course_id}/create-new-lession', 'store')->name('create-new-lession');
+
+    Route::post('{course_id}/{lession_id}/update-lession', 'update')->name('update-lession');
+
+    Route::get('{course_id}/{lession_id}/delete-lession', 'destroy')->name('delete-lession');
+
+
 });
 
 Route::get('/admin', function () {

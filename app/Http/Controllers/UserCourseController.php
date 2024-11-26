@@ -57,7 +57,6 @@ class UserCourseController extends Controller
             if ($course->code == $code) {
 
                 return $this->store($request, $id);
-
             } else {
 
                 return redirect(route('course-details', $id))->with('message-join-in', 'Mã code sai');
@@ -78,8 +77,13 @@ class UserCourseController extends Controller
         $courses = $user->courses;
 
         if ($courses->isEmpty()) {
-            return "<h6 class='empty-courses-text'>Bạn chưa đăng ký khóa học nào</h6>";
+            
+            return view('mains.user.enrolled-course', [
+                'courses' => $courses,
+                'message_enrolled_course' => 'Bạn chưa đăng ký khóa học nào',
+            ]);
         }
+
 
         return view('mains.user.enrolled-course', compact('courses'));
     }
@@ -111,19 +115,22 @@ class UserCourseController extends Controller
 
         $user->courses()->detach($id);
 
-        $courses = $user->courses;
+        // $courses = $user->courses;
 
-        if ($courses->isEmpty()) {
-            return "<h6 class='empty-courses-text' >Bạn chưa đăng ký khóa học nào</h6>";
-        }
+        // if ($courses->isEmpty()) {
+        //     return view('mains.user.enrolled-course', compact('courses'))->with('message-enrolled-course', 'Bạn chưa đăng ký khóa học nào');
+        // }
 
-        return view('mains.user.enrolled-course', compact('courses'));
+        // return view('mains.user.enrolled-course', compact('courses'));
+
+        return redirect('/load-courses');
     }
 
-    public function leaveCourseAlert(string $id) {
+    public function leaveCourseAlert(string $id)
+    {
 
         return back()
-        ->with('message-leave-course', 'Bạn có chắc muốn rời khỏi khóa học này không ?')
-        ->with('id-leave-course', $id);
+            ->with('message-leave-course', 'Bạn có chắc muốn rời khỏi khóa học này không ?')
+            ->with('id-leave-course', $id);
     }
 }

@@ -14,7 +14,7 @@
                         <span>
 
                             <img src="{{ asset('images/icon/home.png') }}" alt="Bootstrap" width="36" height="36">
-                            Trang chủ
+                            Tổng quan
                         </span>
                         <!-- <img class="right-arrow" src="{{ asset('images/icon/right.png') }}" alt="Bootstrap" width="36" height="36"> -->
 

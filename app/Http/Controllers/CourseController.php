@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Review;
 use App\Models\User;
 use App\Models\UserCourse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-
+use Illuminate\Validation\Rules\Exists;
 
 class CourseController extends Controller
 {
@@ -40,7 +41,7 @@ class CourseController extends Controller
     public function create()
     {
         //
-        return view('partials.create-new-course-form');
+        return view('mains.teacher.create-new-course');
     }
 
     public function store(Request $request)
@@ -104,6 +105,7 @@ class CourseController extends Controller
         // Kiểm tra người dùng đang đăng nhập có tham gia khóa học này hay không
         $isEnrolled = UserCourse::where('user_id', $user_id)->where('course_id', $id)->exists();
 
+        $isReview = Review::where('student_id', $user_id)->where('course_id', $id)->exists();
         // Lấy tổng số lượng học viên đã tham gia khóa học này
         $join_quatity = UserCourse::where('course_id', $id)->count();
 
@@ -126,7 +128,7 @@ class CourseController extends Controller
 
         }
 
-        return view('mains.user.course-details', compact('course', 'isEnrolled', 'join_quatity', 'reviews', 'teacher_name', 'review_quatity', 'star_rating_average'));
+        return view('mains.user.course-details', compact('course', 'isEnrolled', 'isReview', 'join_quatity', 'reviews', 'teacher_name', 'review_quatity', 'star_rating_average'));
     }
 
 

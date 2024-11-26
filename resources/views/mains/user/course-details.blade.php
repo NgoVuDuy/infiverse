@@ -286,7 +286,7 @@
 
 
 
-@if(! $isEnrolled)
+@if(! $isEnrolled || $isReview)
 
 <script>
     $(document).ready(function() {

@@ -42,7 +42,7 @@ class LessionController extends Controller
         $title_lession = $request->input('title-lession');
         $desc_lession = $request->input('desc-lession');
 
-        if($request->hasFile('file-lession')) {
+        if ($request->hasFile('file-lession')) {
 
             $file = $request->file('file-lession');
 
@@ -51,7 +51,7 @@ class LessionController extends Controller
             // $filename = $file->getClientOriginalName();
             $file->move(public_path('files/' . $time_code), $file->getClientOriginalName());
 
-            $path = 'files/' . $time_code . '/' . $file->getClientOriginalName(); 
+            $path = 'files/' . $time_code . '/' . $file->getClientOriginalName();
 
             // echo $file->getClientOriginalName();
         }
@@ -87,16 +87,59 @@ class LessionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Lession $lession)
+    public function update(Request $request, string $course_id, string $lession_id)
     {
+        // echo $id;
         //
+        $title_lession = $request->input('title-lession');
+        $desc_lession = $request->input('desc-lession');
+
+        if ($request->hasFile('file-lession')) {
+
+            $file = $request->file('file-lession');
+
+            $time_code = uniqid();
+
+            // $filename = $file->getClientOriginalName();
+            $file->move(public_path('files/' . $time_code), $file->getClientOriginalName());
+
+            $path = 'files/' . $time_code . '/' . $file->getClientOriginalName();
+
+            // echo $file->getClientOriginalName();
+        }
+        // echo $response;
+
+        $lession = Lession::find($lession_id);
+
+        if ($lession) {
+
+            $lession->title = $title_lession;
+            $lession->file = $path;
+            $lession->desc_file = $desc_lession;
+
+            $lession->save();
+        }
+
+        return redirect()->to(route('teacher-course-details', $course_id) . "#lession-title")
+            ->with('display-lession', 'block')
+            ->with('message-update-lession', 'Cập nhật bài học thành công');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Lession $lession)
+    public function destroy(string $course_id, string $lession_id)
     {
         //
+        $lession = Lession::find($lession_id);
+
+        if ($lession) {
+
+            $lession->delete();
+        }
+
+        return redirect()->to(route('teacher-course-details', $course_id) . "#lession-title")
+            ->with('display-lession', 'block')
+            ->with('message-delete-lession', 'Xóa bài học thành công');
     }
 }

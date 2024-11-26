@@ -8,4 +8,26 @@
     margin-top: 4px;
     color: #2f3c7e;
     font-weight: bold;
+
+    margin-bottom: 0px;
+}
+
+.navbar-child {
+
+    margin: 12px 0px;
+    font-size: 15px;
+    color: rgb(130, 130, 130);
+}
+
+.navbar-child a {
+
+    margin: 12px 0px;
+    font-size: 15px;
+    color: rgb(130, 130, 130);
+    text-decoration: none;
+    
+}
+
+.navbar-child-icon {
+    margin: 0px 8px;
 }

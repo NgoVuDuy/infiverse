@@ -25,7 +25,7 @@
 }
 
 .content-text,
-.lession-evaluate-show,
+/* .lession-evaluate-show, */
 table,
 .lession-list {
   display: none;
@@ -94,4 +94,50 @@ td img {
   background: #ff6f00;
   padding: 8px;
   border-radius: 4px;
+}
+
+.navbar-child {
+
+  margin: 24px 0px;
+  font-size: 15px;
+  color: rgb(130, 130, 130);
+}
+
+.navbar-child a {
+
+  margin: 12px 0px;
+  font-size: 15px;
+  color: rgb(130, 130, 130);
+  text-decoration: none;
+  
+}
+
+.navbar-child-icon {
+  margin: 0px 8px;
+}
+
+.setting-response button {
+
+  padding: 4px;
+  font-size: 14px;
+  border-radius: 4px;
+  color: white;
+  border: none;
+
+}
+
+.update-response-btn {
+
+  background-color: #198754;
+  
+}
+
+.update-response-btn:hover {
+
+  background-color: #14643f;
+}
+
+.delete-response-btn {
+
+
 }

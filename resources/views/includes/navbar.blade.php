@@ -5,7 +5,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            
+
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('/') ? 'nav-active' : ' ' }}" aria-current="page" href="/">Trang chủ</a>
@@ -15,8 +15,17 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('load-courses') ? 'nav-active' : ' ' }}" href="/load-courses">Các khóa học của tôi</a>
+                    <a class="nav-link {{ Request::is('load-courses') ? 'nav-active' : ' ' }}" href="/load-courses">Khóa học đã tham gia</a>
                 </li>
+
+                @if(Auth::user()->role == 'teacher')
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('courses-mgmt') ? 'nav-active' : ' ' }}" href="/courses-mgmt">Quản lý khóa học</a>
+                </li>
+
+
+                @endif
 
                 <li class="nav-item dropdown">
 
@@ -31,9 +40,7 @@
                         <li><a class="dropdown-item" href="/logout-show">Đăng xuất</a></li>
                     </ul>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                </li> -->
+
             </ul>
             <form class="d-flex" role="search" action="/search" method="get">
 
@@ -45,22 +52,22 @@
     </div>
 </nav>
 
-@if(session('message-logout')) 
+@if(session('message-logout'))
 
-    <x-window-adv>
+<x-window-adv>
     <x-slot name="text">Bạn có chắc muốn đăng xuất không ?</x-slot>
     <x-slot name="icon">question</x-slot>
     <x-slot name="cancelButton">false</x-slot>
     <x-slot name="path">/logout</x-slot>
-    </x-window-adv>
+</x-window-adv>
 @endif
 
-@if(session('message-leave-course')) 
+@if(session('message-leave-course'))
 
-    <x-window-adv>
+<x-window-adv>
     <x-slot name="text">{{ session('message-leave-course') }}</x-slot>
     <x-slot name="icon">question</x-slot>
     <x-slot name="cancelButton">false</x-slot>
     <x-slot name="path">{{ route('leave-course', session('id-leave-course')) }}</x-slot>
-    </x-window-adv>
+</x-window-adv>
 @endif

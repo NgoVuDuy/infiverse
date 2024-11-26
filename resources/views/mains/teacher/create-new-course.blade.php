@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Quản lý khóa học')
+@section('title', 'Tạo mới khóa học')
 
 @section('css')
 
@@ -15,7 +15,6 @@
 @endsection
 
 @section('content')
-
 
 <div class="container">
     <div class="row">
@@ -38,6 +37,13 @@
                         Quản lý khóa học
                     </a>
 
+                    <span class="navbar-child-icon">
+                        >
+                    </span>
+
+                    <a href="#">
+                        Thêm khóa học
+                    </a>
 
                 </div>
 
@@ -75,42 +81,57 @@
 
             <div class="create-new-course-form">
 
-
                 <hr>
 
-                <div class="row g-2 course-row ">
+
+                <form action="/create-new-course" method="post" class="edit-form" enctype="multipart/form-data">
+
+                    @csrf
+                    <div class="row mb-4">
 
 
-                    <h6 style="font-weight:600">Các khóa học của tôi</h6>
+                        <div class="user-img-change-cover">
 
 
-                    @foreach($courses as $course)
+                            <img style="box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);" id="user-img" class="" src="{{ asset('images/icon/image.png')  }}" alt="" width="240px" height="150px">
 
-                    <div class="col-lg-3 col-md-4 col-6 course-cover">
+                            <label class="mt-4 user-img-change-btn" for="user-img-input">Tải lên ảnh khóa học</label>
 
-                        <div class="course">
-
-                            <img src="{{ asset($course->img) }}" alt="" width="100%" height="65%">
-
-                            <p class="course-name">{{ $course->course_name }}</p>
-
-                            <a class="course-link" href="{{ route('teacher-course-details', $course->id) }}">
-
-                                <button class="join-in-btn">Chi tiết</button>
-                            </a>
-
-                            <a class="delete-course" href="{{ route('delete-course-cfmt', $course->id) }}">
-
-                                <button class="delete-course-btn">Xóa</button>
-
-                            </a>
+                            <input type="file" id="user-img-input" accept="image/*" class="d-none" name="course-img">
                         </div>
-
 
                     </div>
 
-                    @endforeach
-                </div>
+
+                    <div class="row mb-3">
+                        <div class="col-2"><label for="">Tên khóa học <span style="color: red; font-size: 20px;">*</span></label></div>
+                        <div class="col-10"><input type="text" name="coursename" id="" value=""></div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-2">
+                            <lable>Mô tả sơ lược khóa học <span style="color: red; font-size: 20px;">*</span></lable>
+                        </div>
+                        <div class="col-10"><textarea type="text" name="description" id="" value=""></textarea></div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-2">
+                            <lable>Mô tả chi tiết khóa học <span style="color: red; font-size: 20px;">*</span></lable>
+                        </div>
+                        <div class="col-10"><textarea type="text" name="description_details" id="" value=""></textarea></div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-2">
+                            <lable>Mật khẩu ghi danh</lable>
+                        </div>
+                        <div class="col-10"><input type="password" name="course_code" id="" value=""></div>
+                    </div>
+
+                    <button type="submit" class="finish-btn">Hoàn thành</button>
+                </form>
+
+                <script src="{{ asset('js/load-user-img.js') }}"></script>
+
 
             </div>
 
