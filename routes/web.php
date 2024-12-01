@@ -34,9 +34,9 @@ Route::controller(LoginController::class)->group(function () {
 
 Route::controller(ResgiterController::class)->group(function () {
 
-    Route::get('/resgiter', 'index');
+    Route::get('/register', 'index');
 
-    Route::post('/resgiter', 'store');
+    Route::post('/register', 'store');
 });
 
 Route::controller(CourseController::class)->group(function () {

@@ -1,27 +1,28 @@
 body {
-    
+
     /* background: #2f3c7e !important; */
     font-family: Hanken Grotesk !important;
 
     background-color: #2f3c7e;
 
 }
+
 .row {
     /* align-items: center; */
 }
 
 .cover {
-    margin-top: 80px ;
+    margin-top: 80px;
 
 }
-.chat-robot {
 
-    
-}
+.chat-robot {}
+
 .chat-robot span {
 
     /* padding: 50px; */
 }
+
 .chat-text {
     width: 100%;
     background-color: white;
@@ -38,13 +39,14 @@ body {
 
 .form-cover {
     border-radius: 10px;
-    background: #fbeaeb ;
+    background: #fbeaeb;
 
 }
 
 .form-title {
     text-align: center;
 }
+
 .form-btn {
     width: 100%;
     background-color: #198754;
@@ -53,12 +55,14 @@ body {
     border-radius: 6px;
     padding: 8px;
 }
+
 /* .form-btn:hover {
 
     transform: scale(1.08);
 } */
 
-.show-psw,.show-psw-cfmt {
+.show-psw,
+.show-psw-cfmt {
     margin-right: 8px;
 }
 
@@ -69,4 +73,19 @@ body {
 .form-option {
     display: flex;
     justify-content: space-around;
+}
+
+.slogan {
+    color: white;
+
+    font-family: 'Archivo';
+
+
+}
+
+.logo-form {
+    background: #3d5ba2;
+    padding: 10px 0px 8px 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
 }

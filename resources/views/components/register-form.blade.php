@@ -9,17 +9,25 @@
                 <div class="row">
 
 
-                    <div class="col-lg-10 col-md-12 col-9">
-                        <div class="chat-robot">
-                            <span>
-                                <p class="chat-text">
-                                    Chào mừng bạn đến với trang đăng ký. <br>
-                                    Bạn đã có tài khoản chưa ? <br>
-                                    Nếu chưa ! Vui lòng đăng ký để có thể trải nghiệm các tính năng tuyệt vời của chúng tôi.
-                                </p>
-                            </span>
+                    <div class="row align-items-center">
+                        <div class="col-lg-2 col-md-4 col-3">
+                            <img src="{{ asset('images/logo/logo-infiverse.png') }}" alt="Bootstrap" width="90px" height="90px">
+
                         </div>
 
+                        <div class="col-lg-8 col-md-12 col-9 logo-form">
+                            <div class="chat-robot">
+                                <span>
+
+                                    <!-- <p class="chat-text">
+                                    
+                                </p> -->
+                                    <h2 class="slogan">INFIVERSE</h2>
+                                    <span style="color: white;">Free to use, easy to love</span>
+                                </span>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 
@@ -40,7 +48,7 @@
 
                 <hr>
 
-                <form action="/resgiter" method="post" class="form">
+                <form action="/register" method="post" class="form">
 
                     @csrf
 
@@ -80,9 +88,9 @@
 
                         <div class="form-option">
 
-                            <a class="mb-5" href="/login">Đăng nhập >></a>
+                            <a style="text-decoration: none;" class="mb-5" href="/login">Đăng nhập >></a>
 
-                            <a href="#">Quên mật khẩu >></a>
+                            <a style="text-decoration: none;" href="#">Quên mật khẩu >></a>
                         </div>
 
 
@@ -114,7 +122,7 @@
     <x-slot name="text">{{ session('error') }}</x-slot>
     <x-slot name="icon">error</x-slot>
     <x-slot name="button">OK</x-slot>P
-    <x-slot name="footer"><a href="/resgiter">Quay lại</a></x-slot>
+    <x-slot name="footer"><a href="/register">Quay lại</a></x-slot>
 
 </x-window>
 @endif

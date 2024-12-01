@@ -223,7 +223,6 @@ class CourseController extends Controller
             'ỵ' => 'y',
             'ỷ' => 'y',
             'ỹ' => 'y',
-            'đ' => 'd',
             'À' => 'A',
             'Á' => 'A',
             'Ạ' => 'A',
@@ -290,7 +289,6 @@ class CourseController extends Controller
             'Ỵ' => 'Y',
             'Ỷ' => 'Y',
             'Ỹ' => 'Y',
-            'Đ' => 'D',
         ];
 
         $string = strtr($string, $vietnameseMap);
@@ -305,6 +303,7 @@ class CourseController extends Controller
         $text = $request->input('search-text');
 
         $textSlug = $this->convertToSlug($text);
+
 
         $courses = Course::whereRaw('LOWER(course_name) LIKE ?', ['%' . strtolower($textSlug) . '%'])->get();
 

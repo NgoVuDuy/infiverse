@@ -21,6 +21,7 @@ class ResgiterForm extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.resgiter-form');
+        return view('components.regis
+        ter-form');
     }
 }

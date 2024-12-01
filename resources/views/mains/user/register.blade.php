@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="container">
-    <x-resgiter-form/>
+    <x-register-form/>
 </div>
 @endsection
 
