@@ -6,7 +6,7 @@ use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 // use Illuminate\Http\Request;
 
-class ResgiterController extends Controller
+class RegisterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,6 +34,8 @@ class ResgiterController extends Controller
         $password = $request -> input('password');
 
         $user = User::create([
+            
+            'fullname' => 'Người dùng mới',
             'username' => $username,
             'password' => $password,
             'role' => 'student'

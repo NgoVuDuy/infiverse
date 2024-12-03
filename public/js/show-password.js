@@ -23,4 +23,16 @@ $(document).ready(function() {
         }
         
     })
+
+    $(".show-psw-old").on('click', function() {
+
+        var pswField = $("#old_password")
+
+        if(pswField.attr('type') === 'password') {
+            pswField.attr('type', 'text')
+        } else {
+            pswField.attr('type', 'password')
+        }
+        
+    })
 })

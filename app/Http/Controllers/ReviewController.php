@@ -29,20 +29,41 @@ class ReviewController extends Controller
      */
     public function store(Request $request, string $id)
     {
-        //
-        $student_id = Auth::user()->id;
 
-        $review = $request->input('review');
-        $star_rating = $request->input('star_rating');
+        $student_id = Auth::user()->id; // Lay id nguoi danh gia
+        $review = $request->input('review'); // Lay ra text danh gia
+        $star_rating = $request->input('star_rating'); // Lay ra so sao danh gia
 
-        $review = Review::create([
 
-            'student_id' => $student_id,
-            'course_id' => $id,
-            'review' => $review,
-            'star_rating' => $star_rating
-        ]);
-        // echo $review . $star_rating;
+        $isReview = Review::where('student_id', $student_id)->where('course_id', $id)->exists();
+
+        if ($isReview) {
+
+            $review_on_table = Review::where('student_id', $student_id)->where('course_id', $id)->first();
+            if ($review_on_table) {
+
+                $review_on_table->review = $review;
+
+                $review_on_table->save();
+            }
+        } else {
+
+
+            $review = Review::create([
+
+                'student_id' => $student_id,
+                'course_id' => $id,
+                'review' => $review,
+                'star_rating' => $star_rating
+            ]);
+        }
+
+
+
+
+
+
+
         return redirect()->to(route('course-details', $id) . '#review-title');
     }
     /**
@@ -70,7 +91,7 @@ class ReviewController extends Controller
         //
         $response_teacher = $request->input('response');
 
-        if($review) {
+        if ($review) {
 
             $review->response = $response_teacher;
 
@@ -78,11 +99,11 @@ class ReviewController extends Controller
         }
 
 
-        return redirect()->to(route('teacher-course-details', $course_id) . "#review-title" )->with('display', 'block');
-
+        return redirect()->to(route('teacher-course-details', $course_id) . "#review-title")->with('display', 'block');
     }
 
-    public function update_response(Request $request, string $course_id, string $review_id) {
+    public function update_response(Request $request, string $course_id, string $review_id)
+    {
 
         // echo $id;
         $response = $request->input('response');
@@ -90,16 +111,16 @@ class ReviewController extends Controller
 
         $review = Review::find($review_id);
 
-        if($review) {
+        if ($review) {
 
             $review->response = $response;
 
             $review->save();
         }
 
-        return redirect()->to(route('teacher-course-details', $course_id) . "#review-title" )
-        ->with('display', 'block')
-        ->with('message-update-response', 'Cập nhật câu trả lời thành công');
+        return redirect()->to(route('teacher-course-details', $course_id) . "#review-title")
+            ->with('display', 'block')
+            ->with('message-update-response', 'Cập nhật câu trả lời thành công');
     }
 
     /**
@@ -111,23 +132,21 @@ class ReviewController extends Controller
 
     }
 
-    public function destroy_response(string $course_id, string $review_id) {
+    public function destroy_response(string $course_id, string $review_id)
+    {
 
         $review = Review::find($review_id);
 
-        if($review) {
+        if ($review) {
 
             $review->response = null;
 
             $review->save();
         }
 
-        
-        return redirect()->to(route('teacher-course-details', $course_id) . "#review-title" )
-        ->with('display-review', 'block')
-        ->with('message-delete-response', 'Xóa câu trả lời thành công');
 
+        return redirect()->to(route('teacher-course-details', $course_id) . "#review-title")
+            ->with('display-review', 'block')
+            ->with('message-delete-response', 'Xóa câu trả lời thành công');
     }
-
-
 }

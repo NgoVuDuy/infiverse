@@ -22,7 +22,7 @@
     <div class="row">
 
 
-        <main class="ms-sm-auto col-lg-12 col-md-9 col-12">
+        <main class="ms-sm-auto col-12">
 
             <div class="navbar-child">
 
@@ -51,14 +51,14 @@
             <div class="row lession-header">
 
 
-                <div class="col-8 lession-left">
+                <div class="col-lg-8 col-12 lession-left">
 
                     <h1 class="course-name">{{ $course->course_name }}</h1>
                     <p class="course-description">{{ $course->description }}</p>
 
                 </div>
 
-                <div class="col-4 lession-right">
+                <div class="col-lg-4 d-lg-block d-none lession-right">
 
                     <img src="{{ asset($course->img) }}" alt="" width="100%">
 
@@ -192,11 +192,9 @@
                     </button>
 
 
-
-
                 </div>
 
-                <div class="lession-list col-12 mt-4" style="display: {{ session('display-lession', 'none') }} !important;">
+                <div class="lession-list col-6 mt-4" style="display: {{ session('display-lession', 'none') }} !important;">
 
                     @if($lessions->isEmpty())
                     <p>Chưa có bài học nào dành cho khóa học này</p>
@@ -207,28 +205,39 @@
 
                     <div class="lession-item">
 
-                        <h6 class="fw-bold">{{ $lession->title }}</h6>
+                        <div class="row">
+                            <div class="col-10">
+                                <h6 class="fw-bold">{{ $lession->title }}</h6>
 
-                        <a href="{{  asset( $lession->file) }}" target="_blank">
-                            <img src="{{ asset('images/files/pdf.png') }}" alt="PDF" width="2.5%">
-                        </a>
+                                <a href="{{  asset( $lession->file) }}" target="_blank">
+                                    <img src="{{ asset('images/files/pdf.png') }}" alt="PDF" width="35px">
+                                </a>
 
-                        <p class="file_desc">{{ $lession->desc_file }}</p>
+                                <p class="file_desc">{{ $lession->desc_file }}</p>
+                            </div>
+
+                            <div class="col-2 d-flex justify-content-end">
+                                <!-- Nút cài đặt -->
+                                <div class="setting-response">
+                                    <!-- <img src="{{ asset('images/icon/setting.png') }}" alt="Cài đặt" width="24px"> -->
+
+                                    <button class="mb-2" data-bs-toggle="modal" data-bs-target="#lession{{ $lession->id }}">Sửa <i class="fa fa-pencil" style="font-size:16px"></i></button>
+
+                                    <a href="{{ route('delete-lession', ['course_id' => $course->id, 'lession_id' => $lession->id])}}">
+
+                                        <button>Xóa <i class="fa fa-close" style="font-size:16px"></i></button>
+
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+
+
 
                         <hr>
 
-                        <!-- Nút cài đặt -->
-                        <div class="setting-response">
-                            <!-- <img src="{{ asset('images/icon/setting.png') }}" alt="Cài đặt" width="24px"> -->
 
-                            <button class="update-response-btn" data-bs-toggle="modal" data-bs-target="#lession{{ $lession->id }}">Cập nhật</button>
-
-                            <a href="{{ route('delete-lession', ['course_id' => $course->id, 'lession_id' => $lession->id])}}">
-
-                                <button class="delete-response-btn btn btn-danger">Xóa</button>
-
-                            </a>
-                        </div>
 
                         <x-modal>
                             <x-slot name="idModal">lession{{ $lession->id }}</x-slot>
@@ -239,13 +248,13 @@
 
                                 <div class="row mb-3">
                                     <div class="col-3"><label for="">Tiêu đề</label></div>
-                                    <div class="col-9"><input type="text" name="title-lession" id="" value=""></div>
+                                    <div class="col-9"><input type="text" name="title-lession" id="" value="{{ $lession->title }}"></div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-3">
                                         <lable>Mô tả bài học</lable>
                                     </div>
-                                    <div class="col-9"><textarea type="text" name="desc-lession" id="" value=""></textarea></div>
+                                    <div class="col-9"><textarea type="text" name="desc-lession" id="">{{ $lession->desc_file }}</textarea></div>
                                 </div>
 
                                 <div class="row mb-3">
@@ -261,8 +270,8 @@
                             </x-slot>
                             <x-slot name="footerModal">
 
-                                <p class="back-btn-modal" data-bs-toggle="modal" data-bs-target="#optionLessionModal">Trở lại</p>
-                                <button type="submit" class="finish-btn">Hoàn thành</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Thoát</button>
+                                <button style="font-size: 1rem;" type="submit" class="finish-btn">Hoàn thành</button>
 
                             </x-slot>
 
@@ -292,9 +301,8 @@
                     <!-- <i class="fa fa-sort-down down-arrow"></i> -->
                 </h4>
 
-                <hr style="margin-top:16px;">
 
-                <div class="lession-evaluate-show mt-2">
+                <div class="lession-evaluate-show mt-2 col-6">
 
                     @if($reviews->isEmpty())
 
@@ -358,8 +366,35 @@
                             <p>{{ $review->review }}</p>
 
                             @if($review->response != null)
-                            <div>
-                                <span style="font-size: 14px; font-weight:bold;">Đã trả lời:</span> {{ $review->response }}
+                            <div class="response-teacher">
+                                <span style="font-size: 14px; font-weight:bold;">Đã trả lời:</span>
+                                <div class="row">
+                                    <div class="col-10">
+
+                                        {{ $review->response }}
+                                    </div>
+
+                                    <div class="col-2 d-flex justify-content-end">
+
+                                        <div class="setting-response">
+
+                                            <button class="mb-2" data-bs-toggle="modal" data-bs-target="#review{{ $review->id }}">Sửa<i class="fa fa-pencil" style="font-size:16px"></i></button>
+
+
+
+                                            <a href="{{ route('delete-response', ['course_id' => $course->id, 'review_id' => $review->id])}}">
+
+                                                <button>Xóa <i class="fa fa-close" style="font-size:16px;"></i></button>
+
+
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
 
                             </div>
 
@@ -369,22 +404,11 @@
                             <form action="{{ route('response',['course_id' => $course->id, 'review_id' => $review->id]) }}  " method="post" class="mt-3">
 
                                 @csrf
-                                <input name="response" class="rep-comment-input" type="text" placeholder="Nhập nội dung">
+                                <input name="response" class="rep-comment-input" type="text" placeholder="Nhập câu trả lời của bạn">
                                 <button class="rep-comment-btn" type="submit">Gửi</button>
                             </form>
 
                             @endif
-                        </div>
-
-                        <div class="setting-response">
-
-                            <button class="update-response-btn" data-bs-toggle="modal" data-bs-target="#review{{ $review->id }}">Cập nhật</button>
-
-                            <a href="{{ route('delete-response', ['course_id' => $course->id, 'review_id' => $review->id])}}">
-
-                                <button class="delete-response-btn btn btn-danger">Xóa</button>
-
-                            </a>
                         </div>
 
 
@@ -403,7 +427,7 @@
                             <div class="row mb-3">
 
                                 <div class="col-3"><label for="">Câu trả lời</label></div>
-                                <div class="col-9"><input type="text" name="response" id="" value="" placeholder="Nhập câu trả lời mới"></div>
+                                <div class="col-9"><input type="text" name="response" id="" value="{{ $review->response }}" placeholder="Nhập câu trả lời mới"></div>
 
                             </div>
                         </x-slot>
@@ -411,7 +435,7 @@
 
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Thoát</button>
 
-                            <button type="submit" class="finish-btn">Gửi</button>
+                            <button style="font-size: 1rem;" type="submit" class="finish-btn">Gửi</button>
 
                         </x-slot>
 

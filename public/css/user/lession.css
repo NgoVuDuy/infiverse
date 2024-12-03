@@ -23,7 +23,7 @@ body {
 
     background-color: #2f3c7e;
     padding: 40px;
-
+    margin: 0px;
     border-radius: 20px;
 
 }
@@ -119,6 +119,10 @@ body {
 }
 
 .send-evaluate-btn {}
+
+.star-cover .star {
+    cursor: pointer;
+}
 
 .star {
     margin-right: 6px;

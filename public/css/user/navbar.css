@@ -1,5 +1,5 @@
 nav {
-    height: 70px;
+    /* padding: 12px; */
 }
 
 .navbar {
@@ -10,7 +10,7 @@ nav {
 }
 
 .nav-link {
-    line-height: 70px;
+    line-height: 80px;
     height: 100%;
     padding: 0px 20px !important;
     font-weight: 600;
@@ -21,7 +21,6 @@ nav {
 
     box-shadow: inset 0 -3px 0 #198754; 
 
-    /* background: #198754; */
 }
 
 .navbar .nav-item:hover .nav-link {
@@ -33,4 +32,21 @@ nav {
 .navbar .nav-active {
     box-shadow: inset 0 -3px 0 #198754; 
     color: #198754;
+}
+
+.navbar-form {
+    display: flex;
+}
+
+.navbar-search-btn {
+
+    display: none;
+}
+
+.navbar-close-btn {
+    display: none;
+}
+
+.width-400 {
+    width: 400px !important;
 }

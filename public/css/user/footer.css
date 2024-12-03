@@ -37,8 +37,9 @@ footer{
 .footer-logo-cover {
     /* height: 14%; */
 }
-.footer-logo-cover img {
-    width: 14%;
+.footer-logo {
+    width: 70px;
+    height: 70px;
 }
 
 .footer-col p {
@@ -56,4 +57,9 @@ footer{
     color: rgb(44 49 207);
     font-size: 18px;
     margin-bottom: 10px;
+}
+
+.footer-col p a:hover {
+
+    color: rgb(44 49 207);
 }

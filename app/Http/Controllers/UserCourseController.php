@@ -59,7 +59,7 @@ class UserCourseController extends Controller
                 return $this->store($request, $id);
             } else {
 
-                return redirect(route('course-details', $id))->with('message-join-in', 'Mã code sai');
+                return redirect(route('course-details', $id))->with('message-join-in-fail', 'Mã code sai');
             }
         }
     }

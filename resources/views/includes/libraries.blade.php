@@ -28,3 +28,7 @@
 {{-- navbar css --}}
 <link rel="stylesheet" href="{{ asset('css/user/navbar.css') }}">
 
+{{-- responsive --}}
+<link rel="stylesheet" href="{{ asset('css/responsive/main.css') }}">
+
+

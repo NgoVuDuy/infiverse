@@ -1,12 +1,53 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary" style="">
+<style>
+    @media (min-width: 1201px) {
+
+
+
+        .navbar-close-btn {
+            display: none;
+        }
+
+    }
+
+    /* Kích thước giữa 576px và 992px */
+    @media (min-width: 991.98px) and (max-width: 1200px) {
+
+
+        .navbar-form {
+            position: absolute;
+            bottom: -60px;
+            right: 20px;
+            display: none;
+        }
+
+        .navbar-search-btn {
+            display: block;
+        }
+
+    }
+
+
+    @media (min-width: 0px) and (max-width: 991px) {
+
+        .navbar-close-btn {
+            display: none !important;
+        }
+
+        .navbar-form {
+            width: 100% !important;
+        }
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/"><img src="{{ asset('images/logo/logo-infiverse.png') }}" alt="Bootstrap" width="50px" height="50px"><span style="margin-left: 8px; font-weight: bold; font-size: 20px; color: #2f3c7e;"></span></a>
+        <a class="navbar-brand" href="/"><img src="{{ asset('images/logo/logo-infiverse.png') }}" alt="Bootstrap" width="70px" height="70px"><span style="margin-left: 8px; font-weight: bold; font-size: 20px; color: #2f3c7e;"></span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse mb-lg-0 mb-3" id="navbarSupportedContent">
 
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('/') ? 'nav-active' : ' ' }}" aria-current="page" href="/">Trang chủ</a>
                 </li>
@@ -42,12 +83,17 @@
                 </li>
 
             </ul>
-            <form class="d-flex" role="search" action="/search" method="get">
+            <form class=" navbar-form" role="search" action="/search" method="get">
 
                 @csrf
-                <input style="width: 400px;" name="search-text" class="form-control me-2" type="search" placeholder="Nhập tên khóa học" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><i class="fa fa-search" style="font-size:24px"></i></button>
+                <input name="search-text" class="search-text form-control me-2" type="search" placeholder="Nhập tên khóa học" aria-label="Search">
+                <button class="btn btn-success" type="submit"><i class="fa fa-search" style="font-size:24px"></i></button>
             </form>
+
+            <button class="btn btn-outline-success navbar-search-btn"><i class="fa fa-search" style="font-size:24px"></i></button>
+            <button class="btn btn-outline-danger navbar-close-btn "><i class="fa fa-close" style="font-size:24px"></i></i></button>
+
+
         </div>
     </div>
 </nav>
@@ -71,3 +117,48 @@
     <x-slot name="path">{{ route('leave-course', session('id-leave-course')) }}</x-slot>
 </x-window-adv>
 @endif
+
+<script>
+    $(document).ready(function() {
+
+
+        $('.navbar-search-btn').on('click', function() {
+
+            $('.navbar-form').addClass('d-flex');
+            $('.navbar-form').addClass('width-400');
+
+
+            $('.navbar-search-btn').addClass('d-none');
+            $('.navbar-close-btn').addClass('d-block');
+
+
+
+
+        })
+
+
+        $('.navbar-close-btn').on('click', function() {
+
+            $('.navbar-form').removeClass('d-flex');
+            $('.navbar-form').removeClass('width-400');
+
+
+            $('.navbar-search-btn').removeClass('d-none');
+            $('.navbar-close-btn').removeClass('d-block');
+
+
+
+        })
+
+
+        $('.navbar-form').on('submit', function(event) {
+
+            var search_text = $('.search-text').val().trim();
+
+            if(!search_text) {
+
+                event.preventDefault();
+            }
+        })
+    })
+</script>

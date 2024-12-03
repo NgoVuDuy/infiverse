@@ -13,7 +13,7 @@
 <div class="container">
 
     <div class="row lession-header">
-        <div class="col-8 lession-left">
+        <div class="col-lg-8 col-12 lession-left">
 
             <h1 class="course-name">{{ $course->course_name }}</h1>
             <p class="course-teacher"><span style="color: #cacaca; margin-right: 6px;">Tác giả </span>{{ $teacher_name }}</p>
@@ -21,7 +21,7 @@
 
         </div>
 
-        <div class="col-4 lession-right">
+        <div class="col-lg-4 d-lg-block d-none lession-right">
 
             <img src="{{ asset($course->img) }}" alt="" width="100%">
 
@@ -49,7 +49,7 @@
             <h6 class="fw-bold">{{ $lession->title }}</h6>
 
             <a href="{{ asset('files/lab1.pdf') }}" target="_blank">
-                <img src="{{ asset('images/files/pdf.png') }}" alt="PDF" width="2.5%">
+                <img src="{{ asset('images/files/pdf.png') }}" alt="PDF" width="35px">
             </a>
             
             <p class="file_desc">{{ $lession->desc_file }}</p>

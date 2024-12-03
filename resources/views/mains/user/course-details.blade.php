@@ -15,7 +15,7 @@
 <div class="container">
 
     <div class="row lession-header">
-        <div class="col-8 lession-left">
+        <div class="col-lg-8 col-12 lession-left">
 
             <h1 class="course-name">{{ $course->course_name }}</h1>
             <p class="course-teacher"><span style="color: #cacaca; margin-right: 6px;">Tác giả </span>{{ $teacher_name }}</p>
@@ -42,7 +42,7 @@
             @else
 
 
-                <button class="join-in-btn" data-bs-toggle="modal" data-bs-target="#codeModal">Nhập mã ghi danh</button><br>
+            <button class="join-in-btn" data-bs-toggle="modal" data-bs-target="#codeModal">Nhập mã ghi danh</button><br>
 
             @endif
 
@@ -62,7 +62,7 @@
 
         </div>
 
-        <div class="col-4 lession-right">
+        <div class="col-lg-4 d-lg-block d-none lession-right">
 
             <img src="{{ asset($course->img) }}" alt="" width="100%">
 
@@ -99,21 +99,21 @@
 
         </div>
 
-        <form action="{{ route('review', $course->id) }}" method="post" class="evaluate-form">
+        <form action="{{ route('review', $course->id) }}" method="post" class="evaluate-form rating-form">
 
             @csrf
 
-            <textarea name="review" class="col-12 mt-4 lession-evaluate-comment p-3" placeholder="Viết đánh giá của bạn"></textarea>
+            <textarea name="review" class="col-12 mt-4 lession-evaluate-comment p-3 rating-comment" placeholder="Viết đánh giá của bạn"></textarea>
 
             <div class="star-cover mt-4">
-                <i data-value="1" class="star fa fa-star" style="font-size:24px"></i>
-                <i data-value="2" class="star fa fa-star" style="font-size:24px"></i>
-                <i data-value="3" class="star fa fa-star" style="font-size:24px"></i>
-                <i data-value="4" class="star fa fa-star" style="font-size:24px"></i>
-                <i data-value="5" class="star fa fa-star" style="font-size:24px"></i>
+                <i data-value="1" class="star fa fa-star yellow" style="font-size:24px"></i>
+                <i data-value="2" class="star fa fa-star yellow" style="font-size:24px"></i>
+                <i data-value="3" class="star fa fa-star yellow" style="font-size:24px"></i>
+                <i data-value="4" class="star fa fa-star yellow" style="font-size:24px"></i>
+                <i data-value="5" class="star fa fa-star yellow" style="font-size:24px"></i>
             </div>
 
-            <input type="hidden" name="star_rating" class="star_rating">
+            <input type="hidden" name="star_rating" class="star_rating" value="5">
 
             <br>
             <button class="send-evaluate-btn mt-4" type="submit">Gửi đánh giá</button>
@@ -278,6 +278,19 @@
 
 @endif
 
+@if(session('message-join-in'))
+
+<x-alert>
+
+    <x-slot name="text">{{ session('message-join-in') }}</x-slot>
+    <x-slot name="color">red</x-slot>
+
+</x-alert>
+
+{{ session()->forget('message-join-in-fail') }}
+
+@endif
+
 @endsection
 
 @section('js')
@@ -285,16 +298,45 @@
 <script src="{{ asset('js/evaluate.js') }}"></script>
 
 
-
-@if(! $isEnrolled || $isReview)
+@if(! $isEnrolled)
 
 <script>
     $(document).ready(function() {
 
+        // An form khi nguoi dung chua tham gia khoa hoc
         $('.evaluate-form').addClass('d-none')
+
+        //Ngan chan gui form khi nguoi dung chua nhap danh gia
+        $('.rating-form').on('submit', function(event) {
+
+            var rating_comment = $('.rating-comment').val().trim()
+
+            if (!rating_comment) {
+
+                event.preventDefault()
+            }
+        })
+
     })
 </script>
 
 @endif
+
+<script>
+    $(document).ready(function() {
+
+        //Ngan chan gui form khi nguoi dung chua nhap danh gia
+        $('.rating-form').on('submit', function(event) {
+
+            var rating_comment = $('.rating-comment').val().trim()
+
+            if (!rating_comment) {
+
+                event.preventDefault()
+            }
+        })
+
+    })
+</script>
 
 @endsection

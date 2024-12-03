@@ -2,26 +2,24 @@
 
     <div class="col-lg-10">
 
-        <div class="row">
+        <div class="row justify-content-center">
 
-            <div class="col-lg-7 col-md-6 col-12">
+            <div class="col-lg-7 col-12">
 
-                <div class="row">
+                <div class="row justify-content-center">
+
 
 
                     <div class="row align-items-center">
-                        <div class="col-lg-2 col-md-4 col-3">
-                            <img src="{{ asset('images/logo/logo-infiverse.png') }}" alt="Bootstrap" width="90px" height="90px">
+                        <div style="padding: 0px" class="col-lg-2 col-2">
+                            <img src="{{ asset('images/logo/logo-infiverse.png') }}" alt="Bootstrap" width="100%">
 
                         </div>
 
-                        <div class="col-lg-8 col-md-12 col-9 logo-form">
+                        <div class="col-lg-8 col-10 logo-form d-flex align-items-center">
                             <div class="chat-robot">
                                 <span>
 
-                                    <!-- <p class="chat-text">
-                                    
-                                </p> -->
                                     <h2 class="slogan">INFIVERSE</h2>
                                     <span style="color: white;">Free to use, easy to love</span>
                                 </span>
@@ -29,20 +27,22 @@
 
                         </div>
                     </div>
+
                 </div>
 
-                <div class="row mt-4">
+                <div class="row mt-4 ">
 
-                    <div class="col-8">
-                        <img src="{{ asset('images/Launch.png') }}" alt="" width="100%">
+                    <div class="col-lg-8 col-10 d-lg-block d-none">
+                        <img src="{{ asset('images/Launch.png') }}" alt="" width="100%" height="100%">
 
                     </div>
                 </div>
 
 
+
             </div>
 
-            <div class="col-lg-5 col-md-6 col-12 form-cover">
+            <div class="col-lg-5 col-md-12 col-sm-12 col-11 form-cover">
 
                 <h1 class="form-title mt-4">Sign Up</h1>
 
@@ -122,7 +122,7 @@
     <x-slot name="text">{{ session('error') }}</x-slot>
     <x-slot name="icon">error</x-slot>
     <x-slot name="button">OK</x-slot>P
-    <x-slot name="footer"><a href="/register">Quay lại</a></x-slot>
+    <x-slot name="footer"><a style="text-decoration: none;" href="/register">Quay lại</a></x-slot>
 
 </x-window>
 @endif

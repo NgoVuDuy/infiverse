@@ -5,8 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LessionController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\ResgiterController;
-use App\Http\Controllers\EditFormController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserCourseController;
@@ -32,7 +31,7 @@ Route::controller(LoginController::class)->group(function () {
     Route::post('/login', 'store');
 });
 
-Route::controller(ResgiterController::class)->group(function () {
+Route::controller(RegisterController::class)->group(function () {
 
     Route::get('/register', 'index');
 
@@ -161,4 +160,14 @@ Route::controller(ReviewController::class)->group(function() {
 
     Route::get('{course_id}/{review_id}/delete-response', 'destroy_response')->name('delete-response');
 
+});
+
+Route::get('/change-username', function() {
+
+    return view('mains.user.change-username');
+});
+
+Route::get('/change-password', function() {
+
+    return view('mains.user.change-password');
 });

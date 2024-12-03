@@ -4,8 +4,7 @@
 
 @section('css')
 
-<link href="{{ asset('css/teacher/home.css') }}" rel="stylesheet">
-<!-- <link href="{{ asset('css/teacher/sidebar.css') }}" rel="stylesheet"> -->
+<!-- <link href="{{ asset('css/teacher/home.css') }}" rel="stylesheet"> -->
 <link href="{{ asset('css/user/course.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/user/user.css') }}">
 
@@ -20,7 +19,7 @@
 <div class="container">
     <div class="row">
 
-        <main class="ms-sm-auto col-lg-12 col-md-9 col-12 mt-4">
+        <main class="ms-sm-auto col-12 mt-4">
 
             <div class="row">
 
@@ -58,7 +57,7 @@
                             <center>
 
                                 <a href="/create-new-course" style="text-decoration: none;">
-                                    <img class="create-new-course-btn" src="{{ asset('images/icon/plus.png') }}" width="50%" alt="">
+                                    <img class="create-new-course-btn" src="{{ asset('images/icon/plus.png') }}" width="44px" alt="">
                                     <p class="nav-opt-text">Tạo mới</p>
 
                                 </a>
@@ -86,7 +85,7 @@
 
                     @foreach($courses as $course)
 
-                    <div class="col-lg-3 col-md-4 col-6 course-cover">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 course-cover">
 
                         <div class="course">
 

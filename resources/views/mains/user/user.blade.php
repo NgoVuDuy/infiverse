@@ -1,37 +1,53 @@
 @extends('layouts.main')
 
-@section('title', 'Người dùng')
+@section('title', 'Hồ sơ của tôi')
 
 @section('css')
 
 <link rel="stylesheet" href="{{ asset('css/user/user.css') }}">
 <link rel="stylesheet" href="{{ asset('css/user/course.css') }}">
+<link rel="stylesheet" href="{{ asset('css/responsive/user.css') }}">
+
 
 @endsection
 
 @section('content')
 
+
 <div class="container">
     <div class="row mt-5 justify-content-center">
-        <div class="col-2">
-            <div class="user-option p-3">
-                <a id="user-information" class="active option">
-                    <p>Thông tin và liên hệ</p>
-                </a>
-                <a id="change-username" class="option">
-                    <p>Đổi tên tài khoản</p>
-                </a>
-                <a id="change-password" class="option">
-                    <p>Thay đổi mật khẩu</p>
-                </a>
-                <a href="/delete-user-confirmation" id="delete-user" class="option">
-                    <p class="dlt-user">Xóa tài khoản</p>
-                </a>
+        <div class="col-lg-8 col-12 mb-4">
+            <div class="user-option">
+                <div class="row">
+                    <div class="col-3">
+                        <a href="#" id="user-information" class="active option">
+                            <p>Thông tin và liên hệ</p>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="/change-username" id="change-username" class="option">
+                            <p>Đổi tên tài khoản</p>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="/change-password" id="change-password" class="option">
+                            <p>Thay đổi mật khẩu</p>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="/delete-user-confirmation" id="delete-user" class="option">
+                            <p class="dlt-user">Xóa tài khoản</p>
+                        </a>
+                    </div>
+                </div>
 
             </div>
         </div>
 
-        <div class="col-8">
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-11">
             <div class="row">
                 <div class="user-cover p-3">
 
@@ -59,7 +75,7 @@
                     <div class="icon-edit">
 
                         <span>Cập nhật</span>
-                        <img src="{{ asset('images/icon/edit.png') }}" alt="Edit" >
+                        <img src="{{ asset('images/icon/edit.png') }}" alt="Edit">
                     </div>
 
                 </div>
@@ -67,41 +83,10 @@
 
 
         </div>
+
     </div>
 </div>
 
-@if(session('change-username-message'))
-
-<x-window>
-    <x-slot name="text">{{ session('change-username-message') }}</x-slot>
-    <x-slot name="icon">success</x-slot>
-    <x-slot name="button">OK</x-slot>
-    <x-slot name="footer"></x-slot>
-
-</x-window>
-@endif
-
-@if(session('change-password-message-success'))
-
-<x-window>
-    <x-slot name="text">{{ session('change-password-message-success') }}</x-slot>
-    <x-slot name="icon">success</x-slot>
-    <x-slot name="button">OK</x-slot>
-    <x-slot name="footer"></x-slot>
-
-</x-window>
-@endif
-
-@if(session('change-password-message-error'))
-
-<x-window>
-    <x-slot name="text">{{ session('change-password-message-error') }}</x-slot>
-    <x-slot name="icon">error</x-slot>
-    <x-slot name="button">OK</x-slot>
-    <x-slot name="footer"></x-slot>
-
-</x-window>
-@endif
 
 @if(session('delete-user-confirmation'))
 
@@ -118,7 +103,7 @@
 
 @section('js')
 
-<script>
+<!-- <script>
     $(document).ready(function() {
 
         $('.user-option a').on('click', function() {
@@ -128,17 +113,17 @@
             $(this).addClass('active')
         })
     })
-</script>
+</script> -->
 
-<script>
-    var urlUserDetails = "{{ route('user-details', Auth::user()->id) }}" 
-</script>
+<!-- <script>
+    var urlUserDetails = "{{ route('user-details', Auth::user()->id) }}"
+</script> -->
 
-<script src="{{ asset('js/ajax/user-information.js') }}"></script>
+<!-- <script src="{{ asset('js/ajax/user-information.js') }}"></script> -->
 <script src="{{ asset('js/ajax/edit-form.js') }}"></script>
 <!-- <script src="{{ asset('js/ajax/enrolled-courses.js') }}"></script> -->
-<script src="{{ asset('js/ajax/change-username.js') }}"></script>
-<script src="{{ asset('js/ajax/change-password.js') }}"></script>
+<!-- <script src="{{ asset('js/ajax/change-username.js') }}"></script> -->
+<!-- <script src="{{ asset('js/ajax/change-password.js') }}"></script> -->
 
 
 

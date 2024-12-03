@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ChangePasswordRequest;
+use App\Http\Requests\ChangeUsernameRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -158,7 +160,7 @@ class UserController extends Controller
         return redirect('/login')->with('delete-username-message', 'Bạn đã xóa tài khoản thành công');
     }
 
-    public function changeUsername(Request $request)
+    public function changeUsername(ChangeUsernameRequest $request)
     {
 
         $username = $request->input('username');
@@ -171,10 +173,12 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect('/user')->with('change-username-message', 'Tên tài khoản đã thay đổi thành công');
+        return back()->with('change-username-message', 'Tên tài khoản đã thay đổi thành công');
+
+        // return redirect('/user')->with('change-username-message', 'Tên tài khoản đã thay đổi thành công');
     }
 
-    public function changePassword(Request $request)
+    public function changePassword(ChangePasswordRequest $request)
     {
 
         $password = Auth::user()->password;
@@ -192,9 +196,9 @@ class UserController extends Controller
 
             $user->save();
 
-            return redirect('/user')->with('change-password-message-success', 'Đổi mật khẩu thành công');
+            return back()->with('change-password-message-success', 'Đổi mật khẩu thành công');
         } else {
-            return redirect('/user')->with('change-password-message-error', 'Đổi mật khẩu thất bại');
+            return back()->with('change-password-message-error', 'Mật khẩu không trùng khớp');
         }
     }
 }

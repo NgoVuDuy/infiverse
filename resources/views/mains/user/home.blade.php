@@ -6,6 +6,9 @@
 <link rel="stylesheet" href="{{ asset('css/user/home.css') }}">
 <link rel="stylesheet" href="{{ asset('css/user/course.css') }}">
 
+<link rel="stylesheet" href="{{ asset('css/responsive/home.css') }}">
+
+
 @endsection
 
 @section('content')
@@ -15,9 +18,9 @@
     <div class="row home-header">
 
 
-        <h5 class="mb-5">Xin chào <span class="hightlight-text">{{ Auth::user()->username }}</span> .Chào mừng bạn đến với <span class="hightlight-text">Infiverse</span> . Hãy cùng khám phá nhé !</h5>
+        <h5 class="mb-5">Xin chào <span class="hightlight-text">{{ Auth::user()->fullname }}</span> .Chào mừng bạn đến với <span class="hightlight-text">Infiverse</span> . Hãy cùng khám phá nhé !</h5>
 
-        <div class="col-5 home-left">
+        <div class="col-lg-5 col-md-8 col-12 home-left">
 
             <div class="home-desc">
                 <span><img src="{{ asset('images/icon/remote-access.png') }}" alt="" width="6%">Cộng đồng học tập phong phú</span>
@@ -41,7 +44,7 @@
             </div>
 
         </div>
-        <div class="col-5 home-right">
+        <div class="col-lg-5 col-md-8 col-12 home-right">
 
         </div>
     </div>
@@ -52,8 +55,8 @@
 
     <!-- iTEM1 -->
 
-    <div class="row home-title mt-5 mb-2 home-title-new">
-        <div class="col-12">
+    <div class="row  mt-5 mb-2 justify-content-center">
+        <div class="col-lg-6 col-md-8 col-11 home-title home-title-new d-flex justify-content-center align-items-center">
             <div class="">
 
                 <img src="{{ asset('images/icon/new_1.png') }}" alt="new_icon" width="40px">
@@ -69,16 +72,16 @@
 
         </div>
 
-        
+
     </div>
 
     <p class="for-more-courses"><a href="/courses">Xem thêm</a></p>
 
-    <div class="row course-row">
+    <div class="row course-row justify-content-center">
 
         @foreach($newCourses as $course)
 
-        <div class="col-lg-3 col-md-4 col-6 course-cover">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-10 course-cover">
 
             <div class="course">
 
@@ -104,13 +107,15 @@
         @endforeach
     </div>
 
+    <p style="padding: 12px;" class="for-more-courses-bot"><a href="/courses">Xem thêm</a></p>
+
     <hr>
 
     <!-- iTEM2 -->
 
 
-    <div class="row home-title mt-5 mb-2 home-title-outstanding">
-        <div class="col-12">
+    <div class="row  mt-5 mb-2 justify-content-center">
+        <div class="col-lg-6 col-md-8 col-11 home-title home-title-outstanding d-flex justify-content-center align-items-center">
             <div class="">
 
                 <img src="{{ asset('images/icon/star_1.png') }}" alt="star_icon" width="40px">
@@ -128,11 +133,11 @@
     <p class="for-more-courses"><a href="/courses">Xem thêm</a></p>
 
 
-    <div class="row course-row">
+    <div class="row course-row justify-content-center">
 
         @foreach($osdCourses as $course)
 
-        <div class="col-lg-3 col-md-4 col-6 course-cover">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-10 course-cover">
 
             <div class="course">
 
@@ -156,14 +161,16 @@
         @endforeach
     </div>
 
+    <p style="padding: 12px;" class="for-more-courses-bot"><a href="/courses">Xem thêm</a></p>
+
     <hr>
 
 
     <!-- iTEM3 -->
 
 
-    <div class="row home-title mt-5 mb-2 home-title-suggest">
-        <div class="col-12">
+    <div class="row  mt-5 mb-2 justify-content-center">
+        <div class="col-lg-6 col-md-8 col-11 home-title home-title-suggest d-flex justify-content-center align-items-center">
             <div class="">
 
                 <img src="{{ asset('images/icon/notification.png') }}" alt="notification_icon" width="40px">
@@ -181,11 +188,11 @@
     <p class="for-more-courses"><a href="/courses">Xem thêm</a></p>
 
 
-    <div class="row course-row">
+    <div class="row course-row justify-content-center">
 
         @foreach($suggestCourses as $course)
 
-        <div class="col-lg-3 col-md-4 col-6 course-cover">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-10 course-cover">
 
             <div class="course">
 
@@ -211,7 +218,8 @@
         @endforeach
     </div>
 
-    <hr>
+    <p style="padding: 12px;" class="for-more-courses-bot"><a href="/courses">Xem thêm</a></p>
+
 
 </div>
 
