@@ -18,11 +18,9 @@ class LoginMiddleware
 
     {
 
-        // echo "xin chào";
 
         if(!(Auth::check())) {
 
-            // echo "hello";
 
             return redirect('/login');
         }

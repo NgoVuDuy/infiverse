@@ -245,6 +245,7 @@
     <x-slot name="idModal">codeModal</x-slot>
     <x-slot name="titleModal">Nhập mã ghi danh</x-slot>
     <x-slot name="actionModal">{{ route('course-code', $course->id) }}</x-slot>
+    <x-slot name="classForm"></x-slot>
 
     <x-slot name="bodyModal">
 

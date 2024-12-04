@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateNewCourseRequest;
 use App\Models\Course;
 use App\Models\Review;
 use App\Models\User;
@@ -44,17 +45,16 @@ class CourseController extends Controller
         return view('mains.teacher.create-new-course');
     }
 
-    public function store(Request $request)
+    public function store(CreateNewCourseRequest $request)
     {
         $teacher_id = Auth::user()->id;
+
         $teacher_name = Auth::user()->username;
 
-        $teacher = User::find($teacher_id);
 
         $coursename = $request->input('coursename');
         $description = $request->input('description');
         $description_details = $request->input('description_details');
-        $course_password = $request->input('course_password');
         $course_code = $request->input('course_code');
 
         $path = null;
@@ -76,7 +76,7 @@ class CourseController extends Controller
             'description' => $description,
             'description_details' => $description_details,
             'img' => $path,
-            'teacher_id' => 2,
+            'teacher_id' => $teacher_id,
             'code' => $course_code,
             'created_at' => now(),
             'updated_at' => now()
@@ -84,9 +84,9 @@ class CourseController extends Controller
         ]);
 
         if ($course) {
-            return back()->with('message-create-course', 'Tạo khóa học thành công');
+            return redirect('/courses-mgmt')->with('message-create-course', 'Tạo khóa học thành công');
         } else {
-            return back()->with('message-create-course', 'Tạo khóa học thất bại !');
+            return redirect('/courses-mgmt')->with('message-create-course', 'Tạo khóa học thất bại !');
         }
     }
 

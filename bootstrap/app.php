@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\CheckCourseEnrollmentMiddleware;
 use App\Http\Middleware\LoginMiddleware;
 use App\Http\Middleware\PreventRootMiddleware;
 use App\Http\Middleware\RoleMiddleware;
@@ -20,7 +21,8 @@ return Application::configure(basePath: dirname(__DIR__))
 
             'role' => RoleMiddleware::class,
             'login' => LoginMiddleware::class,
-            'prevent_root' => PreventRootMiddleware::class
+            'prevent_root' => PreventRootMiddleware::class,
+            'checkcourseenrollment' => CheckCourseEnrollmentMiddleware::class
 
         ]);
     })

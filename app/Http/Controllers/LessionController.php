@@ -65,7 +65,11 @@ class LessionController extends Controller
             'updated_at' => now()
         ]);
 
-        return back()->with('create-lession-message', 'Tạo bài học thành công');
+        // return back()->with('create-lession-message', 'Tạo bài học thành công');
+
+        return redirect()->to(route('teacher-course-details', $course_id) . "#lession-title")
+        ->with('display-lession', 'block')
+        ->with('message-create-lession', 'Tạo bài học thành công');
     }
 
     /**

@@ -4,7 +4,7 @@
 
 @section('css')
 
-<link href="{{ asset('css/teacher/home.css') }}" rel="stylesheet">
+<!-- <link href="{{ asset('css/teacher/home.css') }}" rel="stylesheet"> -->
 <link rel="stylesheet" href="{{ asset('css/user/lession.css') }}">
 <link rel="stylesheet" href="{{ asset('css/teacher/teacher-course-details.css') }}">
 <!-- <link href="{{ asset('css/teacher/sidebar.css') }}" rel="stylesheet"> -->
@@ -210,6 +210,7 @@
                                 <h6 class="fw-bold">{{ $lession->title }}</h6>
 
                                 <a href="{{  asset( $lession->file) }}" target="_blank">
+
                                     <img src="{{ asset('images/files/pdf.png') }}" alt="PDF" width="35px">
                                 </a>
 
@@ -243,18 +244,19 @@
                             <x-slot name="idModal">lession{{ $lession->id }}</x-slot>
                             <x-slot name="titleModal">Chỉnh sửa</x-slot>
                             <x-slot name="actionModal">{{ route('update-lession',['course_id' => $course->id, 'lession_id' => $lession->id]) }}</x-slot>
+                            <x-slot name="classForm">edit-lession-form</x-slot>
 
                             <x-slot name="bodyModal">
 
                                 <div class="row mb-3">
                                     <div class="col-3"><label for="">Tiêu đề</label></div>
-                                    <div class="col-9"><input type="text" name="title-lession" id="" value="{{ $lession->title }}"></div>
+                                    <div class="col-9"><input class="edit-title-lession" type="text" name="title-lession" id="" value="{{ $lession->title }}" required></div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-3">
                                         <lable>Mô tả bài học</lable>
                                     </div>
-                                    <div class="col-9"><textarea type="text" name="desc-lession" id="">{{ $lession->desc_file }}</textarea></div>
+                                    <div class="col-9"><textarea class="edit-desc-lession" type="text" name="desc-lession" id="" required>{{ $lession->desc_file }}</textarea></div>
                                 </div>
 
                                 <div class="row mb-3">
@@ -263,7 +265,7 @@
                                     </div>
 
                                     <div class="col-9">
-                                        <input type="file" name="file-lession" id="file" accept=".pdf" required>
+                                        <input class="edit-file-lession" type="file" name="file-lession" id="file" accept=".pdf" required>
 
                                     </div>
                                 </div>
@@ -404,7 +406,7 @@
                             <form action="{{ route('response',['course_id' => $course->id, 'review_id' => $review->id]) }}  " method="post" class="mt-3">
 
                                 @csrf
-                                <input name="response" class="rep-comment-input" type="text" placeholder="Nhập câu trả lời của bạn">
+                                <input name="response" class="rep-comment-input" type="text" placeholder="Nhập câu trả lời của bạn" required>
                                 <button class="rep-comment-btn" type="submit">Gửi</button>
                             </form>
 
@@ -421,13 +423,14 @@
                         <x-slot name="idModal">review{{ $review->id }}</x-slot>
                         <x-slot name="titleModal">Chỉnh sửa</x-slot>
                         <x-slot name="actionModal">{{ route('update-response',['course_id' => $course->id, 'review_id' => $review->id]) }}</x-slot>
+                        <x-slot name="classForm"></x-slot>
 
                         <x-slot name="bodyModal">
 
                             <div class="row mb-3">
 
                                 <div class="col-3"><label for="">Câu trả lời</label></div>
-                                <div class="col-9"><input type="text" name="response" id="" value="{{ $review->response }}" placeholder="Nhập câu trả lời mới"></div>
+                                <div class="col-9"><input type="text" name="response" id="" value="{{ $review->response }}" placeholder="Nhập câu trả lời mới" required></div>
 
                             </div>
                         </x-slot>
@@ -453,25 +456,26 @@
         </main>
     </div>
 
-    <!-- Định nghĩa các modal -->
     <!-- Modal -->
     <!-- Modal create lession response-->
     <x-modal>
         <x-slot name="idModal">createLessionModal</x-slot>
         <x-slot name="titleModal">Thêm bài học</x-slot>
         <x-slot name="actionModal">{{ route('create-new-lession', $course->id) }} </x-slot>
+        <x-slot name="classForm">create-lession-form</x-slot>
+
 
         <x-slot name="bodyModal">
 
             <div class="row mb-3">
                 <div class="col-3"><label for="">Tiêu đề <span style="color: red; font-size: 20px;">*</span></label></div>
-                <div class="col-9"><input type="text" name="title-lession" id="" value=""></div>
+                <div class="col-9"><input class="title-lession" type="text" name="title-lession" id="" value="" required></div>
             </div>
             <div class="row mb-3">
                 <div class="col-3">
                     <lable>Mô tả bài học <span style="color: red; font-size: 20px;">*</span></lable>
                 </div>
-                <div class="col-9"><textarea type="text" name="desc-lession" id="" value=""></textarea></div>
+                <div class="col-9"><textarea class="desc-lession" type="text" name="desc-lession" id="" value="" required></textarea></div>
             </div>
 
             <div class="row mb-3">
@@ -480,7 +484,7 @@
                 </div>
 
                 <div class="col-9">
-                    <input type="file" name="file-lession" id="file" accept=".pdf" required>
+                    <input class="file-lession" type="file" name="file-lession" id="file" accept=".pdf" required>
 
                 </div>
             </div>
@@ -496,75 +500,10 @@
     </x-modal>
 
 
-    <!-- Modal option lessions-->
-    <x-modal>
-        <x-slot name="idModal">optionLessionModal</x-slot>
-        <x-slot name="titleModal">Tùy chọn</x-slot>
-        <x-slot name="actionModal"></x-slot>
-        <x-slot name="bodyModal">
-
-            <div class="row mb-3">
-
-                <center>
-                    <div style="width:50%">
-                        <p style="color: rgb(30, 30, 255);" data-bs-toggle="modal" data-bs-target="#editLessionModal">Chỉnh sửa bài học</p>
-                        <p style="color:red">Xóa bài học</p>
-
-                    </div>
-                </center>
-            </div>
-        </x-slot>
-        <x-slot name="footerModal">
-
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Thoát</button>
-
-
-        </x-slot>
-
-    </x-modal>
-
-    <!-- Modal edit lessions-->
-    <x-modal>
-        <x-slot name="idModal">editLessionModal</x-slot>
-        <x-slot name="titleModal">Chỉnh sửa</x-slot>
-        <x-slot name="actionModal"></x-slot>
-
-        <x-slot name="bodyModal">
-
-            <div class="row mb-3">
-                <div class="col-3"><label for="">Tiêu đề</label></div>
-                <div class="col-9"><input type="text" name="title-lession" id="" value=""></div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-3">
-                    <lable>Mô tả bài học</lable>
-                </div>
-                <div class="col-9"><textarea type="text" name="desc-lession" id="" value=""></textarea></div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-3">
-                    <label for="file">Chọn file:</label>
-                </div>
-
-                <div class="col-9">
-                    <input type="file" name="file-lession" id="file" accept=".pdf" required>
-
-                </div>
-            </div>
-        </x-slot>
-        <x-slot name="footerModal">
-
-            <p class="back-btn-modal" data-bs-toggle="modal" data-bs-target="#optionLessionModal">Trở lại</p>
-            <button type="submit" class="finish-btn">Hoàn thành</button>
-
-        </x-slot>
-
-    </x-modal>
 
 </div>
 
-@if(session('create-lession-message'))
+@if(session('message-create-lession'))
 
 <x-alert>
 
@@ -615,24 +554,9 @@
 @endif
 
 
-
-@if(session('message-logout'))
-
-<x-window-adv>
-
-    <x-slot name="text">{{ session('message-logout') }}</x-slot>
-    <x-slot name="icon">question</x-slot>
-    <x-slot name="cancelButton">false</x-slot>
-    <x-slot name="path">/logout</x-slot>
-
-</x-window-adv>
-@endif
-
 @endsection
 
 @section('js')
-
-<script src="{{ asset('js/evaluate.js') }}"></script>
 
 <script>
     $(document).ready(function() {
@@ -652,10 +576,7 @@
             $('.lession-list').slideToggle('fast');
         })
 
-        // $('.down-arrow').eq(3).on('click', function() {
 
-        //     $('.lession-evaluate-show').slideToggle('fast');
-        // })
     })
 </script>
 

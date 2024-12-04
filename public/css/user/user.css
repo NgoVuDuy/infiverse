@@ -1,5 +1,4 @@
-.user {
-}
+.user {}
 
 .user-option {
     font-size: 15px;
@@ -7,7 +6,8 @@
 
     border: 2px rgb(212, 212, 212) solid;
     border-radius: 4px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); /* Bóng đổ về bên phải và dưới */
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    /* Bóng đổ về bên phải và dưới */
 }
 
 .user-option a {
@@ -23,11 +23,14 @@
 
     border: 2px rgb(212, 212, 212) solid;
     border-radius: 4px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); /* Bóng đổ về bên phải và dưới */
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    /* Bóng đổ về bên phải và dưới */
 
 }
 
-.user-information, .form-change-username, .form-change-password {
+.user-information,
+.form-change-username,
+.form-change-password {
     font-size: 15px;
 
 }
@@ -38,8 +41,8 @@
     font-weight: bold;
 }
 
-.user-option  p {
-    margin: 0px ;
+.user-option p {
+    margin: 0px;
     padding: 6px;
 }
 
@@ -68,7 +71,7 @@
     padding: 4px 8px;
 }
 
-.icon-edit span{
+.icon-edit span {
 
     font-size: 14px;
     color: rgb(44 49 207);
@@ -85,7 +88,11 @@
     width: 28%;
 }
 
-.edit-form .finish-btn, .upload-profile-img, .finish-profile-btn {
+
+
+.edit-form .finish-btn,
+.upload-profile-img,
+.finish-profile-btn {
     border: none;
     border-radius: 4px;
     color: white;
@@ -93,7 +100,8 @@
     padding: 8px;
 }
 
-.edit-form .finish-btn, .finish-profile-btn {
+.edit-form .finish-btn,
+.finish-profile-btn {
 
     background-color: #198754;
 
@@ -107,11 +115,15 @@
 }
 
 
-.edit-form  {
+.edit-form {
     font-size: 14px;
 }
 
-.edit-form input,textarea,select, .form-change-username input, .form-change-password input:first-child {
+.edit-form input,
+textarea,
+select,
+.form-change-username input,
+.form-change-password input:first-child {
 
     border-radius: 4px;
     border: 1px rgb(172, 172, 172) solid;
@@ -119,14 +131,23 @@
     width: 50%;
 }
 
+.edit-form input, .edit-form textarea {
+    border-radius: 4px;
+    border: 1px rgb(172, 172, 172) solid;
+    padding: 4px;
+    width: 100%;
+}
+
 .form-change-password input:first-child {
     width: 100%;
 }
-.form-change-password input:nth-child(2){
+
+.form-change-password input:nth-child(2) {
     margin-right: 8px;
 }
 
-.modal-body input, .modal-body textarea {
+.modal-body input,
+.modal-body textarea {
     width: 100%;
 }
 
@@ -143,7 +164,9 @@
     align-items: center;
 }
 
-.user-img-change-cover .user-img-change-btn, .change-username-btn, .change-password-btn {
+.user-img-change-cover .user-img-change-btn,
+.change-username-btn,
+.change-password-btn {
 
     border: none;
     background-color: #198754;
@@ -172,7 +195,7 @@
     color: rgb(30, 30, 255);
 }
 
-.user-option .row > .col-3 {
+.user-option .row>.col-3 {
     display: flex;
     justify-content: center;
     align-items: center;
