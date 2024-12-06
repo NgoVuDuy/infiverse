@@ -9,7 +9,6 @@
                 <div class="row justify-content-center">
 
 
-
                     <div class="row align-items-center">
                         <div style="padding: 0px" class="col-lg-2 col-2">
                             <img src="{{ asset('images/logo/logo-infiverse.png') }}" alt="Bootstrap" width="100%">
@@ -76,8 +75,8 @@
                         <div class="form-option">
 
                             <a style="text-decoration: none;" class="mb-5" href="/register">Đăng ký >></a>
-
                             <a style="text-decoration: none;" href="#">Quên mật khẩu >></a>
+                            
                         </div>
                     </center>
 

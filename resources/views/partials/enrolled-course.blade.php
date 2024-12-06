@@ -1,8 +1,13 @@
-<!-- <div class="row">
+<div class="row g-2 course-row mt-5">
+
+    @if (isset($message_enrolled_course))
+    <h5 style="text-align:center">{{ $message_enrolled_course }}</h5>
+    @endif
+
 
     @foreach($courses as $course)
 
-    <div class="col-lg-3 col-md-4 col-6 course-cover">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-12 course-cover">
 
         <div class="course">
 
@@ -14,21 +19,22 @@
 
                 <button class="join-in-btn">Chi tiết</button>
             </a>
+            <!-- 
+        <a href="{{ route('leave-course', $course->id) }}" class="leave-course-link" data-id="{{ $course->id }}">
 
-            <a class="leave-course-link" data-id="{{ $course->id }}">
+            <button class="leave-course-btn">Rời khỏi</button>
+
+        </a> -->
+
+
+            <a href="{{ route('leave-course-show', $course->id) }}" class="leave-course-link" data-id="{{ $course->id }}">
 
                 <button class="leave-course-btn">Rời khỏi</button>
 
             </a>
+
         </div>
 
     </div>
-
     @endforeach
 </div>
-<!-- 
-<script>
-    courseIdUrl = "{{ route('leave-course', $course->id) }}"
-</script> -->
-
-<script src="{{ asset('js/ajax/leave-course.js') }}"></script> -->

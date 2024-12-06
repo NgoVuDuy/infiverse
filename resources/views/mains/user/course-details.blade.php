@@ -6,6 +6,8 @@
 
 <link rel="stylesheet" href="{{ asset('css/user/lession.css') }}">
 <link rel="stylesheet" href="{{ asset('css/user/user.css') }}">
+<link rel="stylesheet" href="{{ asset('css/responsive/course-details.css') }}">
+
 
 
 @endsection
@@ -33,11 +35,17 @@
             @if($course->code == null)
 
 
+            <form action="{{ route('join-in-course', $course->id) }}" method="post">
 
-            <a class="course-link" href="{{ route('join-in-course', $course->id) }}">
+                @csrf
 
-                <button class="join-in-btn">Tham gia miễn phí</button>
-            </a><br>
+                <a class="course-link">
+    
+                    <button class="join-in-btn" type="submit">Tham gia miễn phí</button>
+    
+                </a><br>
+            </form>
+
 
             @else
 

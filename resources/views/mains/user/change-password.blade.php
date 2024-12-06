@@ -49,12 +49,12 @@
     <div class="row justify-content-center">
         <div class="col-lg-8 col-11">
             <div class="row">
-                <div class="user-cover p-3">
 
+                <div class="user-cover p-3">
                     <div class="row">
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-7">
+                                <div class="col-lg-7 col-12">
                                     <form class="form-change-password" action="/change-password" method="post">
 
                                         @csrf
@@ -110,7 +110,7 @@
 
                                 </div>
 
-                                <div class="col-5">
+                                <div class="col-lg-5 col-12">
 
                                     <div class="role">
                                         <p><i class="fa fa-circle" style="font-size:10px; margin-right:6px"></i>Độ dài từ 8 đến 16 ký tự</p>

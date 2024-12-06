@@ -66,19 +66,19 @@ class CourseSeeder extends Seeder
             [
                 'course_name' => 'JavaScript cho người mới bắt đầu.',
                 'description' => 'Khóa học JavaScript này được thiết kế để đưa bạn từ trình độ người mới bắt đầu đến trình độ trung cấp, bao gồm các khái niệm cốt lõi và kỹ năng thực hành cần thiết để xây dựng các ứng.',
-                'img' => 'images/courses/javascript-course.png', 
+                'img' => 'images/courses/javascript-course.png',
                 'description_details' => 'JavaScript là một ngôn ngữ gia thêm khả năng tương tác cho website của bạn (ví dụ: trò chơi, các phản hồi khi các nút được nhấn hoặc nhập dữ liệu trên form, kiểu động, hoạt họa). Bài viết này sẽ giúp bạn khởi động với ngôn ngữ thú vị này và cho bạn ý tưởng về những gì có thể xảy ra. JavaScript (viết tắt là "js") là một ngôn ngữ lập trình mang đầy đủ tính năng của một ngôn ngữ lập trình động mà khi nó được áp dụng vào một tài liệu HTML, nó có thể đem lại khả năng tương tác động trên các trang web. Cha đẻ của ngôn ngữ này là Brendan Eich, đồng sáng lập dự án Mozilla, quỹ Mozilla, và tập đoàn Mozilla. JavaScript thật sự rất linh hoạt. Bạn có thể bắt đầu với các bước nhỏ, với ? viện ảnh, bố cục có tính thay đổi và phản hồi đến các nút nhấn. Khi có nhiều kinh nghiệm hơn, bạn có thể tạo ra các trò chơi, hoạt họa 2 chiều hoặc 3 chiều, ứng dụng cơ sở dữ liệu toàn diện và nhiều thứ khác!',
                 'created_at' => now(),
                 'updated_at' => now(),
                 'code' => null,
 
-                'teacher_id' => 2
+                'teacher_id' => 3
 
             ],
             [
                 'course_name' => 'C cho người mới bắt đầu',
                 'description' => 'Khóa học lập trình C cho người mới bắt đầu. Khóa học này sẽ cung cấp những kiến thức cơ bản và là nền tảng để bạn đi xa hơn trên con đường lập trình.',
-                'img' => 'images/courses/c-course.png', 
+                'img' => 'images/courses/c-course.png',
                 'description_details' => '
                     Ngôn ngữ C là một ngôn ngữ đã có mặt từ rất lâu, là ngôn ngữ mệnh lệnh được ra đời từ đầu thập niên 70.
                     Ngôn ngữ C là một ngôn ngữ cấu trúc và xếp vào loại ngôn ngữ bậc 3 (loại ngôn ngữ cao cấp hơn ngôn ngữ mã máy và thấp hơn ngôn ngữ hướng đối tượng – bậc 4).
@@ -88,76 +88,70 @@ class CourseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'code' => null,
-
                 'teacher_id' => 3
 
             ],
             [
                 'course_name' => 'Điện toán đám mây',
                 'description' => 'Khóa học sẽ cung cấp cái nhìn cơ bản và tổng quan về lĩnh vực điện toán đám mây và các công nghệ điện toán đám mây nổi bật.',
-                'img' => 'images/courses/cloud-computer-course.png', 
+                'img' => 'images/courses/cloud-computer-course.png',
                 'description_details' => 'Khóa học Cloud Essentials cung cấp kiến thức tổng quan về cloud computing. Bao gồm kiến trúc, các yêu cầu, kĩ thuật cơ bản. Hướng dẫn cách tạo ứng dụng và báo cáo cho các đối tượng. Bên cạnh đó, Khóa học sẽ giới thiệu về AWS, ứng dụng, bảo mật, Web API và các dịch vụ... cuối khóa học là các câu hỏi ôn tập để luyện tập và khắc sâu kiến thức.',
                 'created_at' => now(),
                 'updated_at' => now(),
                 'code' => '12345',
-
-                'teacher_id' => 3
+                'teacher_id' => 4
 
             ],
             [
                 'course_name' => 'Truyền thông và Mạng máy tính',
                 'description' => 'Khóa học cung cấp cho lập trình viên những kiến thức cơ bản và dễ hiểu về mạng máy tính và truyền thông dữ liệu.',
-                'img' => 'images/courses/network-communication-course.png', 
-                'description_details' => '
-                
-                Người học sau khi học xong khóa học có khả năng:
-                • Hiểu khái niệm mạng máy tính, vai trò của các mạng máy tính. Phân biệt mạng cục bộ (LAN), mạng diện rộng (WAN). Hiểu khái niệm và vai trò của máy khách/máy chủ.
-                • Hiểu khái niệm truyền dữ liệu trên mạng, tốc độ truyền và các thông số khác (ví dụ: bps, kbps, Mbps, Gbps).
-                • Hiểu khái niệm phương tiện truyền thông (media) và khái niệm băng thông (bandwidth). Phân biệt các phương tiện truyền dẫn: có dây (ví dụ: cáp điện thoại, cáp đồng trục, cáp
-                quang), không dây (ví dụ: sóng vô tuyến).
-                • Hiểu khái niệm mạng Internet, intranet, extranet.
-                • Hiểu khái niệm tải các nội dung từ mạng xuống (download) và tải các nội dung lên mạng (upload).
-                • Biết phân biệt giữa “dịch vụ kết nối Internet” (ví dụ: Dial-up, ADSL, FTTH) và “phương thức kết nối Internet” (ví dụ: bằng đường dây thoại, điện thoại di động, cáp, không dây, vệ
-                tinh).
-                • Hiểu và phân biệt được các thiết bị mạng.
-                • Hiểu về tầm quan trọng và ứng dụng thực tế của mạng
-                • Có khả năng đưa ra sự lựa chọn về các gói mạng cơ bản trong thực tế
-                • Có khả năng đưa ra sự lựa chọn về các thiết bị mạng cơ bản trong thực tế
-                • Biết cách setup một mạng LAN/Wifi trong gia đình (Bao gồm thiết bị gì? Cấu hình như nào? Config ra sao, phục vụ được bao nhiêu máy với nhu cầu như nào)
-                • Biết cách xử lý các trục trặc về mạng một cách cơ bản.
-                • khả năng phân tích đánh giá chất lượng dịch vụ mạng và chọn lựa các dòng thiết mạng bị ổn định
-                
-                
-                
-                
-                
-                ',
+                'img' => 'images/courses/network-communication-course.png',
+                'description_details' => 'Truyền thông và mạng máy tính là lĩnh vực nghiên cứu và ứng dụng liên quan đến việc trao đổi thông tin, dữ liệu giữa các thiết bị máy tính thông qua các phương tiện truyền thông. Đây là nền tảng cơ bản để kết nối các thiết bị trong môi trường mạng, từ quy mô nhỏ như mạng gia đình đến quy mô lớn như mạng Internet toàn cầu.',
                 'created_at' => now(),
                 'updated_at' => now(),
                 'code' => '12345',
 
-                'teacher_id' => 3
+                'teacher_id' => 4
 
             ],
             [
                 'course_name' => 'Scratch cho người mới bắt đầu',
                 'description' => 'Khóa học lập trình Scratch cho trẻ 6-15 tuổi giúp phát triển tư duy logic, sáng tạo và kỹ năng lập trình thông qua việc kéo thả các khối lệnh. Trẻ học làm trò chơi, câu chuyện và rèn kỹ năng theo tiêu chuẩn STEAM.',
-                'img' => 'images/courses/scratch-course.png', 
+                'img' => 'images/courses/scratch-course.png',
                 'description_details' => '
-                
-                - Scratch là ngôn ngữ lập trình được nghiên cứu và phát triển bởi nhóm nghiên cứu Lifelong Kindergarten, thuộc trung tâm Media Lab của Viện công nghệ Massachusetts (Massachusetts Institute of Technology – MIT, thành lập năm 1981 tại Thành phố Cambridge, Bang Massachusetts, Hoa Kỳ). 
-                - Scratch là một ngôn ngữ lập trình dạng kéo thả. Điều này có nghĩa là bạn không cần viết mã bằng văn bản, mà thay vào đó, bạn sẽ “kéo” và “thả” các khối lệnh để tạo ra các chương trình.
-                - Được thiết kế với giao diện đẹp mắt, gần gũi với trẻ em nên rất dễ dàng sử dụng, vừa trực quan, vừa đơn giản lại phù hợp cho mọi lứa tuổi. Cho ra sản phẩm liền tay mà vẫn đảm bảo tính khoa học, tính liên thông tri thức sau này.
-                - Với Scratch bạn có thể tạo ra game trí tuệ, hoạt ảnh, mô phỏng.. Và đặc biệt có thể dùng để tham gia các cuộc thi sáng tạo công nghệ hoặc cuộc thi Tin học trẻ cấp tiểu học. 
-                
-                
+                Scratch là ngôn ngữ lập trình được nghiên cứu và phát triển bởi nhóm nghiên cứu Lifelong Kindergarten, thuộc trung tâm Media Lab của Viện công nghệ Massachusetts (Massachusetts Institute of Technology – MIT, thành lập năm 1981 tại Thành phố Cambridge, Bang Massachusetts, Hoa Kỳ). 
+                Scratch là một ngôn ngữ lập trình dạng kéo thả. Điều này có nghĩa là bạn không cần viết mã bằng văn bản, mà thay vào đó, bạn sẽ “kéo” và “thả” các khối lệnh để tạo ra các chương trình.
+                Được thiết kế với giao diện đẹp mắt, gần gũi với trẻ em nên rất dễ dàng sử dụng, vừa trực quan, vừa đơn giản lại phù hợp cho mọi lứa tuổi. Cho ra sản phẩm liền tay mà vẫn đảm bảo tính khoa học, tính liên thông tri thức sau này.
+                Với Scratch bạn có thể tạo ra game trí tuệ, hoạt ảnh, mô phỏng.. Và đặc biệt có thể dùng để tham gia các cuộc thi sáng tạo công nghệ hoặc cuộc thi Tin học trẻ cấp tiểu học. 
                 ',
                 'created_at' => now(),
                 'updated_at' => now(),
                 'code' => null,
+                'teacher_id' => 5
 
-                'teacher_id' => 3
+            ],
+            [
+                'course_name' => 'Ứng dụng AI trong công việc',
+                'description' => 'Khóa học cung cấp cho người học các kỹ năng sử dụng AI để cá nhân hóa nội dung, tự động hóa các nhiệm vụ thường ngày nhằm nâng cao năng suất và cải thiện chất lượng công việc.',
+                'img' => 'images/courses/AI-applications.jpg',
+                'description_details' => '
+                    Khóa học Ứng dụng AI trong công việc cung cấp cho người học những kiến thức và kỹ năng cơ bản về trí tuệ nhân tạo (AI), từ đó khai thác AI để nâng cao hiệu quả và tối ưu hóa quy trình làm việc. AI đang thay đổi cách chúng ta làm việc, giúp tự động hóa các nhiệm vụ thường ngày, hỗ trợ ra quyết định dựa trên dữ liệu và mang lại các công cụ mạnh mẽ để cải thiện năng suất và chất lượng công việc.
+                    Khóa học sẽ giúp bạn hiểu được tiềm năng ứng dụng của AI trong nhiều lĩnh vực, từ quản lý công việc hàng ngày, phân tích dữ liệu, đến sáng tạo nội dung và ra quyết định chiến lược.',
+                'created_at' => now(),
+                'updated_at' => now(),
+                'code' => null,
+                'teacher_id' => 5
 
+            ],
+            [
+                'course_name' => 'Phần cứng máy tính',
+                'description' => 'Khóa học Phần cứng Máy tính cung cấp kiến thức cơ bản về các thành phần phần cứng trong máy tính, từ bộ xử lý, bộ nhớ, lưu trữ đến bo mạch chủ.',
+                'img' => 'images/courses/phancungmaytinh.png',
+                'description_details' => 'Phần cứng máy tính chính là phần "thân xác" của máy tính, không có phần cứng máy tính thì không thể có máy tính. Phần cứng, kết hợp với phần mềm máy tính tạo ra một chiếc máy tính hoàn chỉnh có thể chạy được. Số lượng máy tính nhiều và chất lượng chính là một trong các tiêu chí đánh giá mức độ phát triển của các công ty, quốc gia...',
+                'created_at' => now(),
+                'updated_at' => now(),
+                'code' => null,
+                'teacher_id' => 5
             ]
         ]);
     }

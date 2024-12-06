@@ -101,20 +101,10 @@
 @if(session('message-logout'))
 
 <x-window-adv>
-    <x-slot name="text">Bạn có chắc muốn đăng xuất không ?</x-slot>
+    <x-slot name="text">Bạn có chắc muốn đăng xuất không?</x-slot>
     <x-slot name="icon">question</x-slot>
     <x-slot name="cancelButton">false</x-slot>
     <x-slot name="path">/logout</x-slot>
-</x-window-adv>
-@endif
-
-@if(session('message-leave-course'))
-
-<x-window-adv>
-    <x-slot name="text">{{ session('message-leave-course') }}</x-slot>
-    <x-slot name="icon">question</x-slot>
-    <x-slot name="cancelButton">false</x-slot>
-    <x-slot name="path">{{ route('leave-course', session('id-leave-course')) }}</x-slot>
 </x-window-adv>
 @endif
 

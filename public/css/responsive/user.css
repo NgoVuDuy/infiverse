@@ -13,6 +13,8 @@
     .user-option a p {
         font-size: 13px;
     }
+
+
   }
   
   /* Small (SM): <768px */
@@ -23,6 +25,14 @@
   /* Medium (MD): <992px */
   @media (max-width: 991.98px) {
     /* CSS áp dụng cho kích thước nhỏ hơn 992px */
+    .form-change-username {
+      margin-bottom: 20px;
+    }
+
+    .form-change-password {
+
+      margin-bottom: 20px;
+    }
 
   }
   

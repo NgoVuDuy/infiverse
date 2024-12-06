@@ -1,22 +1,22 @@
-$(document).ready(function() {
+// $(document).ready(function () {
 
-    $('.leave-course-link').on('click', function() {
+//     $('.leave-course-link').on('click', function () {
 
-        var course_id = $(this).attr('data-id')
+//         var course_id = $(this).attr('data-id')
 
-        $.ajax({
+//         $.ajax({
 
-            url: "/" + course_id + "/leave-course",
-            type: "GET",
-            success: function(response) {
+//             url: "/" + course_id + "/leave-course",
+//             type: "GET",
+//             success: function (response) {
 
-                $('.user-cover').html(response);
-            },
+//                 $('.enroll-course-row').html(response);
+//             },
 
-            error: function(response) {
-                console.log("Lỗi rời khỏi khóa học")
-            }
-        })
-    })
+//             error: function (response) {
+//                 console.log("Lỗi rời khỏi khóa học")
+//             }
+//         })
+//     })
 
-}) 
+// }) 

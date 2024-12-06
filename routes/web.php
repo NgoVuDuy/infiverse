@@ -29,11 +29,10 @@ Route::middleware(['login'])->group(function () {
     Route::controller(HomeController::class)->group(function () {
 
         Route::get('/', 'index');
-        // ->middleware('prevent_root');
 
+        // ->middleware('prevent_root');
         // Route::get('/teacher', 'index_teacher')->middleware('role:teacher');
     });
-
 
     Route::controller(CourseController::class)->group(function () {
 
@@ -88,15 +87,15 @@ Route::middleware(['login'])->group(function () {
 
     Route::controller(UserCourseController::class)->group(function () {
 
-        Route::get('/{course}/join-in-course', 'store')->name('join-in-course');
+        Route::post('/{course}/join-in-course', 'store')->name('join-in-course');
 
         Route::post('/{course}/course-code', 'code')->name('course-code');
 
         Route::get('/load-courses', 'show');
 
-        Route::get('/{id}/leave-course', 'destroy')->name('leave-course');
-
-        Route::get('{id}/leave-course-show', 'leaveCourseAlert')->name('leave-course-show');
+        Route::delete('/{id}/leave-course', 'destroy')->name('leave-course');
+        
+        Route::get('{id}/leave-course-show', 'leaveCourseAlert')->name('leave-course-show'); //?
     });
 
     Route::controller(UserController::class)->group(function () {
@@ -105,12 +104,11 @@ Route::middleware(['login'])->group(function () {
 
         // Route::get('/profile', 'index_teacher');
 
-
-        Route::get('/load-edit-form', 'edit'); // ?
+        Route::get('/load-edit-form', 'edit'); // 
 
         Route::get('{user_id}/user-details', 'show')->name('user-details');
 
-        Route::get('/delete-user', 'destroy');
+        Route::delete('/delete-user', 'destroy');
 
         Route::post('/update-user', 'update');
 
@@ -118,26 +116,31 @@ Route::middleware(['login'])->group(function () {
         Route::post('/change-password', 'changePassword');
     });
 
-
     Route::get('/delete-user-confirmation', function () {
 
         return redirect('/user')->with('delete-user-confirmation', 'Bạn có chắc xóa tài khoản này không ?');
     });
 
-    Route::get('/delete-user-profile', function () {
+    // Route::get('/delete-user-profile', function () {
 
-        return redirect('/profile')->with('delete-user-profile', 'Bạn có chắc xóa tài khoản này không ?');
-    });
+    //     return redirect('/profile')->with('delete-user-profile', 'Bạn có chắc xóa tài khoản này không ?');
+    // });
 
     Route::controller(ReviewController::class)->group(function () {
 
         Route::post('{course_id}/review', 'store')->name('review');
 
-        Route::post('{course_id}/{review_id}/response', 'update')->name('response');
+        Route::middleware(['role:teacher'])->group(function() {
 
-        Route::post('{course_id}/{review_id}/update-response', 'update_response')->name('update-response');
 
-        Route::get('{course_id}/{review_id}/delete-response', 'destroy_response')->name('delete-response');
+            Route::post('{course_id}/{review_id}/response', 'update')->name('response');
+    
+            Route::post('{course_id}/{review_id}/update-response', 'update_response')->name('update-response');
+    
+            Route::delete('{course_id}/{review_id}/delete-response', 'destroy_response')->name('delete-response'); 
+
+        });
+
     });
 
     Route::get('/change-username', function () {

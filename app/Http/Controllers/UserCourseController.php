@@ -107,23 +107,21 @@ class UserCourseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id, Request $request)
     {
         //
+        // if(! $request->ajax()) {
+
+        //     abort(403, "Not Found");
+        // }
+
         $user_id = Auth::user()->id;
         $user = User::find($user_id);
 
         $user->courses()->detach($id);
 
-        // $courses = $user->courses;
-
-        // if ($courses->isEmpty()) {
-        //     return view('mains.user.enrolled-course', compact('courses'))->with('message-enrolled-course', 'Bạn chưa đăng ký khóa học nào');
-        // }
-
-        // return view('mains.user.enrolled-course', compact('courses'));
-
-        return redirect('/load-courses');
+    
+        return back();
     }
 
     public function leaveCourseAlert(string $id)

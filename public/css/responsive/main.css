@@ -15,6 +15,16 @@
     .navbar .nav-item:hover {
         box-shadow: none;
     }
+
+    .footer-cover {
+      padding: 20px;
+    }
+
+    .icon-footer {
+      font-size: 24px !important;
+    }
+
+    
   }
   
   /* Small (SM): <768px */

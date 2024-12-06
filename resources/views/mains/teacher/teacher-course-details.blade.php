@@ -21,7 +21,6 @@
 
     <div class="row">
 
-
         <main class="ms-sm-auto col-12">
 
             <div class="navbar-child">
@@ -384,12 +383,23 @@
 
 
 
-                                            <a href="{{ route('delete-response', ['course_id' => $course->id, 'review_id' => $review->id])}}">
+                                            <!-- <a href="{{ route('delete-response', ['course_id' => $course->id, 'review_id' => $review->id])}}">
 
                                                 <button>Xóa <i class="fa fa-close" style="font-size:16px;"></i></button>
 
 
-                                            </a>
+                                            </a> -->
+
+                                            <form action="{{ route('delete-response', ['course_id' => $course->id, 'review_id' => $review->id])}}" method="post">
+
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button>Xóa <i class="fa fa-close" style="font-size:16px;"></i></button>
+
+
+
+                                            </form>
                                         </div>
 
                                     </div>

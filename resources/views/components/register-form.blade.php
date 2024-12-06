@@ -111,7 +111,7 @@
     <x-slot name="text">{{ session('success') }}</x-slot>
     <x-slot name="icon">success</x-slot>
     <x-slot name="button">OK</x-slot>
-    <x-slot name="footer"><a href="/login">Đi đến đăng nhập</a></x-slot>
+    <x-slot name="footer"><a href="/login" style="text-decoration: none;">Đi đến đăng nhập</a></x-slot>
 
 </x-window>
 @endif
@@ -121,7 +121,7 @@
 <x-window>
     <x-slot name="text">{{ session('error') }}</x-slot>
     <x-slot name="icon">error</x-slot>
-    <x-slot name="button">OK</x-slot>P
+    <x-slot name="button">OK</x-slot>
     <x-slot name="footer"><a style="text-decoration: none;" href="/register">Quay lại</a></x-slot>
 
 </x-window>

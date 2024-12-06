@@ -35,9 +35,18 @@
                         </a>
                     </div>
                     <div class="col-3">
+
                         <a href="/delete-user-confirmation" id="delete-user" class="option">
                             <p class="dlt-user">Xóa tài khoản</p>
                         </a>
+
+                        <form id="delete-user-form" action="/delete-user" method="post" class="option">
+                            
+                            @csrf
+                            @method('DELETE')
+
+                            <button style="display:none;" type="submit"></button>
+                        </form>
                     </div>
                 </div>
 
@@ -90,12 +99,34 @@
 
 @if(session('delete-user-confirmation'))
 
-<x-window-adv>
+<!-- <x-window-adv>
     <x-slot name="text">{{ session('delete-user-confirmation') }}</x-slot>
     <x-slot name="icon">question</x-slot>
     <x-slot name="path">/delete-user</x-slot>
 
-</x-window-adv>
+</x-window-adv> -->
+
+<script type="module">
+
+    Swal.fire({
+        title: "Thông báo",
+        text: "{{ session('delete-user-confirmation') }}",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "OK",
+        customClass: {
+            confirmButton: 'main-btn', // Thêm lớp CSS tùy chỉnh cho nút "OK"
+            cancelButton: 'btn btn-danger'
+        }
+    }).then((result) => {
+        
+        if (result.isConfirmed) {
+
+            $('#delete-user-form').submit();
+        }
+    });
+</script>
+
 @endif
 
 

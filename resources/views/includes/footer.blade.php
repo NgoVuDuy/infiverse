@@ -13,9 +13,9 @@
                         Infiverse là nền tảng học tập trực tuyến cung cấp các tài liệu hỗ trợ người dùng học tập, làm việc.<br>
                     </p>
 
-                    <i class="fa fa-facebook-official" style="font-size:32px;color:#1775f0"></i>
-                    <i class="fa fa-youtube-play" style="font-size:32px;color:red"></i>
-                    <i class="fa fa-twitter" style="font-size:32px;color:#00abed"></i>
+                    <i class="icon-footer fa fa-facebook-official" style="font-size:32px;color:#1775f0"></i>
+                    <i class="icon-footer fa fa-youtube-play" style="font-size:32px;color:red"></i>
+                    <i class="icon-footer fa fa-twitter" style="font-size:32px;color:#00abed"></i>
                 </div>
 
                 <div class="col-lg-3 col-5 footer-col">

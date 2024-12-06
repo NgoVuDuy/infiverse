@@ -5,6 +5,8 @@
 @section('css')
 
 <link rel="stylesheet" href="{{ asset('css/user/lession.css') }}">
+<link rel="stylesheet" href="{{ asset('css/responsive/lesson.css') }}">
+
 
 @endsection
 
@@ -49,7 +51,7 @@
             <h6 class="fw-bold">{{ $lession->title }}</h6>
 
             <a href="{{ asset('files/lab1.pdf') }}" target="_blank">
-                <img src="{{ asset('images/files/pdf.png') }}" alt="PDF" width="35px">
+                <img class="pdf-file-icon" src="{{ asset('images/files/pdf.png') }}" alt="PDF" width="35px">
             </a>
             
             <p class="file_desc">{{ $lession->desc_file }}</p>

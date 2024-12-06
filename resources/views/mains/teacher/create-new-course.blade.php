@@ -19,7 +19,7 @@
 <div class="container">
     <div class="row">
 
-        <main class="ms-sm-auto col-lg-12 col-md-9 col-12 mt-4">
+        <main class="ms-sm-auto col-12 mt-4">
 
             <div class="row">
 
@@ -47,7 +47,7 @@
 
                 </div>
 
-                <div class="col-6">
+                <div class="col-lg-6 col-md-6 col-8">
 
                     <div class="row mt-2 mb-2">
 
@@ -55,9 +55,8 @@
                             <center>
 
                                 <a href="/create-new-course" style="text-decoration: none;">
-                                    <img class="create-new-course-btn" src="{{ asset('images/icon/plus.png') }}" width="50%" alt="">
+                                    <img class="create-new-course-btn" src="{{ asset('images/icon/plus.png') }}" width="44px" alt="">
                                     <p class="nav-opt-text">Tạo mới</p>
-
                                 </a>
                             </center>
                         </div>
@@ -97,8 +96,8 @@
 
 
                     <div class="row mb-3">
-                        <div class="col-2"><label for="">Tên khóa học <span style="color: red; font-size: 20px;">*</span></label></div>
-                        <div class="col-6">
+                        <div class="col-lg-2 col-md-3 col-4"><label for="">Tên khóa học <span style="color: red; font-size: 20px;">*</span></label></div>
+                        <div class="col-lg-6 col-md-6 col-8">
                             <input type="text" name="coursename" id="" value="">
 
                             @error('coursename')
@@ -109,10 +108,10 @@
 
                     </div>
                     <div class="row mb-3">
-                        <div class="col-2">
+                        <div class="col-lg-2 col-md-3 col-4">
                             <lable>Mô tả sơ lược khóa học <span style="color: red; font-size: 20px;">*</span></lable>
                         </div>
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-8">
                             <textarea type="text" name="description" id="" value=""></textarea>
 
                             @error('description')
@@ -121,10 +120,10 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col-2">
+                        <div class="col-lg-2 col-md-3 col-4">
                             <lable>Mô tả chi tiết khóa học <span style="color: red; font-size: 20px;">*</span></lable>
                         </div>
-                        <div class="col-6">
+                        <div class="col-lg-6 col-md-6 col-8">
                             <textarea type="text" name="description_details" id="" value=""></textarea>
 
                             @error('description_details')
@@ -134,10 +133,10 @@
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col-2">
+                        <div class="col-lg-2 col-md-3 col-4">
                             <lable>Mật khẩu ghi danh</lable>
                         </div>
-                        <div class="col-6"><input type="password" name="course_code" id="" value=""></div>
+                        <div class="col-lg-6 col-md-6 col-8"><input type="password" name="course_code" id="" value=""></div>
                     </div>
 
                     <button type="submit" class="finish-btn">Hoàn thành</button>

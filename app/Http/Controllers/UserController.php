@@ -50,8 +50,11 @@ class UserController extends Controller
      */
     public function show(string $id, Request $request)
     {
-        //
-        // $user_id = Auth::user()->id;
+        if(! $request->ajax()) {
+
+            abort(403, "Not Found");
+        }
+
         $user = User::find($id);
 
         $check = $request->query('check');
@@ -66,9 +69,15 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit(Request $request)
+
     {
         //
+        if(! $request->ajax()) {
+
+            abort(403, "Error");
+        }
+
         return view('partials.edit-form');
     }
 

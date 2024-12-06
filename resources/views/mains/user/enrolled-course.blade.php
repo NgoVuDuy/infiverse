@@ -13,13 +13,11 @@
 <div class="container">
 
 
-    <div class="row g-2 course-row mt-5">
+    <div class="row g-2 course-row mt-5 enroll-course-row">
 
         @if (isset($message_enrolled_course))
-            <h5 style="text-align:center">{{ $message_enrolled_course }}</h5>
+        <h5 style="text-align:center">{{ $message_enrolled_course }}</h5>
         @endif
-
-
 
 
         @foreach($courses as $course)
@@ -53,10 +51,38 @@
             </div>
 
         </div>
-
         @endforeach
     </div>
 </div>
+
+@if(session('message-leave-course'))
+
+<form id="leave-course-form" action="{{ route('leave-course', session('id-leave-course')) }}" method="post">
+    @csrf
+    @method('DELETE')
+    <button style="display: none;" type="submit">Xóa</button>
+</form>
+
+<script type="module">
+    Swal.fire({
+        title: "Thông báo",
+        text: "{{ session('message-leave-course') }}",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "OK",
+        customClass: {
+            confirmButton: 'main-btn', // Thêm lớp CSS tùy chỉnh cho nút "OK"
+            cancelButton: 'btn btn-danger'
+        }
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+
+            $('#leave-course-form').submit();
+        }
+    });
+</script>
+@endif
 
 @endsection
 
