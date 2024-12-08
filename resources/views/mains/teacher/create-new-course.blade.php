@@ -74,7 +74,7 @@
                 <hr>
 
 
-                <form action="/create-new-course" method="post" class="edit-form" enctype="multipart/form-data">
+                <form action="/create-new-course" method="post" class="create-new-course-form" enctype="multipart/form-data">
 
                     @csrf
                     <div class="row mb-4">
@@ -152,17 +152,6 @@
     </div>
 </div>
 
-@if(session('message-logout'))
-
-<x-window-adv>
-
-    <x-slot name="text">{{ session('message-logout') }}</x-slot>
-    <x-slot name="icon">question</x-slot>
-    <x-slot name="cancelButton">false</x-slot>
-    <x-slot name="path">/logout</x-slot>
-
-</x-window-adv>
-@endif
 
 @if(session('message-create-course'))
 
@@ -175,16 +164,6 @@
 
 {{ session()->forget('message-create-course') }}
 
-@endif
-
-@if(session('message-delete-course'))
-
-<x-window-adv>
-    <x-slot name="text">{{ session('message-delete-course') }}</x-slot>
-    <x-slot name="icon">question</x-slot>
-    <x-slot name="cancelButton">false</x-slot>
-    <x-slot name="path">{{ route('delete-course', session('course-id')) }}</x-slot>
-</x-window-adv>
 @endif
 
 

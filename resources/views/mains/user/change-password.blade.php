@@ -68,7 +68,9 @@
                                             <div class="col-8">
                                                 <input id="old_password" type="password" name="old_password" id="">
 
-                                                <input  class="mt-2 show-psw-old" type="checkbox" onclick="showPassword()"><span class="show-psw-text">Hiển thị mật khẩu</span>
+                                                <input id="show-psw-old"  class="mt-2 show-psw-old" type="checkbox" onclick="showPassword()">
+
+                                                <label for="show-psw-old" class="show-psw-text">Hiển thị mật khẩu</label>
 
                                                 @error('old_password')
                                                 <div class="mt-2 alert alert-danger">{{ $message }}</div>
@@ -82,7 +84,8 @@
                                             <div class="col-8">
                                                 <input id="password" type="password" name="password" id="">
 
-                                                <input  class="mt-2 show-psw" type="checkbox" onclick="showPassword()"><span class="show-psw-text">Hiển thị mật khẩu</span>
+                                                <input id="show-psw"  class="mt-2 show-psw" type="checkbox" onclick="showPassword()">
+                                                <label for="show-psw" class="show-psw-text">Hiển thị mật khẩu</label>
 
                                                 @error('password')
                                                 <div class="mt-2 alert alert-danger">{{ $message }}</div>
@@ -96,7 +99,8 @@
                                             <div class="col-8">
                                                 <input  id="password_confirmation" type="password" name="password_confirmation" id="">
 
-                                                <input class="mt-2 show-psw-cfmt" type="checkbox" onclick="showPassword()"><span class="show-psw-text">Hiển thị mật khẩu</span>
+                                                <input id="show-psw-cfmt" class="mt-2 show-psw-cfmt" type="checkbox" onclick="showPassword()">
+                                                <label for="show-psw-cfmt"  class="show-psw-text">Hiển thị mật khẩu</label>
 
                                                 @error('password_confirmation')
                                                 <div class="mt-2 alert alert-danger">{{ $message }}</div>

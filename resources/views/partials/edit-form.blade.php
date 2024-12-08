@@ -1,5 +1,3 @@
-
-
 <form action="/update-user" method="post" class="edit-form" enctype="multipart/form-data">
 
     @csrf

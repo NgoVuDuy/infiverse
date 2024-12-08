@@ -1,25 +1,10 @@
 /* Extra small (XS): <576px */
 @media (max-width: 575.98px) {
     /* CSS áp dụng cho kích thước nhỏ hơn 576px */
+    .enroll-course-row {
 
-    .edit-form input {
-        width: 100%;
+        justify-content: center;
     }
-
-    .edit-form textarea {
-        width: 100%;
-    }
-
-    .user-option a p {
-        font-size: 13px;
-    }
-
-    .user-information span {
-
-      width: 140px;
-    }
-
-
   }
   
   /* Small (SM): <768px */
@@ -30,14 +15,6 @@
   /* Medium (MD): <992px */
   @media (max-width: 991.98px) {
     /* CSS áp dụng cho kích thước nhỏ hơn 992px */
-    .form-change-username {
-      margin-bottom: 20px;
-    }
-
-    .form-change-password {
-
-      margin-bottom: 20px;
-    }
 
   }
   

@@ -81,7 +81,7 @@
 
         @foreach($newCourses as $course)
 
-        <div class="col-lg-3 col-md-6 col-sm-6 col-10 course-cover">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-8 course-cover">
 
             <div class="course">
 
@@ -137,7 +137,7 @@
 
         @foreach($osdCourses as $course)
 
-        <div class="col-lg-3 col-md-6 col-sm-6 col-10 course-cover">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-8 course-cover">
 
             <div class="course">
 
@@ -192,7 +192,7 @@
 
         @foreach($suggestCourses as $course)
 
-        <div class="col-lg-3 col-md-6 col-sm-6 col-10 course-cover">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-8 course-cover">
 
             <div class="course">
 

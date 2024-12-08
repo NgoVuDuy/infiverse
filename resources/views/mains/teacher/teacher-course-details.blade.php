@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="{{ asset('css/teacher/teacher-course-details.css') }}">
 <!-- <link href="{{ asset('css/teacher/sidebar.css') }}" rel="stylesheet"> -->
 <link rel="stylesheet" href="{{ asset('css/user/user.css') }}">
-
+<link rel="stylesheet" href="{{ asset('css/responsive/teacher-course-details.css') }}">
 
 
 @endsection
@@ -88,9 +88,9 @@
 
                     <table>
                         <tr>
-                            <th style="width: 55%;">Tên học viên</th>
-                            <th style="width: 30%;">Thời gian tham gia</th>
-                            <th style="width: 15%;">Chi tiết</th>
+                            <th >Tên học viên</th>
+                            <th >Thời gian tham gia</th>
+                            <th >Chi tiết</th>
                         </tr>
 
                         @foreach($students as $student)
@@ -193,7 +193,7 @@
 
                 </div>
 
-                <div class="lession-list col-6 mt-4" style="display: {{ session('display-lession', 'none') }} !important;">
+                <div class="lession-list col-lg-6 col-md-6 col-sm-8 col-12 mt-4" style="display: {{ session('display-lession', 'none') }} !important;">
 
                     @if($lessions->isEmpty())
                     <p>Chưa có bài học nào dành cho khóa học này</p>
@@ -303,7 +303,7 @@
                 </h4>
 
 
-                <div class="lession-evaluate-show mt-2 col-6">
+                <div class="lession-evaluate-show mt-2 col-lg-6 col-md-6 col-sm-8 col-12">
 
                     @if($reviews->isEmpty())
 

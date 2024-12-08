@@ -25,7 +25,7 @@ class CourseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'code' => null,
-                'teacher_id' => 1
+                'teacher_id' => 6
             ],
             [
                 'course_name' => 'Lập trình C#.',
@@ -36,7 +36,7 @@ class CourseSeeder extends Seeder
                 'updated_at' => now(),
                 'code' => null,
 
-                'teacher_id' => 1
+                'teacher_id' => 6
 
             ],
             [
@@ -48,7 +48,7 @@ class CourseSeeder extends Seeder
                 'updated_at' => now(),
                 'code' => null,
 
-                'teacher_id' => 2
+                'teacher_id' => 7
 
             ],
             [
@@ -60,7 +60,7 @@ class CourseSeeder extends Seeder
                 'updated_at' => now(),
                 'code' => null,
 
-                'teacher_id' => 2
+                'teacher_id' => 7
 
             ],
             [
@@ -72,7 +72,7 @@ class CourseSeeder extends Seeder
                 'updated_at' => now(),
                 'code' => null,
 
-                'teacher_id' => 3
+                'teacher_id' => 8
 
             ],
             [
@@ -88,7 +88,7 @@ class CourseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'code' => null,
-                'teacher_id' => 3
+                'teacher_id' => 8
 
             ],
             [
@@ -99,7 +99,7 @@ class CourseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'code' => '12345',
-                'teacher_id' => 4
+                'teacher_id' => 9
 
             ],
             [
@@ -111,7 +111,7 @@ class CourseSeeder extends Seeder
                 'updated_at' => now(),
                 'code' => '12345',
 
-                'teacher_id' => 4
+                'teacher_id' => 9
 
             ],
             [
@@ -127,7 +127,7 @@ class CourseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'code' => null,
-                'teacher_id' => 5
+                'teacher_id' => 10
 
             ],
             [
@@ -140,7 +140,7 @@ class CourseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'code' => null,
-                'teacher_id' => 5
+                'teacher_id' => 10
 
             ],
             [
@@ -151,7 +151,7 @@ class CourseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'code' => null,
-                'teacher_id' => 5
+                'teacher_id' => 10
             ]
         ]);
     }

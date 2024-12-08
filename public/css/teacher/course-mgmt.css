@@ -25,9 +25,64 @@
     font-size: 15px;
     color: rgb(130, 130, 130);
     text-decoration: none;
-    
+
 }
 
 .navbar-child-icon {
     margin: 0px 8px;
+}
+
+.nav-course-mgmt {}
+
+.nav-course-mgmt .item {
+    display: inline-block;
+}
+
+.nav-course-mgmt .item .overview {
+    margin-right: 20px;
+}
+
+.nav-course-mgmt .item h6 {
+
+    cursor: pointer;
+    font-weight: 600;
+}
+
+
+/* Test */
+.table-container {
+    max-height: 276px;
+    /* Chiều cao tối đa của container (hiển thị 5 dòng, mỗi dòng ~40px) */
+    overflow-y: auto;
+    /* Kích hoạt thanh cuộn dọc */
+    border: 1px solid #ddd;
+    /* Thêm viền để dễ nhìn */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    /* Loại bỏ khoảng cách giữa các ô */
+}
+
+thead th {
+    position: sticky;
+    /* Đảm bảo tiêu đề bảng cố định khi cuộn */
+    top: 0;
+    background-color: #f9f9f9;
+    z-index: 2;
+    text-align: left;
+    padding: 8px;
+}
+
+tbody td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    /* Viền các ô dữ liệu */
+    text-align: left;
+}
+
+img {
+    vertical-align: middle;
+    margin-right: 8px;
 }

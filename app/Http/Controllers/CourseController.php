@@ -32,11 +32,21 @@ class CourseController extends Controller
     public function index_teacher()
     {
 
+        // $teacher_id = Auth::user()->id; // Lấy ra id của giáo viên
+
+        // $courses = Course::where('teacher_id', $teacher_id)->get(); // Lấy ra các khóa học thuộc về giáo viên đó
+
+        return view('mains.teacher.course-mgmt'); // Trả về trang quản lý khóa học cùng với các khóa học của giáo viên
+    }
+
+    public function teacher_course()
+    {
+
         $teacher_id = Auth::user()->id; // Lấy ra id của giáo viên
 
         $courses = Course::where('teacher_id', $teacher_id)->get(); // Lấy ra các khóa học thuộc về giáo viên đó
 
-        return view('mains.teacher.course-mgmt', ['courses' => $courses]); // Trả về trang quản lý khóa học cùng với các khóa học của giáo viên
+        return view('partials.teacher-course', ['courses' => $courses]);
     }
 
     public function create()
@@ -329,10 +339,11 @@ class CourseController extends Controller
      * Remove the specified resource from storage.
      */
 
-     public function destroy_cfmt(string $id) {
+    public function destroy_cfmt(string $id)
+    {
 
         return redirect('/courses-mgmt')->with('message-delete-course', 'Bạn có muốn xóa khóa học này không ?')->with('course-id', $id);
-     }
+    }
 
 
 

@@ -61,9 +61,10 @@
                         <input type="password" class="form-control" id="password" name="password">
 
                         <div class="show-passwd-cover d-flex align-items-center mt-2">
-                            <input class="show-psw" type="checkbox" onclick="showPassword()">
+
+                            <input id="showPassword" class="show-psw" type="checkbox" onclick="showPassword()">
                             
-                            <span class="show-psw-text">Hiển thị mật khẩu</span>
+                            <label for="showPassword" class="show-psw-text">Hiển thị mật khẩu</label>
 
                         </div>
 
@@ -75,7 +76,7 @@
                         <div class="form-option">
 
                             <a style="text-decoration: none;" class="mb-5" href="/register">Đăng ký >></a>
-                            <a style="text-decoration: none;" href="#">Quên mật khẩu >></a>
+                            <!-- <a style="text-decoration: none;" href="#">Quên mật khẩu >></a> -->
                             
                         </div>
                     </center>

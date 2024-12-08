@@ -46,7 +46,7 @@ class HomeController extends Controller
         return view('mains.user.home', compact('newCourses', 'osdCourses', 'suggestCourses'));
     }
 
-    public function index_teacher()
+    public function overview()
     {
 
         $teacher_id = Auth::user()->id; // Lấy ra id của giáo viên
@@ -63,7 +63,7 @@ class HomeController extends Controller
             return $course->reviews->count();
         });
 
-        return view('mains.teacher.home', [
+        return view('partials.overview', [
 
             'courses' => $courses,
             'courseCount' => $courseCount,

@@ -134,27 +134,8 @@
 
 @section('js')
 
-<!-- <script>
-    $(document).ready(function() {
 
-        $('.user-option a').on('click', function() {
-
-            $('.user-option a').removeClass('active')
-
-            $(this).addClass('active')
-        })
-    })
-</script> -->
-
-<!-- <script>
-    var urlUserDetails = "{{ route('user-details', Auth::user()->id) }}"
-</script> -->
-
-<!-- <script src="{{ asset('js/ajax/user-information.js') }}"></script> -->
 <script src="{{ asset('js/ajax/edit-form.js') }}"></script>
-<!-- <script src="{{ asset('js/ajax/enrolled-courses.js') }}"></script> -->
-<!-- <script src="{{ asset('js/ajax/change-username.js') }}"></script> -->
-<!-- <script src="{{ asset('js/ajax/change-password.js') }}"></script> -->
 
 
 

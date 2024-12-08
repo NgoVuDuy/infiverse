@@ -5,6 +5,8 @@
 @section('css')
 
 <link rel="stylesheet" href="{{ asset('css/user/course.css') }}">
+<link rel="stylesheet" href="{{ asset('css/responsive/course.css') }}">
+
 @endsection
 
 @section('content')
@@ -22,7 +24,7 @@
 
         @foreach($courses as $course)
 
-        <div class="col-lg-3 col-md-4 col-sm-6 col-12 course-cover">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-8 course-cover">
 
             <div class="course">
 

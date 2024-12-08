@@ -4,11 +4,14 @@
 
 @section('css')
 
-<!-- <link href="{{ asset('css/teacher/home.css') }}" rel="stylesheet"> -->
+
 <link href="{{ asset('css/user/course.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/user/user.css') }}">
 
 <link href="{{ asset('css/teacher/course-mgmt.css') }}" rel="stylesheet">
+
+<link href="{{ asset('css/teacher/home.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('css/responsive/overview.css') }}">
 
 
 @endsection
@@ -57,7 +60,7 @@
                             <center>
 
                                 <a href="/create-new-course" style="text-decoration: none;">
-                                    <img class="create-new-course-btn" src="{{ asset('images/icon/plus.png') }}" width="44px" alt="">
+                                    <img title="Tạo mới khóa học" class="create-new-course-btn" src="{{ asset('images/icon/plus.png') }}" width="44px" alt="">
                                     <p class="nav-opt-text">Tạo mới</p>
 
                                 </a>
@@ -79,36 +82,6 @@
 
                 <div class="row g-2 course-row ">
 
-
-                    <h6 style="font-weight:600">Các khóa học của tôi</h6>
-
-
-                    @foreach($courses as $course)
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 course-cover">
-
-                        <div class="course">
-
-                            <img src="{{ asset($course->img) }}" alt="" width="100%" height="65%">
-
-                            <p class="course-name">{{ $course->course_name }}</p>
-
-                            <a class="course-link" href="{{ route('teacher-course-details', $course->id) }}">
-
-                                <button class="join-in-btn">Chi tiết</button>
-                            </a>
-
-                            <a class="delete-course" href="{{ route('delete-course-cfmt', $course->id) }}">
-
-                                <button class="delete-course-btn">Xóa</button>
-
-                            </a>
-                        </div>
-
-
-                    </div>
-
-                    @endforeach
                 </div>
 
             </div>
@@ -118,40 +91,6 @@
     </div>
 </div>
 
-@if(session('message-logout'))
-
-<x-window-adv>
-
-    <x-slot name="text">{{ session('message-logout') }}</x-slot>
-    <x-slot name="icon">question</x-slot>
-    <x-slot name="cancelButton">false</x-slot>
-    <x-slot name="path">/logout</x-slot>
-
-</x-window-adv>
-@endif
-
-@if(session('message-create-course'))
-
-<x-alert>
-
-    <x-slot name="text">{{ session('message-create-course') }}</x-slot>
-    <x-slot name="color">green</x-slot>
-
-</x-alert>
-
-{{ session()->forget('message-create-course') }}
-
-@endif
-
-@if(session('message-delete-course'))
-
-<x-window-adv>
-    <x-slot name="text">{{ session('message-delete-course') }}</x-slot>
-    <x-slot name="icon">question</x-slot>
-    <x-slot name="cancelButton">false</x-slot>
-    <x-slot name="path">{{ route('delete-course', session('course-id')) }}</x-slot>
-</x-window-adv>
-@endif
 
 
 @endsection
@@ -159,5 +98,29 @@
 
 @section('js')
 
+<script>
+    $(document).ready(function() {
+
+        $.ajax({
+
+            url: "/overview",
+            type: "GET",
+            success: function(response) {
+
+                $('.course-row').html(response);
+
+            },
+
+            error: function(response) {
+
+                console.log("Lỗi (teacher-course)")
+            }
+        })
+
+    })
+</script>
+
+<!-- <script src="{{ asset('js/ajax/overview.js') }}"></script>
+<script src="{{ asset('js/ajax/teacher-course.js') }}"></script> -->
 
 @endsection

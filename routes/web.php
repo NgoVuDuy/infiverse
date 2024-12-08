@@ -31,7 +31,7 @@ Route::middleware(['login'])->group(function () {
         Route::get('/', 'index');
 
         // ->middleware('prevent_root');
-        // Route::get('/teacher', 'index_teacher')->middleware('role:teacher');
+        Route::get('/overview', 'overview');
     });
 
     Route::controller(CourseController::class)->group(function () {
@@ -40,6 +40,8 @@ Route::middleware(['login'])->group(function () {
         Route::middleware(['role:teacher'])->group(function () {
 
             Route::get('/courses-mgmt', 'index_teacher'); // gv
+
+            Route::get('/teacher-course', 'teacher_course');
 
             Route::get('/create-new-course', 'create'); //gv
 

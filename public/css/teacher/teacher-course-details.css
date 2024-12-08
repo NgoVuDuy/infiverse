@@ -87,7 +87,7 @@ td img {
   /* position: absolute;
   top: 0;
   right: 0; */
-  width: 70%;
+  width: 50px;
 }
 
 .back-btn-modal {
@@ -152,4 +152,17 @@ td img {
 
 a {
   text-decoration: none;
+}
+
+tr th:first-child {
+  width: 40%;
+}
+
+tr th:nth-child(2) {
+  width: 40%;
+}
+
+tr th:last-child {
+
+  width: 20%;
 }

@@ -1,21 +1,21 @@
 $(document).ready(function() {
 
-    $('.icon-edit').on('click', function() {
+    $('.teacher-course').on('click', function() {
+
 
         $.ajax({
 
-            url: "/load-edit-form",
+            url: "/teacher-course",
             type: "GET",
             success: function(response) {
 
-                $('.user-cover').html(response);
+                $('.course-row').html(response);
                 
-
             },
 
             error: function(response) {
 
-                console.log("Lỗi tải edit form")
+                console.log("Lỗi (Overview)")
             }
         })
     })
