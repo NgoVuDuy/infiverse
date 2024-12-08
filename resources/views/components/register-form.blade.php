@@ -90,7 +90,6 @@
 
                             <a style="text-decoration: none;" class="mb-5" href="/login">Đăng nhập >></a>
 
-                            <a style="text-decoration: none;" href="#">Quên mật khẩu >></a>
                         </div>
 
 
