@@ -5,11 +5,16 @@
 
         justify-content: center;
     }
+
+    .course-row {
+      justify-content: center;
+    }
   }
   
   /* Small (SM): <768px */
   @media (max-width: 767.98px) {
     /* CSS áp dụng cho kích thước nhỏ hơn 768px */
+
   }
   
   /* Medium (MD): <992px */

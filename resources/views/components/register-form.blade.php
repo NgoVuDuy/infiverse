@@ -65,7 +65,8 @@
                         <label for="password" class="form-label">Mật khẩu</label>
                         <input type="password" class="form-control" id="password" name="password" value="{{ old('password') }}">
 
-                        <input class="mt-2 show-psw" type="checkbox" onclick="showPassword()"><span class="show-psw-text">Hiển thị mật khẩu</span>
+                        <input id="showPassword" class="mt-2 show-psw" type="checkbox" onclick="showPassword()">
+                        <label for="showPassword" class="show-psw-text">Hiển thị mật khẩu</label>
 
                         @error('password')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -76,7 +77,8 @@
                         <label for="password-again" class="form-label">Nhập lại mật khẩu</label>
                         <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" value="{{ old('password_confirmation') }}">
 
-                        <input class="mt-2 show-psw-cfmt" type="checkbox" onclick="showPassword()"><span class="show-psw-text">Hiển thị mật khẩu</span>
+                        <input id="showPasswordConfirmation" class="mt-2 show-psw-cfmt" type="checkbox" onclick="showPassword()">
+                        <label for="showPasswordConfirmation" class="show-psw-text">Hiển thị mật khẩu</label>
 
                         @error('password_confirmation')
                         <div class="alert alert-danger">{{ $message }}</div>

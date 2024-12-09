@@ -111,7 +111,7 @@
 
             @csrf
 
-            <textarea name="review" class="col-12 mt-4 lession-evaluate-comment p-3 rating-comment" placeholder="Viết đánh giá của bạn"></textarea>
+            <textarea required name="review" class="col-12 mt-4 lession-evaluate-comment p-3 rating-comment" placeholder="Viết đánh giá của bạn"></textarea>
 
             <div class="star-cover mt-4">
                 <i data-value="1" class="star fa fa-star yellow" style="font-size:24px"></i>
@@ -201,49 +201,6 @@
             @endforeach
             @endif
 
-            <!-- <div class="evaluate-user-item">
-
-                <div class="user-name-img-cover">
-
-                    <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
-                    <span>NhatTruong</span>
-
-                </div>
-
-                <div class="user-cmt mt-2">
-                    <div class="star-cover-user">
-                        <i class="star fa fa-star" style="font-size:14px"></i>
-                        <i class="star fa fa-star" style="font-size:14px"></i>
-                        <i class="star fa fa-star" style="font-size:14px"></i>
-                        <i class="star fa fa-star" style="font-size:14px"></i>
-                    </div>
-                    Tuyệt vời
-                </div>
-            </div>
-            <hr>
-
-            <div class="evaluate-user-item">
-
-                <div class="user-name-img-cover">
-
-                    <img class="rounded-circle" src="{{ asset('images/users/user.png') }}" alt="" width="40px" height="40px">
-                    <span class="">MinhNguyen</span>
-
-                </div>
-
-                <div class="user-cmt mt-2">
-                    <div class="star-cover-user">
-                        <i class="star fa fa-star" style="font-size:14px"></i>
-                        <i class="star fa fa-star" style="font-size:14px"></i>
-                        <i class="star fa fa-star" style="font-size:14px"></i>
-                        <i class="star fa fa-star" style="font-size:14px"></i>
-                        <i class="star fa fa-star" style="font-size:14px"></i>
-                    </div>
-                    Tôi rất thích khóa học này
-                </div>
-            </div>
-            <hr> -->
-
         </div>
     </div>
 </div>
@@ -315,37 +272,11 @@
         // An form khi nguoi dung chua tham gia khoa hoc
         $('.evaluate-form').addClass('d-none')
 
-        //Ngan chan gui form khi nguoi dung chua nhap danh gia
-        $('.rating-form').on('submit', function(event) {
-
-            var rating_comment = $('.rating-comment').val().trim()
-
-            if (!rating_comment) {
-
-                event.preventDefault()
-            }
-        })
 
     })
 </script>
 
 @endif
 
-<script>
-    $(document).ready(function() {
-
-        //Ngan chan gui form khi nguoi dung chua nhap danh gia
-        $('.rating-form').on('submit', function(event) {
-
-            var rating_comment = $('.rating-comment').val().trim()
-
-            if (!rating_comment) {
-
-                event.preventDefault()
-            }
-        })
-
-    })
-</script>
 
 @endsection

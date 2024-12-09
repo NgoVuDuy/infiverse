@@ -43,7 +43,10 @@ class LoginController extends Controller
             return redirect('/');
         } else {
             
-            return back()->with('error', 'Thông tin đăng nhập không chính xác.');
+            return back()
+            
+            ->with('message-login-error', 'Thông tin đăng nhập không chính xác.')
+            ->with('username_old', $username);
         }
     }
 

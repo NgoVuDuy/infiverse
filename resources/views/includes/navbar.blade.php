@@ -83,7 +83,7 @@
                 </li>
 
             </ul>
-            <form class=" navbar-form" role="search" action="/search" method="get">
+            <form  class=" navbar-form width-400" role="search" action="/search" method="get">
 
                 @csrf
                 <input name="search-text" class="search-text form-control me-2" type="search" placeholder="Nhập tên khóa học" aria-label="Search">

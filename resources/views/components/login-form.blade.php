@@ -53,7 +53,7 @@
 
                     <div class="mb-3">
                         <label for="name" class="form-label">Tên đăng nhập</label>
-                        <input type="text" class="form-control" id="name" name="username">
+                        <input type="text" class="form-control" id="name" name="username" value="{{ old('username') }}">
                         <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                     </div>
                     <div class="mb-3">
@@ -63,7 +63,7 @@
                         <div class="show-passwd-cover d-flex align-items-center mt-2">
 
                             <input id="showPassword" class="show-psw" type="checkbox" onclick="showPassword()">
-                            
+
                             <label for="showPassword" class="show-psw-text">Hiển thị mật khẩu</label>
 
                         </div>
@@ -77,7 +77,7 @@
 
                             <a style="text-decoration: none;" class="mb-5" href="/register">Đăng ký >></a>
                             <!-- <a style="text-decoration: none;" href="#">Quên mật khẩu >></a> -->
-                            
+
                         </div>
                     </center>
 
@@ -88,11 +88,11 @@
     </div>
 
 
-    @if(session('error'))
+    @if(session('message-login-error'))
 
     <x-alert>
 
-        <x-slot name="text">{{ session('error') }}</x-slot>
+        <x-slot name="text">{{ session('message-login-error') }}</x-slot>
         <x-slot name="color">red</x-slot>
 
     </x-alert>
@@ -108,5 +108,15 @@
         <x-slot name="footer"></x-slot>
 
     </x-window>
+    @endif
+
+    @if(session('username_old'))
+
+        <script>
+            $(document).ready(function() {
+
+                $('#name').val("{{ session('username_old') }}")
+            })
+        </script>
     @endif
 </div>
