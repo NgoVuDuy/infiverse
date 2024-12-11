@@ -1,13 +1,15 @@
 <div class="col-12">
 
     <div class="nav-course-mgmt">
+
+        <span class="item">
+            <h6 class="teacher-course" style="color: #198754;">Các khóa học của tôi</h6>
+
+        </span>
+        
         <span class="item">
 
             <h6 class="overview" style="">Tổng quan</h6>
-
-        </span>
-        <span class="item">
-            <h6 class="teacher-course" style="color: #198754;">Các khóa học của tôi</h6>
 
         </span>
     </div>
@@ -23,7 +25,7 @@
 
                 <img src="{{ asset($course->img) }}" alt="" width="100%" height="65%">
 
-                <p class="course-name">{{ $course->course_name }}</p>
+                <a href="{{ route('course-details', $course->id) }}" class="course-name">{{ $course->course_name }}</a>
 
                 <a class="course-link" href="{{ route('teacher-course-details', $course->id) }}">
 

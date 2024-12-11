@@ -4,12 +4,13 @@
     <div class="nav-course-mgmt">
 
         <span class="item">
-
-            <h6 class="overview" style="color: #198754;">Tổng quan</h6>
+            <h6 class="teacher-course" style="">Các khóa học của tôi</h6>
 
         </span>
+        
         <span class="item">
-            <h6 class="teacher-course" style="">Các khóa học của tôi</h6>
+
+            <h6 class="overview" style="color: #198754;">Tổng quan</h6>
 
         </span>
     </div>

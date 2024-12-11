@@ -136,7 +136,33 @@
                         <div class="col-lg-2 col-md-3 col-4">
                             <lable>Mật khẩu ghi danh</lable>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-8"><input type="password" name="course_code" id="" value=""></div>
+                        <div class="col-lg-6 col-md-6 col-8">
+                            <input type="password" name="course_code" id="" value="">
+                            @error('course_code')
+                            <div class="mt-2 alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-lg-2 col-md-3 col-4">
+                            <lable>Thể loại</lable>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-8 topic-cover">
+                            <!-- <select name="topic">
+                                <option value="LTCS">Lập trình cơ sở</option>
+                                <option value="LTNC">Lập trình nâng cao</option>
+                                <option value="TT">Thuật toán</option>
+                                <option value="GQVD">Giải quyết vấn đề</option>
+                                <option value="K">Khác</option>
+
+                            </select> -->
+                            <label><input type="checkbox" name="topics[]" value="LTCS"> Lập trình cơ sở</label><br>
+                            <label><input type="checkbox" name="topics[]" value="LTNC"> Lập trình nâng cao</label><br>
+                            <label><input type="checkbox" name="topics[]" value="TT"> Thuật toán</label><br>
+                            <label><input type="checkbox" name="topics[]" value="GQVD"> Giải quyết vấn đề</label><br>
+                            <label><input type="checkbox" name="topics[]" value="K"> Khác</label><br>
+                        </div>
                     </div>
 
                     <button type="submit" class="finish-btn">Hoàn thành</button>
@@ -161,8 +187,6 @@
     <x-slot name="color">green</x-slot>
 
 </x-alert>
-
-{{ session()->forget('message-create-course') }}
 
 @endif
 

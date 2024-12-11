@@ -88,7 +88,7 @@
                 <img src="{{ asset($course->img) }}" alt="" width="100%" height="65%">
 
 
-                <p class="course-name">{{ $course->course_name }}</p>
+                <a href="{{ route('course-details', $course->id) }}" class="course-name">{{ $course->course_name }}</a>
 
                 @if($course->has_joined)
 
@@ -144,7 +144,8 @@
                 <img src="{{ asset($course->img) }}" alt="" width="100%" height="65%">
 
 
-                <p class="course-name">{{ $course->course_name }}</p>
+                <a href="{{ route('course-details', $course->id) }}" class="course-name">{{ $course->course_name }}</a>
+
                 @if($course->has_joined)
 
                 <p class="has-joined-text">Đã tham gia</p>
@@ -199,7 +200,7 @@
                 <img src="{{ asset($course->img) }}" alt="" width="100%" height="65%">
 
 
-                <p class="course-name">{{ $course->course_name }}</p>
+                <a href="{{ route('course-details', $course->id) }}" class="course-name">{{ $course->course_name }}</a>
 
                 @if($course->has_joined)
 

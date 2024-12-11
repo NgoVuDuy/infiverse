@@ -216,16 +216,16 @@
                                 <p class="file_desc">{{ $lession->desc_file }}</p>
                             </div>
 
-                            <div class="col-2 d-flex justify-content-end">
+                            <div class="col-2">
                                 <!-- Nút cài đặt -->
                                 <div class="setting-response">
                                     <!-- <img src="{{ asset('images/icon/setting.png') }}" alt="Cài đặt" width="24px"> -->
 
-                                    <button class="mb-2" data-bs-toggle="modal" data-bs-target="#lession{{ $lession->id }}">Sửa <i class="fa fa-pencil" style="font-size:16px"></i></button>
+                                    <button title="Chỉnh sửa" class="mb-2" data-bs-toggle="modal" data-bs-target="#lession{{ $lession->id }}"> <i class="fa fa-pencil" style="font-size:16px"></i></button>
 
                                     <a href="{{ route('delete-lession', ['course_id' => $course->id, 'lession_id' => $lession->id])}}">
 
-                                        <button>Xóa <i class="fa fa-close" style="font-size:16px"></i></button>
+                                        <button title="Xóa"> <i class="fa fa-close" style="font-size:16px"></i></button>
 
                                     </a>
                                 </div>
@@ -375,11 +375,11 @@
                                         {{ $review->response }}
                                     </div>
 
-                                    <div class="col-2 d-flex justify-content-end">
+                                    <div class="col-2">
 
                                         <div class="setting-response">
 
-                                            <button class="mb-2" data-bs-toggle="modal" data-bs-target="#review{{ $review->id }}">Sửa<i class="fa fa-pencil" style="font-size:16px"></i></button>
+                                            <button title="Chỉnh sửa" class="mb-2" data-bs-toggle="modal" data-bs-target="#review{{ $review->id }}"><i class="fa fa-pencil" style="font-size:16px"></i></button>
 
 
 
@@ -395,7 +395,7 @@
                                                 @csrf
                                                 @method('DELETE')
 
-                                                <button>Xóa <i class="fa fa-close" style="font-size:16px;"></i></button>
+                                                <button title="Xóa" ><i class="fa fa-close" style="font-size:16px;"></i></button>
 
 
 
@@ -517,7 +517,7 @@
 
 <x-alert>
 
-    <x-slot name="text">{{ session('create-lession-message') }}</x-slot>
+    <x-slot name="text">{{ session('message-create-lession') }}</x-slot>
     <x-slot name="color">green</x-slot>
 
 </x-alert>

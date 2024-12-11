@@ -53,7 +53,19 @@ Route::middleware(['login'])->group(function () {
 
             Route::get('{course_id}/delete-course', 'destroy')->name('delete-course'); //gv
 
+
+
+
+
         });
+
+        //Topic
+        Route::get('/ltcs', 'ltcs');
+        Route::get('/ltnc', 'ltnc');
+        Route::get('/tt', 'tt');
+        Route::get('/gqvd', 'gqvd');
+        Route::get('/all-course', 'allCourse');
+        Route::get('/remaining', 'remaining');
 
 
         Route::get('/courses', 'index');
@@ -96,7 +108,7 @@ Route::middleware(['login'])->group(function () {
         Route::get('/load-courses', 'show');
 
         Route::delete('/{id}/leave-course', 'destroy')->name('leave-course');
-        
+
         Route::get('{id}/leave-course-show', 'leaveCourseAlert')->name('leave-course-show'); //?
     });
 
@@ -132,17 +144,15 @@ Route::middleware(['login'])->group(function () {
 
         Route::post('{course_id}/review', 'store')->name('review');
 
-        Route::middleware(['role:teacher'])->group(function() {
+        Route::middleware(['role:teacher'])->group(function () {
 
 
             Route::post('{course_id}/{review_id}/response', 'update')->name('response');
-    
+
             Route::post('{course_id}/{review_id}/update-response', 'update_response')->name('update-response');
-    
-            Route::delete('{course_id}/{review_id}/delete-response', 'destroy_response')->name('delete-response'); 
 
+            Route::delete('{course_id}/{review_id}/delete-response', 'destroy_response')->name('delete-response');
         });
-
     });
 
     Route::get('/change-username', function () {

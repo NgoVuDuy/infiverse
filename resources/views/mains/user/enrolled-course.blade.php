@@ -30,7 +30,7 @@
 
                 <img src="{{ asset($course->img) }}" alt="" width="100%" height="65%">
 
-                <p class="course-name">{{ $course->course_name }}</p>
+                <a href="{{ route('course-details', $course->id) }}" class="course-name">{{ $course->course_name }}</a>
 
                 <a class="course-link" href="{{ route('course-details', $course->id) }}">
 

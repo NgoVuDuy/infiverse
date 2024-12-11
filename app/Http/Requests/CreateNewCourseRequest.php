@@ -27,7 +27,7 @@ class CreateNewCourseRequest extends FormRequest
             'coursename' => 'required',
             'description' => 'required',
             'description_details' => 'required',
-            'course_code' => 'min:6|max:10|regex:/^[\w]+$/'
+            // 'course_code' => 'min:6|max:10|regex:/^[\w]+$/'
         ];
     }
 
@@ -38,9 +38,9 @@ class CreateNewCourseRequest extends FormRequest
             'coursename.required' => 'Vui lòng nhập tên khóa học.',
             'description.required' => 'Vui lòng nhập mô tả sơ lược cho khóa học.',
             'description_details.required' => 'Vui lòng nhập mô tả chi tiết cho khóa học.',
-            'course_code.min' => 'Độ dài phải từ 6 đến 10 ký tự.',
-            'course_code.max' => 'Độ dài phải từ 6 đến 10 ký tự.',
-            'course_code.regex' => 'Mã ghi danh không được chứa ký tự đặc biệt hoặc khoảng trắng.'
+            // 'course_code.min' => 'Độ dài phải từ 6 đến 10 ký tự.',
+            // 'course_code.max' => 'Độ dài phải từ 6 đến 10 ký tự.',
+            // 'course_code.regex' => 'Mã ghi danh không được chứa ký tự đặc biệt hoặc khoảng trắng.'
         ];
     }
 }

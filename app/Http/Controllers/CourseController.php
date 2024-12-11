@@ -67,6 +67,15 @@ class CourseController extends Controller
         $description_details = $request->input('description_details');
         $course_code = $request->input('course_code');
 
+        // $topic = $request->input('topic');
+        // Lấy các giá trị từ checkbox
+        $topics = 'K';
+        $topics = $request->input('topics', []);
+
+
+        // Chuyển mảng thành chuỗi với dấu cách
+        $topicsString = implode(' ', $topics);
+
         $path = null;
 
         if ($request->hasFile('course-img')) {
@@ -88,6 +97,7 @@ class CourseController extends Controller
             'img' => $path,
             'teacher_id' => $teacher_id,
             'code' => $course_code,
+            'topic' => $topicsString,
             'created_at' => now(),
             'updated_at' => now()
 
@@ -116,6 +126,7 @@ class CourseController extends Controller
         $isEnrolled = UserCourse::where('user_id', $user_id)->where('course_id', $id)->exists();
 
         $isReview = Review::where('student_id', $user_id)->where('course_id', $id)->exists();
+        
         // Lấy tổng số lượng học viên đã tham gia khóa học này
         $join_quatity = UserCourse::where('course_id', $id)->count();
 
@@ -358,5 +369,108 @@ class CourseController extends Controller
         $courses = Course::where('teacher_id', $teacher_id)->get(); // Lấy ra các khóa học thuộc về giáo viên đó
 
         return redirect('/courses-mgmt'); // Trả về trang quản lý khóa học cùng với các khóa học của giáo viên
+    }
+
+    public function ltcs()
+    {
+
+        $user = Auth::user();
+
+        $courses = Course::with('users') // Đưa thông tin người dùng tham gia khóa học
+            ->where('topic', 'like', '%LTCS%')
+            ->get()
+            ->map(function ($course) use ($user) {
+                // Kiểm tra người dùng có tham gia khóa học không
+                $course->has_joined = $course->users->contains($user);
+                return $course;
+            });
+
+
+
+        return view('partials.topic-ltcs', compact('courses'));
+    }
+    public function ltnc()
+    {
+        $user = Auth::user();
+
+        $courses = Course::with('users') // Đưa thông tin người dùng tham gia khóa học
+            ->where('topic', 'like', '%LTNC%')
+            ->get()
+            ->map(function ($course) use ($user) {
+                // Kiểm tra người dùng có tham gia khóa học không
+                $course->has_joined = $course->users->contains($user);
+                return $course;
+            });
+
+
+
+        return view('partials.topic-ltnc', compact('courses'));
+    }
+    public function gqvd()
+    {
+        $user = Auth::user();
+
+        $courses = Course::with('users') // Đưa thông tin người dùng tham gia khóa học
+            ->where('topic', 'like', '%GQVD%')
+            ->get()
+            ->map(function ($course) use ($user) {
+                // Kiểm tra người dùng có tham gia khóa học không
+                $course->has_joined = $course->users->contains($user);
+                return $course;
+            });
+
+
+
+        return view('partials.topic-gqvd', compact('courses'));
+    }
+    public function tt()
+    {
+        $user = Auth::user();
+
+        $courses = Course::with('users') // Đưa thông tin người dùng tham gia khóa học
+            ->where('topic', 'like', '%TT%')
+            ->get()
+            ->map(function ($course) use ($user) {
+                // Kiểm tra người dùng có tham gia khóa học không
+                $course->has_joined = $course->users->contains($user);
+                return $course;
+            });
+
+
+
+        return view('partials.topic-tt', compact('courses'));
+    }
+    public function allCourse()
+    {
+        $user = Auth::user();
+
+        $courses = Course::with('users') // Đưa thông tin người dùng tham gia khóa học
+            ->get()
+            ->map(function ($course) use ($user) {
+                // Kiểm tra người dùng có tham gia khóa học không
+                $course->has_joined = $course->users->contains($user);
+                return $course;
+            });
+
+
+        return view('partials.topic-all-course', compact('courses'));
+    }
+
+    public function remaining()
+    {
+        $user = Auth::user();
+
+        $courses = Course::with('users') // Đưa thông tin người dùng tham gia khóa học
+            ->where('topic', 'like', '%K%')
+
+            ->get()
+            ->map(function ($course) use ($user) {
+                // Kiểm tra người dùng có tham gia khóa học không
+                $course->has_joined = $course->users->contains($user);
+                return $course;
+            });
+
+
+        return view('partials.topic-remaining', compact('courses'));
     }
 }

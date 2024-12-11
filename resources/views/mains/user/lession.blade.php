@@ -50,7 +50,7 @@
 
             <h6 class="fw-bold">{{ $lession->title }}</h6>
 
-            <a href="{{ asset('files/lab1.pdf') }}" target="_blank">
+            <a href="{{ asset( $lession->file ) }}" target="_blank">
                 <img class="pdf-file-icon" src="{{ asset('images/files/pdf.png') }}" alt="PDF" width="35px">
             </a>
             

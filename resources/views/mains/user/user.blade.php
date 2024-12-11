@@ -34,20 +34,25 @@
                             <p>Thay đổi mật khẩu</p>
                         </a>
                     </div>
-                    <div class="col-3">
+                    @if(Auth::user()->role == 'student')
 
-                        <a href="/delete-user-confirmation" id="delete-user" class="option">
-                            <p class="dlt-user">Xóa tài khoản</p>
-                        </a>
 
-                        <form id="delete-user-form" action="/delete-user" method="post" class="option">
-                            
-                            @csrf
-                            @method('DELETE')
+                        <div class="col-3">
 
-                            <button style="display:none;" type="submit"></button>
-                        </form>
-                    </div>
+                            <a href="/delete-user-confirmation" id="delete-user" class="option">
+                                <p class="dlt-user">Xóa tài khoản</p>
+                            </a>
+
+                            <form id="delete-user-form" action="/delete-user" method="post" class="option">
+                                
+                                @csrf
+                                @method('DELETE')
+
+                                <button style="display:none;" type="submit"></button>
+                            </form>
+                        </div>
+
+                    @endif
                 </div>
 
             </div>

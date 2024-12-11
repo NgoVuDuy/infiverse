@@ -23,9 +23,9 @@
 }
 
 .sum-btn p {
-  font-size: 32px;
+  font-size: 48px;
   margin-top: 12px;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .sum-btn-item1 {

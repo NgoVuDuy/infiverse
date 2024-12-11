@@ -98,26 +98,11 @@ class UserController extends Controller
         $desc_user = $request->input('desc-user');
         $achievenment = $request->input('achievenment');
 
-        $username = "";
-
-
-        if($user->role == "teacher") {
-
-            //Những trường chỉ có ở giáo viên
-            $username = $request->input('username');
-            $password = Auth::user()->password;
-            $old_password = $request->input('old_password');
-            $new_password = null;
-    
-            if (Hash::check($old_password, $password)) {
-    
-                $new_password = $request->input('password');
-    
-            }
-        } else {
-
-            $username = $user->username;
+        if(empty($fullname)) {
+            $fullname = "Người dùng mới";
         }
+
+
 
 
         if ($request->hasFile('user-img')) {
@@ -133,7 +118,6 @@ class UserController extends Controller
 
         if ($user) {
 
-            $user->username = $username;
             $user->fullname = $fullname;
             $user->phone_number = $phone_number;
             $user->email = $email;

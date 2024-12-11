@@ -180,6 +180,10 @@ select,
     margin-top: 8px;
 }
 
+.user-img-change-cover .user-img-change-btn {
+    cursor: pointer;
+}
+
 .empty-courses-text {
     text-align: center;
 }

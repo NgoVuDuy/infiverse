@@ -91,6 +91,16 @@
     </div>
 </div>
 
+@if(session('message-delete-course'))
+
+<x-window-adv>
+    <x-slot name="text"> {{ session('message-delete-course') }}</x-slot>
+    <x-slot name="icon">question</x-slot>
+    <x-slot name="cancelButton">false</x-slot>
+    <x-slot name="path">{{ route('delete-course', session('course-id')) }}</x-slot>
+</x-window-adv>
+@endif
+
 
 
 @endsection
@@ -103,7 +113,7 @@
 
         $.ajax({
 
-            url: "/overview",
+            url: "/teacher-course",
             type: "GET",
             success: function(response) {
 

@@ -43,6 +43,7 @@ class ReviewController extends Controller
             if ($review_on_table) {
 
                 $review_on_table->review = $review;
+                $review_on_table->star_rating = $star_rating;
 
                 $review_on_table->save();
             }

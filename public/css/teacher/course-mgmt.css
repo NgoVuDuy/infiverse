@@ -38,7 +38,7 @@
     display: inline-block;
 }
 
-.nav-course-mgmt .item .overview {
+.nav-course-mgmt .item .teacher-course {
     margin-right: 20px;
 }
 
@@ -85,4 +85,13 @@ tbody td {
 img {
     vertical-align: middle;
     margin-right: 8px;
+}
+
+input[type="checkbox"] {
+    /* Các thuộc tính CSS áp dụng cho checkbox */
+    width: max-content;
+}
+
+.topic-cover label {
+    margin-bottom: 6px;
 }

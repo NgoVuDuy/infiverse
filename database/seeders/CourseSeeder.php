@@ -25,7 +25,9 @@ class CourseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'code' => null,
-                'teacher_id' => 6
+                'teacher_id' => 6,
+                'topic' => 'LTCS TT'
+                
             ],
             [
                 'course_name' => 'Lập trình C#.',
@@ -36,7 +38,8 @@ class CourseSeeder extends Seeder
                 'updated_at' => now(),
                 'code' => null,
 
-                'teacher_id' => 6
+                'teacher_id' => 6,
+                'topic' => 'LTNC TT'
 
             ],
             [
@@ -48,7 +51,8 @@ class CourseSeeder extends Seeder
                 'updated_at' => now(),
                 'code' => null,
 
-                'teacher_id' => 7
+                'teacher_id' => 7,
+                'topic' => 'LTCS TT'
 
             ],
             [
@@ -60,7 +64,8 @@ class CourseSeeder extends Seeder
                 'updated_at' => now(),
                 'code' => null,
 
-                'teacher_id' => 7
+                'teacher_id' => 7,
+                'topic' => 'LTCS TT'
 
             ],
             [
@@ -72,7 +77,8 @@ class CourseSeeder extends Seeder
                 'updated_at' => now(),
                 'code' => null,
 
-                'teacher_id' => 8
+                'teacher_id' => 8,
+                'topic' => 'LTCS TT'
 
             ],
             [
@@ -88,7 +94,8 @@ class CourseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'code' => null,
-                'teacher_id' => 8
+                'teacher_id' => 8,
+                'topic' => 'LTCS TT'
 
             ],
             [
@@ -99,7 +106,8 @@ class CourseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'code' => '12345',
-                'teacher_id' => 9
+                'teacher_id' => 9,
+                'topic' => 'GQVD TT'
 
             ],
             [
@@ -111,7 +119,8 @@ class CourseSeeder extends Seeder
                 'updated_at' => now(),
                 'code' => '12345',
 
-                'teacher_id' => 9
+                'teacher_id' => 9,
+                'topic' => 'GQVD TT'
 
             ],
             [
@@ -127,7 +136,8 @@ class CourseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'code' => null,
-                'teacher_id' => 10
+                'teacher_id' => 10,
+                'topic' => 'LTCS'
 
             ],
             [
@@ -140,7 +150,8 @@ class CourseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'code' => null,
-                'teacher_id' => 10
+                'teacher_id' => 10,
+                'topic' => 'LTNC TT'
 
             ],
             [
@@ -151,7 +162,8 @@ class CourseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'code' => null,
-                'teacher_id' => 10
+                'teacher_id' => 10,
+                'topic' => 'GQVD'
             ]
         ]);
     }
